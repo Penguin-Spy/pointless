@@ -1,0 +1,37 @@
+/* Colors yoinked from https://github.com/nyri4/Comfy/ , credit to them :) */
+
+.theme-dark {
+  --background-primary: #23283d;          /* Channel background, top bar, settings content */
+  --background-secondary: #1e2233;        /* Channel, member, and settings list, quoteblocks, embed backgrounds */
+  --background-secondary-alt: #191f2e;    /* bottom left user area, user popout message bg, connections header */
+  --background-tertiary: #101320;         /* Title bar & server list, search text bar, user note background */
+  --background-accent: #6E85D3;           /* Reply & thread line (channel list & creation message) */
+  --channeltextarea-background: #191f2e;  /* Message textarea */
+  --background-floating: #101320;         /* User popout background, tooltip background */
+
+  --scrollbar-thin-thumb: #101320;        /* Channel, Member, & Settings lists (on hover), All Modals (regardless of if scrolls), shows up but never scrolls: user popout, all context menus */
+  /*--scrollbar-thin-track: transparent;  /* Track for above, no rounding | transparent */
+  --scrollbar-auto-thumb: #101320;        /* Chat & friends page */
+  --scrollbar-auto-track: #1e2233;        /* Track for above */
+
+  /*--background-modifier-hover: #0ff;/* Channel, member, and settings list hover | rgba(79,84,92,0.16);*/
+  /*--background-modifier-active: #f0f;/* Channel, member, and settings list clicking (mouse down) | rgba(79,84,92,0.24);*/
+  --background-modifier-selected: rgba(79,84,92,0.32);/* Channel, member, and settings list selected | rgba(79,84,92,0.32);
+  /*--background-modifier-accent: hsla(0,0%,100%,0.06);/* Section dividers | hsla(0,0%,100%,0.06);*/
+
+  /*--deprecated-card-bg: var(--background-secondary);*/
+
+  /* Chat Bubble colors TODO: good colors*/
+  --chatbubble-self: linear-gradient(#4152a3 0%,#344183 100%);
+  --chatbubble-other: linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+  --chatbubble-self-text: #fff;
+  --chatbubble-other-text: #fff;
+}
+
+/* TODO: light theme */
+.theme-light {
+  --chatbubble-self: linear-gradient(#00c8d3 0%,#3654e8 100%);
+  --chatbubble-other: linear-gradient(#6373b4 0%, #545e8d 100%);
+  --chatbubble-self-text: #fff;
+  --chatbubble-other-text: #fff;
+}

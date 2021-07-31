@@ -1,0 +1,236 @@
+/* Changes to main chat window & channel list */
+
+/* ----- HEADER & BORDERS ----- */
+/* Remove header shadows & recolor*/
+.header-2V-4Sw, .searchBar-6Kv8R2 {
+  background-color: var(--background-secondary-alt);
+  box-shadow: none;
+}
+.content-yTz4x3:before, .chat-15Vmww:before {content: none}
+/* Round split between channel list & chat */
+.sidebar-2K8pFh, .chat-3bRxxu, .container-1a3EgQ, .container-1D34oG, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
+  border-radius: 15px 15px 0 0 !important;
+}
+.chat-3bRxxu, .container-1D34oG, .container-1a3EgQ, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
+  position: relative;
+  margin-left: 5px;
+}
+/* Resizable thread side (li'l buggy) */
+:root {
+  --sidebar-width: 240px; /* change if your theme resizes the sidebar */
+}
+.chat-3bRxxu.threadSidebarOpen-vdkwIh {
+  resize: horizontal;
+  min-width: 400px;
+  max-width: calc(100vw - var(--sidebar-width) - 72px - 400px);
+}
+.chat-3bRxxu:not(.threadSidebarOpen-vdkwIh) {
+  width: unset !important;
+  flex: 1 1 auto;
+}
+.threadSidebar-1o3BTy {
+  width: unset;
+  flex: 1 1 auto;
+}
+
+/* ----- CHANNEL LIST ----- */
+.iconVisibility-sTNpHs.modeSelected-346R90 .iconContainer-1BBaeJ svg, .iconVisibility-sTNpHs.modeConnected-3IsKId .iconContainer-1BBaeJ svg{
+  color: var(--text-normal)
+}
+.spine--Wla_O { /* thread 'icon' in channel list */
+  color: var(--text-muted)
+}
+
+/* ----- MESSAGE TEXTAREA ----- */
+/* Move attach file to the right side */
+.form-2fGMdU .attachWrapper-2TRKBi{order:1;margin-left:13px;}
+.form-2fGMdU .attachButton-2WznTc {padding-right:5px}
+.buttons-3JBrkn > .button-38aScr > .button-3AYNKb { /* Nitro Gift */
+  display: none;
+}
+.form-2fGMdU .channelTextArea-rNsIhG {
+  margin-bottom: 8px;
+}
+/*.form-2fGMdU .typing-2GQL18 {
+}*/
+/* attempt to move the typing users text up with an animation
+ * this is annoying to test so i gave up after like 5 seconds */
+.form-2fGMdU .typing-2GQL18 {
+  transition: bottom ease-in-out;
+}
+.form-2fGMdU .typing-2GQL18 {
+  bottom: 52px;
+}
+
+/* ----- SPLIT UP USER AREA ----- */
+/* Settings to bottom left TODO: in light theme, always --brand-experiment background, and white gear (to match light mode home button) */
+.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1) {
+  background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 72px;
+  height: 64px;
+  border-radius: 0;
+}
+.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1)::after {
+  background-color: var(--background-primary);
+  transition: background-color .15s ease-out,color .15s ease-out;
+  position: absolute;
+  content: "";
+  z-index: -1;
+  height: 48px;
+  width: 48px;
+  border-radius: var(--server-radius);
+}
+.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1):hover::after {
+  background-color: var(--brand-experiment);
+}
+.scroller-1Bvpku > .listItem-GuPuDH:nth-last-child(2) {
+  padding-bottom: 56px;
+}
+
+/* User area pfp aligned with our messages */
+.container-3baos1 .avatarWrapper-2yR4wp {
+  left: 261px;
+  bottom: 20px;
+  position: absolute;
+  z-index: 1;
+}
+.container-3baos1 .avatarWrapper-2yR4wp svg, .container-3baos1 .avatarWrapper-2yR4wp foreignObject {
+  width: 40px;
+  height: 40px;
+}
+.container-3baos1 .avatarWrapper-2yR4wp rect {
+  x:26px;
+  y:26px;
+}
+/* Move message bar to make space for user pfp (but not in threads) */
+.chat-3bRxxu .form-2fGMdU {
+  padding-left: 72px;
+}
+.chat-3bRxxu .form-2fGMdU::before {
+  width: 6rem;
+}
+
+/* User area "popout" (status picker, but now also shows name [& background?]) */
+.menu-3sdvDG#status-picker {
+    position: fixed;
+    bottom: 8px;
+    left: 77px;
+    width: 230px;
+    height: 225px;
+    background: var(--background-tertiary);
+    border-radius: 5px;
+}
+.menu-3sdvDG#status-picker .item-1tOPte svg{
+  width: 16px;
+  height: 16px;
+}
+.menu-3sdvDG#status-picker .scrollerBase-289Jih {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 40px 40px;
+    margin: auto 4px 4px 4px;
+}
+.menu-3sdvDG#status-picker .separator-2I32lJ {
+  display: none;
+}
+
+.menu-3sdvDG#status-picker .item-1tOPte {
+  height: 32px;
+}
+
+/* hide unhovered status names, descriptions & status names for statuses with descriptions */
+.menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte .status-1fhblQ:not(:last-child), .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .description-2L932D {
+  display: none;
+}
+
+/* Show status names/descriptions when hovered */
+.menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .description-2L932D {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  right: 0;
+  text-align: center;
+}
+:root .panels-j1Uci_ {
+  z-index: unset;
+}
+.container-3baos1 .avatarWrapper-2yR4wp[aria-expanded="false"] ~ .nameTag-3uD-yy {
+  display: none;
+}
+.container-3baos1 .avatarWrapper-2yR4wp[aria-expanded="true"] ~ .nameTag-3uD-yy {
+  display: unset;
+  position: absolute;
+  left: 290px;
+  bottom: 64px;
+  z-index: 10005;
+  /*
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 115px;
+    left: 50px;
+    width: 145px;
+    z-index: 10005;
+    margin: 0;
+    align-items: center;*/
+}
+
+/* ----- OTHER ----- */
+/* Pin home icon */
+.tutorialContainer-2sGCg9 {
+  position: fixed;
+  z-index: 1;
+  background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
+}
+.guilds-1SWlCJ .scroller-1Bvpku { contain: none !important; padding-top: 0;}
+.container-2lgZY8 > .guilds-1SWlCJ .scroller-1Bvpku > [aria-label] { margin-top: 48px;}
+.guilds-1SWlCJ .scroller-1Bvpku > [style] { margin-top: 56px;}
+.guilds-1SWlCJ .scroller-1Bvpku > [style] ~ [aria-label], .guilds-1SWlCJ .scroller-1Bvpku > [style] ~ [style] { margin-top: 0px;}
+
+/* Blur when offline */
+.container-16j22k.fixClipping-3qAKRb{
+  background:rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+/*
+.grid-1nZz7S {
+    overflow: visible !important;
+}
+.markup-2BOw-j a {
+    position: relative;
+}
+.markup-2BOw-j a::before {
+    content: attr(href);
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    width: max-content;
+    max-width: 200px;
+    margin: auto;
+
+    background-color: black;
+    color: #dcddde !important;
+    font-weight: 500 !important;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 100;
+    transform: scale(.98) translateY(2px) translateX(-50%);
+    filter: opacity(0);
+    pointer-events: none;
+    box-shadow: var(--elevation-high);
+    transition: transform .1s, filter .1s;
+}
+.markup-2BOw-j a:hover:before {
+    transform: translateX(-50%);
+    filter: opacity(1);
+}*/

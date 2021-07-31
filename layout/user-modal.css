@@ -1,0 +1,41 @@
+/* Extra spacing below the username when there's no tabs (viewing your own profile) */
+.topSection-y3p-_D > header:only-child {
+  padding-bottom: 10px;
+}
+
+/* Remove background of avatar (modal, modal preview in settings) */
+.avatar-AvHqJA, .avatar-1uQSZT {
+  border: none;
+  background: none;
+}
+
+/* Remove max length of about me in User Modal */
+.userBio-3tlrzS {
+  display: inline;
+}
+
+
+/* tabbar on the left popout (needs work)
+:root {
+  --premium-size: 440px; /* 200px For Half /\ 440px For Full Image *//*
+  --premium-blur: 2px;
+  --premium-opacity: 0.2;
+}
+.tabBar-3nvOPa, .tabBarItem-3dfX8P{display:table;margin-bottom:15px;font-size:16px;margin-left:8px}
+.tabBarContainer-37hZsr{margin-top:140px}
+.nameTag-ECvD8P {top: 80px;left: 18.5px;}
+.top-28JiJ- .item-PXvHYJ,.top-28JiJ- .selected-3s45Ha.themed-OHr7kt.item-PXvHYJ,.top-28JiJ- .themed-OHr7kt.item-PXvHYJ:active{border-bottom-color:transparent;border-bottom:transparent}
+.top-28JiJ- .item-PXvHYJ,.top-28JiJ- .selected-3s45Ha.themed-OHr7kt.item-PXvHYJ,.top-28JiJ- .themed-OHr7kt.item-PXvHYJ:active{margin-bottom:20px; top: -50px}
+.body-r6_QPy{position:absolute;background-color:transparent;left:190px;top:30px;height:350px;width:400px}
+.badgeList-1R1WgZ{display:none}
+.actionButton-3vN-m0{display:none}
+.profileBannerPremium-35utuo {top: -46px; height: var(--premium-size) ; background-position: center; background-size: cover;opacity: var(--premium-opacity);position: absolute;filter: blur(--premium-blur);}
+.profileBanner-33-uE1 {display: none;}
+.customStatusText-2opeSw {display: none;}
+.note-367eZJ textarea {margin-bottom: 5px;}
+.relationshipButtons-pUQVkf {bottom: 10px !important;left: -18px;transform: scale(1.2);position: relative;}
+.avatar-AvHqJA {transform: scale(0.9);left: 20px;margin-top: 10px;}
+.body-r6_QPy, .topSection-y3p-_D {min-height: 340px;}
+.noTabBar-3ZjPNR { border-top: 0;}
+.theme-dark .root-1gCeng {background-color: var(--background-floating) !important;}
+.body-r6_QPy, .topSection-y3p-_D {background-color: transparent;}*/

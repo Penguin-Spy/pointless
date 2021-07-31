@@ -1,0 +1,91 @@
+/* Applies color variables to all the places where Discord didn't use them */
+
+/* Friends page */
+.peopleColumn-29fq28 {
+  background-color: var(--background-primary);
+}
+.container-lRFx4q { /* Active Now (it literally sets the right color but then overrides it wtf discord*/
+  background-color: transparent;
+}
+.nowPlayingSidebar-2OFn0o { /* well i guess not in stage discovery but srsly */
+  background-color: var(--background-secondary);
+}
+.scroller-2ZPeAD { /* Hide the divider on Active Now because now it's a different color */
+  border-left: none;
+}
+.wrapper-3D2qGf { /* Active Now section */
+  background-color: var(--background-secondary-alt);
+}
+.outer-1AjyKL.active-1xchHY, .outer-1AjyKL.interactive-3B9GmY:hover {
+  background-color: var(--background-tertiary) !important;
+}
+/* Public Servers page */
+.pageWrapper-1PgVDX {
+  background-color: var(--background-primary) !important;
+}
+
+/* Voice Settings I/O dropdown */
+.css-3vaxre-menu {
+  background-color: var(--background-secondary);
+}
+/* Color Picker */
+.colorPickerCustom-2CWBn2 {
+  background-color: var(--background-primary) !important;
+  border-color: var(--background-tertiary) !important;
+}
+/* Search menu */
+.resultsGroup-r_nuzN { /*background*/
+  background-color: var(--background-primary);
+}
+.container-3ayLPN {
+  background-color: var(--background-secondary-alt) !important;
+}
+.focused-2bY0OD, .option-96V44q.selected-rZcOL- {/*selected*/
+  background-color: var(--background-tertiary) !important;
+}
+.theme-dark .option-96V44q:after {
+  content: none;
+}
+
+/* Autocomplete */
+[class*="channelTextArea"] > [class*="autocomplete"]  {
+  background-color: var(--background-secondary);
+}
+[class*="channelTextArea"] > [class*="autocomplete"] :is([class*="selected"], [class*="categoryHeader"]) {
+  background-color: var(--background-primary);
+}
+
+/* Keybind button thing */
+.keybindShortcut-1BD6Z1 span {
+  background-color: var(--background-accent) !important;
+  border: none;/*1px solid var(--background-primary) !important;*/
+  box-shadow: inset 0 -4px 0 var(--background-secondary-alt) !important;
+}
+/* Server invite background color */
+.guildIconImage-3qTk45 {
+  background-color: var(--background-secondary-alt) !important;
+}
+
+/* Change Identity modal :not(view image modal)*/
+.root-1gCeng:not(.modal-qgFCbT) {
+  background-color: var(--background-primary) !important;
+}
+.footer-2gL1pp {
+  background-color: var(--background-secondary) !important;
+}
+/* Upload file modal */
+.uploadModal-2ifh8j {
+  background-color: var(--background-primary) !important;
+}
+.footer-3mqk7D {
+  background-color: var(--background-secondary) !important;
+}
+/* Certain type of modals (plugins seem to use this one) */
+.modal-yWgWj- {
+  background-color: var(--background-primary) !important;
+}
+/* Delete message modal */
+.message-2qRu38 {
+  background-color: var(--background-primary) !important;
+}
+

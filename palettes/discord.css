@@ -1,0 +1,15 @@
+/* Chat Bubble colors TODO: good colors*/
+.theme-dark {
+  --chatbubble-self: linear-gradient(#4152a3 0%,#344183 100%);
+  --chatbubble-other: linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+  --chatbubble-self-text: #fff;
+  --chatbubble-other-text: #fff;
+}
+
+/* TODO: light theme */
+.theme-light {
+  --chatbubble-self: linear-gradient(#00c8d3 0%,#3654e8 100%);
+  --chatbubble-other: linear-gradient(#6373b4 0%, #545e8d 100%);
+  --chatbubble-self-text: #fff;
+  --chatbubble-other-text: #fff;
+}

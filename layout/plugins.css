@@ -1,0 +1,31 @@
+/* Fix rolecoloreverywhere making some role text weirdly thin? */
+.rolecolor-mention, .rolecolor-colored, .rolecolor-colored .activity-2Gy-9S {
+  filter: none;
+}
+
+/* Online Friends Count badge*/
+.listItem-GuPuDH .onlineFriends-counter {
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: center;
+  direction: rtl;
+  white-space: nowrap;
+  z-index: 1;
+  background: var(--background-tertiary);
+  color: var(--text-normal);
+  border-radius: 10px;
+  position: fixed;
+  top: 58px;
+  left: 7px;
+  width: 1.3em;
+  height: 15px;
+  padding-top: 1px;
+  padding-right: .25em;
+  transition: width .15s, left .15s, background-color .15s;
+}
+.listItem-GuPuDH .onlineFriends-counter:hover {
+  width: inherit;
+  padding: 1px 0 0;
+  left: 2px;
+  background: var(--brand-experiment);
+}

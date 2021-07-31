@@ -1,0 +1,13 @@
+/* Avatar hint */
+.avatarHint-2A3RNb foreignObject {mask: none;}
+.avatarHintInner-1TvA8u {border-radius: var(--avatar-radius);}
+
+/* Remove background of avatar (popout, popout preview in settings) */
+.avatar-37jOim, .avatarUploaderInner-Oiob_P {
+  border: 6px solid transparent;
+  background-color:transparent;
+}
+
+/* 5head banner (tall height for all banners, even without an image) */
+.avatarWrapper-3r9PdD, .avatarUploader-3XDtmn {top: 76px;}
+.userPopout-xaxa6l .popoutBanner-19WKGg, .bannerNormal-22rPhb {height: 120px;}
