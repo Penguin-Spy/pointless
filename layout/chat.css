@@ -7,6 +7,9 @@
   box-shadow: none;
 }
 .content-yTz4x3:before, .chat-15Vmww:before {content: none}
+[class*="content"]>[class*="chat"]>[class*="title"] {
+  background-color: var(--background-primary-alt);
+}
 /* Round split between channel list & chat */
 .sidebar-2K8pFh, .chat-3bRxxu, .container-1a3EgQ, .container-1D34oG, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
   border-radius: 15px 15px 0 0 !important;
@@ -45,7 +48,7 @@
 /* Move attach file to the right side */
 .form-2fGMdU .attachWrapper-2TRKBi{order:1;margin-left:13px;}
 .form-2fGMdU .attachButton-2WznTc {padding-right:5px}
-.buttons-3JBrkn > .button-38aScr > .button-3AYNKb { /* Nitro Gift */
+.buttons-3JBrkn> .button-38aScr> .button-3AYNKb { /* Nitro Gift */
   display: none;
 }
 .form-2fGMdU .channelTextArea-rNsIhG {
@@ -58,13 +61,21 @@
 .form-2fGMdU .typing-2GQL18 {
   transition: bottom ease-in-out;
 }
-.form-2fGMdU .typing-2GQL18 {
+[class*="chatContent"]>[class*="form"]>[class*="base"] {
   bottom: 52px;
 }
 
+
 /* ----- SPLIT UP USER AREA ----- */
-/* Settings to bottom left TODO: in light theme, always --brand-experiment background, and white gear (to match light mode home button) */
-.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1) {
+/* Remove user area container */
+[class*="sidebar"]>[class*="panels"]>[class*="container"] {
+  height:0;
+  margin-bottom: 0;
+}
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"]>[class*="container"] {border:none}
+
+/* Settings to bottom left TODO: white gear (to match light mode home button) */
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]> button:last-child {
   background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
   position: fixed;
   left: 0px;
@@ -73,7 +84,7 @@
   height: 64px;
   border-radius: 0;
 }
-.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1)::after {
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]> button:last-child::after {
   background-color: var(--background-primary);
   transition: background-color .15s ease-out,color .15s ease-out;
   position: absolute;
@@ -83,28 +94,51 @@
   width: 48px;
   border-radius: var(--server-radius);
 }
-.panels-j1Uci_ > .container-3baos1 .flex-1O1GKY .button-14-BFJ:nth-last-child(1):hover::after {
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]> button:last-child:hover::after {
   background-color: var(--brand-experiment);
 }
-.scroller-1Bvpku > .listItem-GuPuDH:nth-last-child(2) {
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]> button:last-child:active {
+  transform: translateY(1px);
+}
+.scroller-1Bvpku> .listItem-GuPuDH:nth-last-child(2) {
   padding-bottom: 56px;
 }
 
+/* Mute/Deafen in VC area */
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"]>[class*="container"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"] >div> [class*="actionButtons"] {width:190px}
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"] >div> [class*="actionButtons"]> button {
+  min-width: 90px;
+  padding: 2px 0;
+}
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"] >div> [class*="flex"]>[class*="flex"]> button:first-child{ /* Krisp button to bottom row */
+  position: absolute;
+  top: 48px;
+}
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]>button[aria-checked] { /* Move Mute/Deafen */
+  position: relative;
+  bottom: 64px;
+  left: 129px;
+}
+[class*="sidebar"]>[class*="panels"]>[class*="wrapper"]:empty ~ [class*="container"]>[class*="flex"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
+
 /* User area pfp aligned with our messages */
-.container-3baos1 .avatarWrapper-2yR4wp {
+[class*="sidebar"]>[class*="panels"] [class*="avatarWrapper"] {
   left: 261px;
-  bottom: 20px;
+  bottom: 8px;
   position: absolute;
   z-index: 1;
 }
-.container-3baos1 .avatarWrapper-2yR4wp svg, .container-3baos1 .avatarWrapper-2yR4wp foreignObject {
-  width: 40px;
-  height: 40px;
+[class*="sidebar"]>[class*="panels"] [class*="avatarWrapper"]:active {
+  transform: translateY(1px);
 }
-.container-3baos1 .avatarWrapper-2yR4wp rect {
-  x:26px;
-  y:26px;
+[class*="sidebar"]>[class*="panels"] [class*="avatar"][class*="wrapper"] {
+  /*width: 40px;*/
+  height: 40px !important;
 }
+/*[class*="sidebar"]>[class*="panels"] [class*="avatar"][class*="wrapper"] svg {
+  overflow: unset;
+}*/
 /* Move message bar to make space for user pfp (but not in threads) */
 .chat-3bRxxu .form-2fGMdU {
   padding-left: 72px;
@@ -115,23 +149,23 @@
 
 /* User area "popout" (status picker, but now also shows name [& background?]) */
 .menu-3sdvDG#status-picker {
-    position: fixed;
-    bottom: 8px;
-    left: 77px;
-    width: 230px;
-    height: 225px;
-    background: var(--background-tertiary);
-    border-radius: 5px;
+  position: fixed;
+  bottom: 8px;
+  left: 77px;
+  width: 230px;
+  height: 225px;
+  background: var(--background-tertiary);
+  border-radius: 5px;
 }
 .menu-3sdvDG#status-picker .item-1tOPte svg{
   width: 16px;
   height: 16px;
 }
 .menu-3sdvDG#status-picker .scrollerBase-289Jih {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: 40px 40px;
-    margin: auto 4px 4px 4px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 40px 40px;
+  margin: auto 4px 4px 4px;
 }
 .menu-3sdvDG#status-picker .separator-2I32lJ {
   display: none;
@@ -141,23 +175,7 @@
   height: 32px;
 }
 
-/* hide unhovered status names, descriptions & status names for statuses with descriptions */
-.menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte .status-1fhblQ:not(:last-child), .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .description-2L932D {
-  display: none;
-}
-
-/* Show status names/descriptions when hovered */
-.menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .description-2L932D {
-  display: block;
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  right: 0;
-  text-align: center;
-}
-:root .panels-j1Uci_ {
-  z-index: unset;
-}
+/* usernametag to status picker */
 .container-3baos1 .avatarWrapper-2yR4wp[aria-expanded="false"] ~ .nameTag-3uD-yy {
   display: none;
 }
@@ -178,6 +196,34 @@
     margin: 0;
     align-items: center;*/
 }
+/* GameActivityToggle button to status picker */
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="avatarWrapper"][aria-expanded="false"]~[class*="flex"]> button:not([aria-checked]):first-child {
+  display: none;
+}
+[class*="sidebar"]>[class*="panels"]>[class*="container"]>[class*="flex"]> button:not([aria-checked]):first-child {
+  position: absolute;
+  left: 510px;
+  bottom: 86px;
+  z-index: 10005;
+}
+
+/* hide unhovered status names, descriptions & status names for statuses with descriptions */
+.menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte .status-1fhblQ:not(:last-child), .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .description-2L932D {
+  display: none;
+}
+
+/* Show status names/descriptions when hovered */
+.menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .description-2L932D {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  right: 0;
+  text-align: center;
+}
+:root .panels-j1Uci_ {
+  z-index: unset;
+}
 
 /* ----- OTHER ----- */
 /* Pin home icon */
@@ -187,9 +233,9 @@
   background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
 }
 .guilds-1SWlCJ .scroller-1Bvpku { contain: none !important; padding-top: 0;}
-.container-2lgZY8 > .guilds-1SWlCJ .scroller-1Bvpku > [aria-label] { margin-top: 48px;}
-.guilds-1SWlCJ .scroller-1Bvpku > [style] { margin-top: 56px;}
-.guilds-1SWlCJ .scroller-1Bvpku > [style] ~ [aria-label], .guilds-1SWlCJ .scroller-1Bvpku > [style] ~ [style] { margin-top: 0px;}
+.container-2lgZY8> .guilds-1SWlCJ .scroller-1Bvpku> [aria-label] { margin-top: 54px;}
+.guilds-1SWlCJ .scroller-1Bvpku> [style] { margin-top: 56px;}
+.guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [aria-label], .guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [style] { margin-top: 0px;}
 
 /* Blur when offline */
 .container-16j22k.fixClipping-3qAKRb{
