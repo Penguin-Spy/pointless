@@ -1,0 +1,3 @@
+/* Simplified theme to modify the splash window */
+@forward '../settings.scss';  /* needed to get what palette is in use */
+#splash-mount>#splash {background:var(--background-primary)}

@@ -4,5 +4,6 @@
     "version": "0.2",
     "author": "Penguin_Spy#5817",
     "theme": "main.scss",
+    "splashTheme": "splash.scss",
     "license": "GPL-3.0-only"
 }
