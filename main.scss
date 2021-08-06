@@ -1,12 +1,4 @@
-/* Palette, valid options are: discord, blue */
-@forward 'palettes/blue';
-
-/* Layout settings (type // before the line to disable) */
-@forward 'layout/chat-bubbles';
-@forward 'layout/right-align-self';
-@forward 'layout/colorized';  /* Adds unique colors to most buttons in the UI (incomplete, */
-
-/* ----- Required imports - DO NOT TOUCH! more settings below */
+@forward 'settings.scss';       /* Include settings */
 @forward 'layout/radius';       /* Apply radius variable to avatars & server icons*/
 @forward 'layout/pisscorp';     /* Fix discord's jank non-use of theme variables on certain menus */
 @forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
@@ -14,18 +6,3 @@
 @forward 'layout/user-modal';
 @forward 'layout/chat';         /* Chat, channel list, toolbar, user area */
 @forward 'layout/no-nitro';     /* Hide all options for your use of nitro-only features (for example: hides the nitro gift & send sticker buttons) */
-/* ----- ok u can touch stuff below here :) */
-
-/* Reverts the 2021 Discord rebrand. Type // before to disable. */
-@import "https://goose-nest.github.io/GT-RevertRebrand/src/main.css";
-
-/* Colorizes various SVGs. Type // before to disable */
-@import "https://nyri4.github.io/Discolored/main.css";
-
-
-/* Variables */
-:root {
-  --avatar-radius: 5px;     /* Squaretangle: 5px, Round: 50% */
-  --server-radius: 8px;     /* Squaretangle: 8px, Round: 50%*/
-  --chatbubble-radius: 6px; /* Squaretangle: 6px, Round: 15px */
-}

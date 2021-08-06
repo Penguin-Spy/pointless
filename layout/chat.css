@@ -1,4 +1,21 @@
-/* Changes to main chat window & channel list */
+/* Changes to main chat window + channel, server, & member list */
+
+/* Settings update notice */
+[class*="content"]>[class*="chat"]>[class*="content"]>[class*="chatContent"]::after {
+  display: var(--pointless-settings-ver-1, unset);
+  content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  color: #fff;
+  background-color: var(--status-danger-background);
+  padding: 0 12px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  opacity: .95;
+}
 
 /* ----- HEADER & BORDERS ----- */
 /* Remove header shadows & recolor*/
