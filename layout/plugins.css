@@ -29,3 +29,5 @@
   left: 2px;
   background: var(--brand-experiment);
 }
+/* "pin home icon" with above plugin enabled needs different margin
+.container-2lgZY8 > .guilds-1SWlCJ .scroller-1Bvpku > [aria-label] { margin-top: 48px;}*/
