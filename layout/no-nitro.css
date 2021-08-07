@@ -1,11 +1,5 @@
 
 /* Stickers */
-.buttons-3JBrkn .stickerButton-3OEgwj { /* message textarea button */
-  display: none;
-}
-.navList-2UtuhC > .navItem-3Wp_oJ[id="sticker-picker-tab"] { /* Emoji/GIF/Sticker popup navbar */
-  display: none;
-}
 
 /* Hide nitro-only emojis (disabled because it janks up the menu, might be able to come up with some fancy css but probably not because the menu loads as u scroll)
 .emojiItemDisabled-1FvFuF {
