@@ -55,12 +55,18 @@
   background-color: var(--interactive-muted);
 }
 
+/* Video embed background */
+[class*="message"] [class*="embedVideo"] [class*="wrapper"][data-fullscreen] {
+  background-color: var(--background-tertiary);
+}
+
 /* ----- POPOUTS/TEMP whatever it's called ----- */
 /* Color Picker */
 [class*="layer"] [class*="colorPickerCustom"] {
   background-color: var(--background-primary);
   border-color: var(--background-tertiary);
 }
+
 /* Search menu */
 [class*="layer"] > #search-results {
   background-color: var(--background-secondary-alt);
@@ -77,6 +83,10 @@
 }
 [class*="layer"] > #search-results > [class*="resultsGroup"]>[class*="option"][class*="selected"]:after {
   background: linear-gradient(90deg,rgba(0,0,0,0),var(--background-tertiary) 50%);
+}
+/* Search filter background (not identical to this var, but close enough) */
+[class*="chat"]>[class*="title"]>[class*="toolbar"]>[class*="search"] :is([class*="searchFilter"], [class*="searchAnswer"]) {
+  background-color: var(--background-secondary);
 }
 
 /* Autocomplete */
