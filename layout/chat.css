@@ -1,20 +1,18 @@
 /* Changes to main chat window + channel, server, & member list */
 
 /* Settings update notice */
-[class*="content"]>[class*="chat"]>[class*="content"]>[class*="chatContent"]::after {
+#app-mount [class*="container"]>[class*="base"]::before {
   display: var(--pointless-settings-ver-1, unset);
   content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
-  position: absolute;
-  left: 16px;
-  right: 16px;
   color: #fff;
-  background-color: var(--status-danger-background);
-  padding: 0 12px;
-  border-radius: 0 0 8px 8px;
-  font-weight: 500;
   font-size: 14px;
-  line-height: 24px;
-  opacity: .95;
+  line-height: 36px;
+  font-weight: 500;
+  text-align: center;
+  z-index: 1;
+  background-color: var(--status-danger-background);
+  margin-bottom: 4px;
+  border-radius: 8px;
 }
 
 /* ----- HEADER & BORDERS ----- */
@@ -35,6 +33,12 @@
   position: relative;
   margin-left: 5px;
 }
+/* Detached notice */
+[class*="container"]>[class*="base"]>[class*="notice"] {
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
 /* Resizable thread side (li'l buggy) */
 :root {
   --sidebar-width: 240px; /* change if your theme resizes the sidebar */
@@ -259,6 +263,11 @@
 .container-16j22k.fixClipping-3qAKRb{
   background:rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
+}
+
+/* Hide cursor in fullscreen video when: */
+.wrapperControlsHidden-35Gtol {
+  cursor: none;
 }
 
 /*
