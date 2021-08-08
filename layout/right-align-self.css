@@ -5,68 +5,78 @@
 [data-is-author-self="true"] {
   transform: scaleX(-1);
 }
-/* Flip back avatar, header, message buttons, compact timestamp, reply preview, reactions, and editing the message */
-[data-is-author-self="true"] .avatar-1BDn8e, [data-is-author-self="true"] .header-23xsNx, [data-is-author-self="true"] .button-1ZiXG9, [data-is-author-self="true"] .timestampVisibleOnHover-2bQeI4, [data-is-author-self="true"] .repliedMessage-VokQwo > *, [data-is-author-self="true"] .reactions-12N0jA > *, [data-is-author-self="true"] .contents-2mQqc9 > div:not(.messageContent-2qWWxC) {
+/* Flip back avatar, header, compact timestamp, editing the message, message buttons, reply preview, reactions, and  */
+[data-is-author-self="true"]>[class*="contents"]>[class*="avatar"],
+[data-is-author-self="true"]>[class*="contents"]>[class*="header"],
+[data-is-author-self="true"]>[class*="contents"]>[class*="timestampVisibleOnHover"],
+[data-is-author-self="true"]>[class*="buttonContainer"]> [class*="buttons"] [class*="button"],
+[data-is-author-self="true"]>[class*="repliedMessage"]> *,
+[data-is-author-self="true"]>[class*="container"]>[class*="reactions"]> *,
+[data-is-author-self="true"]>[class*="contents"]>div:not([class*="messageContent"]) {
   transform: scaleX(-1);
 }
-[data-is-author-self="true"] .avatar-1BDn8e:active { /* Flip back avatar when clicked */
+[data-is-author-self="true"]>[class*="contents"]>[class*="avatar"]:active { /* Flip back avatar when clicked */
   transform: translateY(1px) scaleX(-1);
 }
-/* Flip back message content */
-[data-is-author-self="true"] .messageContent-2qWWxC:not(.repliedTextContent-1R3vnK) {
+/* Flip back message content (text) */
+[data-is-author-self="true"]>[class*="contents"]>[class*="messageContent"]:not([class*="repliedTextContent"]) {
   transform: scaleX(-1);
-  display: inline-block;
+  /*display: inline-block; /* can't tell what this does, disabled because it adds unnecessary space to empty messages with embeds*/
   padding-right: 78px;
 }
 /* Flip back system messages (threads), embeds (rich, img link, vid link), attached images [vid?], and server [game?] invite */
-[data-is-author-self="true"] .systemMessageContainer-2ddkN3, [data-is-author-self="true"] .embed-IeVjo6, [data-is-author-self="true"] .messageAttachment-1aDidq, [data-is-author-self="true"] .wrapper-35wsBm {
+[data-is-author-self="true"]>[class*="container"]>:is(
+  [class*="systemMessageContainer"],
+  [class*="embed"],
+  [class*="messageAttachment"],
+  [class*="userSelectNone"],
+  [class*="clickableSticker"]
+) {
   transform: scaleX(-1);
 }
 
 /* Reverse header items */
-[data-is-author-self="true"] .header-23xsNx {
+[data-is-author-self="true"]>[class*="contents"]>[class*="header"] {
   display: flex;
-  flex-direction: row-reverse !important;
+  flex-direction: row-reverse;
 }
-[data-is-author-self="true"] .headerText-3Uvj1Y {
+[data-is-author-self="true"]>[class*="contents"]>[class*="header"]>[class*="headerText"] {
   margin-left: .25em;
+  margin-right: 0;
 }
 /* Reverse reactions */
-[data-is-author-self="true"] .reactions-12N0jA {
+[data-is-author-self="true"]>[class*="container"]>[class*="reactions"] {
   display: flex;
-  flex-direction: row-reverse !important;
+  flex-direction: row-reverse;
 }
 /* Put the embed border on the right (for Youtube/Twitter etc. embeds) */
-[data-is-author-self="true"] .embedFull-2tM8-- {
+[data-is-author-self="true"]>[class*="container"]>[class*="embedFull"] {
   border-left: none;
   border-right: 4px solid;
 }
 /* Fix thread formatting */
-[data-is-author-self="true"] .iconContainer-3GkGRf {
+[data-is-author-self="true"]>[class*="contents"] [class*="iconContainer"] {
   position: absolute;
   right: -82px;
   left: unset;
-}
-[data-is-author-self="true"] .cozy-3raOZG.hasThread-2k82W0.isSystemMessage-2MkNHd:after {
-  top: 2.25rem !important;
 }
 /* Fix codeblocks */
 .markup-2BOw-j pre {
   max-width: none;
 }
 /* Bump compact timestamps out of the ping highlight right border */
-[data-is-author-self="true"] .timestampVisibleOnHover-2bQeI4 {
+[data-is-author-self="true"]>[class*="container"]>[class*="timestampVisibleOnHover"] {
   padding-right: .5rem;
 }
 
-/*
+/* embed structures (for reference)
 thread          container-1ov-mD > container-3hZ-gs systemMessageContainer-2ddkN3
 rich embed      container-1ov-mD > embedWrapper-lXpS3L embedFull-2tM8-- embed-IeVjo6 markup-2BOw-j
 uploaded image  container-1ov-mD > messageAttachment-1aDidq         > imageWrapper-2p5ogY embedWrapper-lXpS3L
 link img embed  container-1ov-mD > embed-IeVjo6 embedWrapper-lXpS3L > imageWrapper-2p5ogY embedWrapper-lXpS3L embedMedia-1guQoW embedImage-2W1cML
 link vid embed  container-1ov-mD > embed-IeVjo6 embedWrapper-lXpS3L > embedVideo-3nf0O9 embedMedia-1guQoW
 server invite   container-1ov-mD > wrapper-35wsBm userSelectNone-Iy6XEP cursorDefault-331ZcI
-
+sticker         container-1ov-mD > clickableSticker-3HmpgV > assetWrapper-3GNt0z > pngImage-33yLRP stickerAsset-13j1W0
 
 */
 
