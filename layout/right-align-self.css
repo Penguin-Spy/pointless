@@ -6,56 +6,56 @@
   transform: scaleX(-1);
 }
 /* Flip back avatar, header, compact timestamp, editing the message, message buttons, reply preview, reactions, and  */
-[data-is-author-self="true"]>[class*="contents"]>[class*="avatar"],
-[data-is-author-self="true"]>[class*="contents"]>[class*="header"],
-[data-is-author-self="true"]>[class*="contents"]>[class*="timestampVisibleOnHover"],
-[data-is-author-self="true"]>[class*="buttonContainer"]> [class*="buttons"] [class*="button"],
-[data-is-author-self="true"]>[class*="repliedMessage"]> *,
-[data-is-author-self="true"]>[class*="container"]>[class*="reactions"]> *,
-[data-is-author-self="true"]>[class*="contents"]>div:not([class*="messageContent"]) {
+[data-is-author-self="true"]>[class*="contents-"]>[class*="avatar-"],
+[data-is-author-self="true"]>[class*="contents-"]>[class*="header-"],
+[data-is-author-self="true"]>[class*="contents-"]>[class*="timestampVisibleOnHover-"],
+[data-is-author-self="true"]>[class*="buttonContainer-"]> [class*="buttons-"] [class*="button-"],
+[data-is-author-self="true"]>[class*="repliedMessage-"]> *,
+[data-is-author-self="true"]>[class*="container-"]>[class*="reactions-"]> *,
+[data-is-author-self="true"]>[class*="contents-"]>div:not([class*="messageContent-"]) {
   transform: scaleX(-1);
 }
-[data-is-author-self="true"]>[class*="contents"]>[class*="avatar"]:active { /* Flip back avatar when clicked */
+[data-is-author-self="true"]>[class*="contents-"]>[class*="avatar-"]:active { /* Flip back avatar when clicked */
   transform: translateY(1px) scaleX(-1);
 }
 /* Flip back message content (text) */
-[data-is-author-self="true"]>[class*="contents"]>[class*="messageContent"]:not([class*="repliedTextContent"]) {
+[data-is-author-self="true"]>[class*="contents-"]>[class*="messageContent-"]:not([class*="repliedTextContent-"]) {
   transform: scaleX(-1);
   /*display: inline-block; /* can't tell what this does, disabled because it adds unnecessary space to empty messages with embeds*/
   padding-right: 78px;
 }
 /* Flip back system messages (threads), embeds (rich, img link, vid link), attached images [vid?], and server [game?] invite */
-[data-is-author-self="true"]>[class*="container"]>:is(
-  [class*="systemMessageContainer"],
-  [class*="embed"],
-  [class*="messageAttachment"],
-  [class*="userSelectNone"],
-  [class*="clickableSticker"]
+[data-is-author-self="true"]>[class*="container-"]>:is(
+  [class*="systemMessageContainer-"],
+  [class*="embed-"],
+  [class*="messageAttachment-"],
+  [class*="userSelectNone-"],
+  [class*="clickableSticker-"]
 ) {
   transform: scaleX(-1);
 }
 
 /* Reverse header items */
-[data-is-author-self="true"]>[class*="contents"]>[class*="header"] {
+[data-is-author-self="true"]>[class*="contents-"]>[class*="header-"] {
   display: flex;
   flex-direction: row-reverse;
 }
-[data-is-author-self="true"]>[class*="contents"]>[class*="header"]>[class*="headerText"] {
+[data-is-author-self="true"]>[class*="contents-"]>[class*="header-"]>[class*="headerText-"] {
   margin-left: .25em;
   margin-right: 0;
 }
 /* Reverse reactions */
-[data-is-author-self="true"]>[class*="container"]>[class*="reactions"] {
+[data-is-author-self="true"]>[class*="container-"]>[class*="reactions-"] {
   display: flex;
   flex-direction: row-reverse;
 }
 /* Put the embed border on the right (for Youtube/Twitter etc. embeds) */
-[data-is-author-self="true"]>[class*="container"]>[class*="embedFull"] {
+[data-is-author-self="true"]>[class*="container-"]>[class*="embedFull-"] {
   border-left: none;
   border-right: 4px solid;
 }
 /* Fix thread formatting */
-[data-is-author-self="true"]>[class*="contents"] [class*="iconContainer"] {
+[data-is-author-self="true"]>[class*="contents-"] [class*="iconContainer-"] {
   position: absolute;
   right: -82px;
   left: unset;
@@ -65,7 +65,7 @@
   max-width: none;
 }
 /* Bump compact timestamps out of the ping highlight right border */
-[data-is-author-self="true"]>[class*="container"]>[class*="timestampVisibleOnHover"] {
+[data-is-author-self="true"]>[class*="container-"]>[class*="timestampVisibleOnHover-"] {
   padding-right: .5rem;
 }
 

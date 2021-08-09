@@ -54,10 +54,10 @@
 /* ----- COLOR VAR USAGE CHANGES ----- */
 
 /* Mic test bg */
-div[class*="userSettingsVoice"] [class*="micTest"] [class*="progress"] {
+div[class*="userSettingsVoice-"] [class*="micTest-"] [class*="progress-"] {
   background-color: var(--background-secondary);
 }
 /* Slider bar backgrounds */
-div[class*="slider"] > [class*="bar"] {
+div[class*="slider-"] > [class*="bar-"] {
   background-color: var(--background-secondary);
 }

@@ -9,18 +9,18 @@
 }
 
 
-[class*="userPopout"] {
+[class*="userPopout-"] {
   width: 600px !important;
 }
 /* Banner in background*/
-[class*="userPopout"]>[class*="headerNormal"]>[class*="popoutBannerPremium"]>[class*="premiumIconWrapper"] {display:none}
-[class*="userPopout"]>[class*="headerNormal"]>[class*="banner"], .bannerNormal-22rPhb {
+[class*="userPopout-"]>[class*="headerNormal-"]>[class*="popoutBannerPremium-"]>[class*="premiumIconWrapper-"] {display:none}
+[class*="userPopout-"]>[class*="headerNormal-"]>[class*="banner-"], .bannerNormal-22rPhb {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
-[class*="userPopout"]>[class*="headerNormal"]>[class*="banner"]::after {
+[class*="userPopout-"]>[class*="headerNormal-"]>[class*="banner-"]::after {
   content:"";
   background: linear-gradient(transparent 0%, rgba(0,0,0,.45) 30%);
   position: absolute;
@@ -32,22 +32,22 @@
 }
 
 /* Hanging avatar */
-[class*="userPopout"]>[class*="avatarWrapper"], .avatarUploader-3XDtmn {
+[class*="userPopout-"]>[class*="avatarWrapper-"], .avatarUploader-3XDtmn {
   top:-46px; left:252px;
 }
 
 /* Nickname & Usertag */
-/*[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"] {
+/*[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"] {
   background-color:rgba(0,0,0,.45);
   margin-top: 8px;
   border-radius: 4px;
   padding:4px;
 }*/
-[class*="userPopout"]>[class*="headerTop"] {
+[class*="userPopout-"]>[class*="headerTop-"] {
   padding-top: 88px;
 }
-/*[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="headerTag"] {*/
-[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>:is([class*="nickname"], [class*="headerTag"][class*="headerTagNoNickname"]) {
+/*[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="headerTag-"] {*/
+[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>:is([class*="nickname-"], [class*="headerTag-"][class*="headerTagNoNickname-"]) {
   position: absolute;
   left:0;
   top:42px;
@@ -55,62 +55,62 @@
   font-size: 20px;
   text-align: center;
 }
-[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="headerTag"]:not([class*="headerTagNoNickname"]) {display:none}
-[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="headerTag"][class*="headerTagNoNickname"]>*:not(:first-child) {
+[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="headerTag-"]:not([class*="headerTagNoNickname-"]) {display:none}
+[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="headerTag-"][class*="headerTagNoNickname-"]>*:not(:first-child) {
   display: none;
 }
-/*[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="headerTag"]>[class*="headerTagUsernameBase"] {
+/*[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="headerTag-"]>[class*="headerTagUsernameBase-"] {
   color: var(--interactive-active);
   font-weight: 600;
 }
-[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="headerTag"]>[class*="discrimBase"] {
+[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="headerTag-"]>[class*="discrimBase-"] {
   color: var(--header-secondary);
   font-weight: 600;
 }*/
-[class*="userPopout"]>[class*="headerTop"]>[class*="headerText"]>[class*="setIdentityLink"] {display: none}
+[class*="userPopout-"]>[class*="headerTop-"]>[class*="headerText-"]>[class*="setIdentityLink-"] {display: none}
 
 /* ----- Body ----- */
-[class*="userPopout"]>[class*="body"] {
+[class*="userPopout-"]>[class*="body-"] {
   width:70%;
   overflow:unset !important;
 }
-[class*="userPopout"]>[class*="body"]>[class*="customStatus"] { /* Move customstatus up below name */
+[class*="userPopout-"]>[class*="body-"]>[class*="customStatus-"] { /* Move customstatus up below name */
   position: absolute;
   top:-30px;
 }
-[class*="userPopout"]>[class*="body"]>[class*="customStatus"]>[class*="customStatusSoloEmoji"] {
+[class*="userPopout-"]>[class*="body-"]>[class*="customStatus-"]>[class*="customStatusSoloEmoji-"] {
   position: absolute;
   top:-24px;
 }
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"] { /* Epic "discord readds the same color when it's already in the background" moment */
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"] { /* Epic "discord readds the same color when it's already in the background" moment */
   background-color: transparent;
 }
 
 /* Roles list */
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"]>[class*="bodyTitle"]:first-of-type {
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>h3[class*="bodyTitle-"]:first-of-type:not(:only-of-type) {
   position: absolute;
   top:13px;
   height:auto;
   right:-170px;
   width:38%;
 }
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"]>[class*="rolesList"] {
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"] {
   position: absolute;
   top:33px;
   height:auto;
   right:-170px;
   width:38%;
 }
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"]>[class*="rolesList"]>[class*="role"] {
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"] {
   max-width: -webkit-fill-available;
   position:relative;
   overflow:hidden;
   z-index:1;
 }
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"]>[class*="rolesList"]>[class*="role"]>[class*="roleCircle"] {
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"] {
   min-width: 12px;
 }
-[class*="userPopout"]>[class*="body"]>[class*="bodyInnerWrapper"]>[class*="rolesList"]>[class*="role"]>[class*="roleCircle"]::before {
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"]::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
@@ -128,13 +128,13 @@ headerTagWithNickname-3l_x6x headerTag-3GFl76 nameTag-m8r81H
 */
 
 /* Message @user box */
-[class*="userPopout"]>[class*="footer"] {
+[class*="userPopout-"]>[class*="footer-"] {
   background-color:transparent;
 }
 
 
 
-/*[aria-label="USER_SETTINGS"] [class*="profileBannerPreview"]>[class*="bannerNormal"] {
+/*[aria-label="USER_SETTINGS-"] [class*="profileBannerPreview-"]>[class*="bannerNormal-"] {
 
 }*/
 

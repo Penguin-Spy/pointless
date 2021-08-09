@@ -9,106 +9,106 @@
 
 /* ----- PAGE BACKGROUNDS ----- */
 /* Friends page */
-[class*="content"]>[class*="sidebar"] ~ [class*="container"] [class*="peopleColumn"] {
+[class*="content-"]>[class*="sidebar-"] ~ [class*="container-"] [class*="peopleColumn-"] {
   background-color: var(--background-primary);
 }
-:is([class*="nowPlayingColumn"], [class*="nowPlayingSidebar"])>[class*="container"] { /* Active Now */
+:is([class*="nowPlayingColumn-"], [class*="nowPlayingSidebar-"])>[class*="container-"] { /* Active Now */
   background-color: var(--background-secondary);
 }
-:is([class*="nowPlayingColumn"], [class*="nowPlayingSidebar"])>[class*="container"]>[class*="scroller"] { /* Hide the divider on Active Now because now it's a different color */
+:is([class*="nowPlayingColumn-"], [class*="nowPlayingSidebar-"])>[class*="container-"]>[class*="scroller-"] { /* Hide the divider on Active Now because now it's a different color */
   border-left: none;
 }
-:is([class*="nowPlayingColumn"], [class*="nowPlayingSidebar"])>[class*="container"]>[class*="scroller"] > :is([class*="itemCard"], [class*="card"]) { /* Active Now card */
+:is([class*="nowPlayingColumn-"], [class*="nowPlayingSidebar-"])>[class*="container-"]>[class*="scroller-"] > :is([class*="itemCard-"], [class*="card-"]) { /* Active Now card */
   background-color: var(--background-secondary-alt);
   border:none;
   border-radius: 6px;
 }
-:is([class*="nowPlayingColumn"], [class*="nowPlayingSidebar"])>[class*="container"]>[class*="scroller"] > [class*="card"] {
+:is([class*="nowPlayingColumn-"], [class*="nowPlayingSidebar-"])>[class*="container-"]>[class*="scroller-"] > [class*="card-"] {
   background-color: var(--background-tertiary);
 }
 
 /* Public Servers page */
-[class*="content"]>[class*="sidebar"] ~ [class*="pageWrapper"] {
+[class*="content-"]>[class*="sidebar-"] ~ [class*="pageWrapper-"] {
   background-color: var(--background-primary);
 }
 
 /* Voice Settings */
-[class*="userSettingsVoice"] [class*="select"]>[class*="container"]>[class*="menu"] { /*I/O dropdown*/
+[class*="userSettingsVoice-"] [class*="select-"]>[class*="container-"]>[class*="menu-"] { /*I/O dropdown*/
   background-color: var(--background-secondary);
 }
-[class*="userSettingsVoice"] [class*="previewOverlay"] { /* Preview background */
+[class*="userSettingsVoice-"] [class*="previewOverlay-"] { /* Preview background */
   background-color: var(--background-secondary);
   border-color: var(--background-tertiary);
 }
-[class*="userSettingsVoice"] [class*="micTest"] [class*="container"] { /* Mic test, this removes the notches because it's not possible to color the cutout that makes the notches */
+[class*="userSettingsVoice-"] [class*="micTest-"] [class*="container-"] { /* Mic test, this removes the notches because it's not possible to color the cutout that makes the notches */
   border-radius: 4px;
 }
-[class*="userSettingsVoice"] [class*="micTest"] [class*="progress"] {
+[class*="userSettingsVoice-"] [class*="micTest-"] [class*="progress-"] {
   background-color: var(--interactive-muted);
 }
-[class*="userSettingsVoice"] [class*="micTest"] [class*="notches"] {
+[class*="userSettingsVoice-"] [class*="micTest-"] [class*="notches-"] {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='20' fill='none'%3E%3Cpath fill-rule='evenodd' d='M0 0h8v20H0V0zm4 2a2 2 0 00-2 2v12a2 2 0 104 0V4a2 2 0 00-2-2z'/%3E%3C/svg%3E");
 }
 
 /* Slider bar backgrounds */
-[class*="slider"]>[class*="bar"] {
+[class*="slider-"]>[class*="bar-"] {
   background-color: var(--interactive-muted);
 }
 
 /* Video embed background */
-[class*="message"] [class*="embedVideo"] [class*="wrapper"][data-fullscreen] {
+[class*="message-"] [class*="embedVideo-"] [class*="wrapper-"][data-fullscreen] {
   background-color: var(--background-tertiary);
 }
 
 /* ----- POPOUTS/TEMP whatever it's called ----- */
 /* Color Picker */
-[class*="layer"] [class*="colorPickerCustom"] {
+[class*="layer-"] [class*="colorPickerCustom-"] {
   background-color: var(--background-primary);
   border-color: var(--background-tertiary);
 }
 
 /* Search menu */
-[class*="layer"] > #search-results {
+[class*="layer-"] > #search-results {
   background-color: var(--background-secondary-alt);
 }
-[class*="layer"] > #search-results > [class*="resultsGroup"] { /*background*/
+[class*="layer-"] > #search-results > [class*="resultsGroup-"] { /*background*/
   background-color: var(--background-primary);
 }
-[class*="layer"] > #search-results > [class*="resultsGroup"]>[class*="selected"],
-[class*="layer"] > #search-results > [class*="queryContainer"] {
+[class*="layer-"] > #search-results > [class*="resultsGroup-"]>[class*="selected-"],
+[class*="layer-"] > #search-results > [class*="queryContainer-"] {
   background-color: var(--background-tertiary);
 }
-[class*="layer"] > #search-results > [class*="resultsGroup"]>[class*="option"]:after {
+[class*="layer-"] > #search-results > [class*="resultsGroup-"]>[class*="option-"]:after {
   background: linear-gradient(90deg,rgba(0,0,0,0),var(--background-primary) 80%);
 }
-[class*="layer"] > #search-results > [class*="resultsGroup"]>[class*="option"][class*="selected"]:after {
+[class*="layer-"] > #search-results > [class*="resultsGroup-"]>[class*="option-"][class*="selected-"]:after {
   background: linear-gradient(90deg,rgba(0,0,0,0),var(--background-tertiary) 50%);
 }
 /* Search filter background (not identical to this var, but close enough) */
-[class*="chat"]>[class*="title"]>[class*="toolbar"]>[class*="search"] :is([class*="searchFilter"], [class*="searchAnswer"]) {
+[class*="chat-"]>[class*="title-"]>[class*="toolbar-"]>[class*="search-"] :is([class*="searchFilter-"], [class*="searchAnswer-"]) {
   background-color: var(--background-secondary);
 }
 
 /* Autocomplete */
-[class*="channelTextArea"]>[class*="autocomplete"]  {
+[class*="channelTextArea-"]>[class*="autocomplete-"]  {
   background-color: var(--background-secondary);
 }
-[class*="channelTextArea"]>[class*="autocomplete"] :is([class*="selected"], [class*="categoryHeader"]) {
+[class*="channelTextArea-"]>[class*="autocomplete-"] :is([class*="selected-"], [class*="categoryHeader-"]) {
   background-color: var(--background-primary);
 }
 
 /* Keybind button thing */
-:root [class*="keybindShortcut"] > span { /* extra stuff to increase specificity */
+:root [class*="keybindShortcut-"] > span { /* extra stuff to increase specificity */
   background-color: var(--background-accent);
   box-shadow: inset 0 -4px 0 var(--background-secondary-alt);
   color: var(--text-normal);
 }
 /* Server invite background color */
-[class*="message"] [class*="guildIconImage"] {
+[class*="message-"] [class*="guildIconImage-"] {
   background-color: var(--background-primary);
 }
 /* Server settings popup */
-[class*="standardSidebarView"] [class*="noticeRegion"]>[class*="container"] {
+[class*="standardSidebarView-"] [class*="noticeRegion-"]>[class*="container-"] {
   background-color: var(--background-tertiary) !important;
   opacity: .9;
 }
@@ -117,18 +117,18 @@
  * Change Identity modal :not(view image modal)
  * Upload file modal
  * Other various modals */
-[class*="layerContainer"] [class*="root"][class*="fullscreenOnMobile"],
-[class*="backdrop"] ~ [class*="modal"]>[class*="inner"] :is([class*="fullscreenOnMobile"], [class*="uploadModal"]),
-[class*="modal"]>[class*="inner"]>[class*="modal"] {
+[class*="layerContainer-"] [class*="root-"][class*="fullscreenOnMobile-"],
+[class*="backdrop-"] ~ [class*="modal-"]>[class*="inner-"] :is([class*="fullscreenOnMobile-"], [class*="uploadModal-"]),
+[class*="modal-"]>[class*="inner-"]>[class*="modal-"] {
   background-color: var(--background-primary);
 }
-[class*="layerContainer"] [class*="root"]:not([class*="modal"]) [class*="footer"],
-[class*="backdrop"] ~ [class*="modal"] [class*="footer"] {
+[class*="layerContainer-"] [class*="root-"]:not([class*="modal-"]) [class*="footer-"],
+[class*="backdrop-"] ~ [class*="modal-"] [class*="footer-"] {
   background-color: var(--background-secondary);
   box-shadow: none;
 }
 
 /* Delete message modal */
-[class*="layerContainer"] [class*="root"] [class*="message"] {
+[class*="layerContainer-"] [class*="root-"] [class*="message-"] {
   background-color: var(--background-primary);
 }

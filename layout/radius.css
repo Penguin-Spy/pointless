@@ -1,5 +1,5 @@
 /* Avatar Roundness, credit to It'sJustJosh#2812 msg:859487973900288000 */
-img[class^="avatar"]{
+img[class^="avatar-"]{
 border-radius: var(--avatar-radius) !important;}
 :root .root-3QyAh1 .topSection-y3p-_D > header .header-4zuFdR .mask-1l8v16 foreignObject {
 mask: none !important; border-radius: var(--avatar-radius) !important;}
