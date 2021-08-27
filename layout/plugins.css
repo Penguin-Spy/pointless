@@ -42,3 +42,13 @@ only with webhook tag plugin:
 botTagCompact
 
 */
+
+/* This *insane* selector is to make the hex color preview on hover display overtop the text */
+[class*="layerContainer-"]>[class*="layer-"]>[class*="tooltipTop-"][class*="tooltipDisablePointerEvents-"]>[class*="tooltipContent-"]>span[style^="display: inline-block; background-color: rgb("][style$="); width: 15px; height: 15px; margin-right: 0px; border-radius: 3px;"] {
+  position: absolute;
+  top: 21px;
+  left: -20px;
+  width: 64px !important;
+  height: 24px !important;
+}
+    

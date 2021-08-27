@@ -15,6 +15,7 @@
   border-radius: 8px;
 }
 
+
 /* ----- HEADER & BORDERS ----- */
 /* Remove header shadows & recolor*/
 .header-2V-4Sw, .searchBar-6Kv8R2 {
@@ -33,7 +34,7 @@
   position: relative;
   margin-left: 5px;
 }
-/* Detached notice */
+/* Detached notices */
 [class*="container-"]>[class*="base-"]>[class*="notice-"] {
   margin-bottom: 4px;
   border-radius: 8px;

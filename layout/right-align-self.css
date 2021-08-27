@@ -61,7 +61,7 @@
   left: unset;
 }
 /* Fix codeblocks */
-.markup-2BOw-j pre {
+[class*="contents-"]>[class*="messageContent-"]>pre {
   max-width: none;
 }
 /* Bump compact timestamps out of the ping highlight right border */

@@ -30,7 +30,6 @@ background-attachment:fixed;
 color:var(--chatbubble-self-text);
 font-size:15px;
 line-height:20px;
-font-weight:400;
 }
 /*.theme-light [data-is-author-self=false] .container-3-pyIM *,.theme-light [data-is-author-self=false] .markup-2BOw-j,.theme-light [data-is-author-self=false] .markup-2BOw-j>*{
 color:var(--chatbubble-other-text);

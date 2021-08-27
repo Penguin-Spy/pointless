@@ -12,6 +12,9 @@
 /* Colorizes various SVGs. Type // before to disable */
 @import "https://nyri4.github.io/Discolored/main.css";
 
+/* Adds icons to the discord context menu's. */
+@import url('https://corellanstoma.github.io/Menu-Icons/index.css');
+
 /* Variables */
 :root {
   --avatar-radius: 5px;     /* Squaretangle: 5px, Round: 50% */
