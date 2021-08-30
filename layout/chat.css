@@ -2,7 +2,7 @@
 
 /* Settings update notice */
 #app-mount [class*="container-"]>[class*="base-"]::before {
-  display: var(--pointless-settings-ver-1, unset);
+  display: var(--pointless-settings-ver-2, unset);
   content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
   color: #fff;
   font-size: 14px;
@@ -14,7 +14,33 @@
   margin-bottom: 4px;
   border-radius: 8px;
 }
-
+/* Wordmark */
+.wordmark-2iDDfm:after {
+  content: "Pointless";
+  font-size: 15px;
+  position: absolute;
+  width: 4000px;
+  top: 5px;
+  padding-left: -3px;
+  font-family: 'Discord';
+  color: var(--text-muted);
+}
+.wordmark-2iDDfm > svg {
+  width: 0px;
+}
+/** Add icon to wordmark **/
+/*.wordmark-2iDDfm {
+  left: 25px;
+}
+.wordmark-2iDDfm:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  bottom: 0;
+  right: 0;
+  background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
+}*/
 
 /* ----- HEADER & BORDERS ----- */
 /* Remove header shadows & recolor*/
@@ -25,6 +51,9 @@
 .content-yTz4x3:before, .chat-15Vmww:before {content: none}
 [class*="content-"]>[class*="chat-"]>[class*="title-"] {
   background-color: var(--background-primary-alt);
+}
+.children-19S4PO:after {
+  background: linear-gradient(90deg,rgba(54,57,63,0) 0,var(--background-primary-alt)) !important;
 }
 /* Round split between channel list & chat */
 .sidebar-2K8pFh, .chat-3bRxxu, .container-1a3EgQ, .container-1D34oG, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
@@ -66,6 +95,30 @@
   color: var(--text-muted)
 }
 
+/* ----- MEMBER LIST ----- */
+.roleColor-rz2vM0::after {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.125;
+  background: currentColor;
+}
+.member-3-YXUe .badges {
+  z-index: 0;
+}
+.member-3-YXUe.selected-aXhQR6 .roleColor-rz2vM0::after {
+  border-radius: 4px;
+}
+.membersGroup-v9BXpm + .member-3-YXUe {
+  margin-top: 5px;
+}
+.member-3-YXUe .roleColor-rz2vM0::after {
+  border-radius: 5px;
+}
+
 /* ----- MESSAGE TEXTAREA ----- */
 /* Move attach file to the right side */
 .form-2fGMdU .attachWrapper-2TRKBi{order:1;margin-left:13px;}
@@ -97,9 +150,10 @@
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"]>[class*="container-"] {border:none}
 
-/* Settings to bottom left TODO: white gear (to match light mode home button) */
+/* Settings to bottom left */
 [class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child {
   background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
+  color: var(--text-normal);
   position: fixed;
   left: 0px;
   bottom: 0px;
@@ -116,6 +170,9 @@
   height: 48px;
   width: 48px;
   border-radius: var(--server-radius);
+}
+[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
+  color: #fff;
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
   background-color: var(--brand-experiment);
@@ -269,6 +326,17 @@
 /* Hide cursor in fullscreen video when: */
 .wrapperControlsHidden-35Gtol {
   cursor: none;
+}
+
+/* Floating Mark As Read/Jump To Present Pillbars */
+[class*="chatContent-"]>[class*="messagesWrapper-"]>[class*="newMessagesBar-"] {
+  top: 8px;
+  border-radius: 8px;
+}
+[class*="chatContent-"]>[class*="messagesWrapper-"]>[class*="jumpToPresentBar-"] {
+  bottom: 32px;
+  padding-bottom: 0;
+  border-radius: 8px;
 }
 
 /*
