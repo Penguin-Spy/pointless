@@ -1,26 +1,16 @@
-/* Palette, valid options are: discord, blue */
-@forward 'palettes/blue';
-
 /* Layout settings (type // before the line to disable) */
 @forward 'layout/chat-bubbles';
 @forward 'layout/right-align-self';
-@forward 'layout/colorized';        /* Adds unique colors to most buttons in the UI (incomplete, */
+@forward 'layout/colorized';        /* Adds unique colors to all context menus */
+@forward 'layout/iconized';         /* Adds unique icons to all context menus */
 
-/* Reverts the 2021 Discord rebrand. Type // before to disable. */
-@import "https://goose-nest.github.io/GT-RevertRebrand/src/main.css";
+/* Reverts the 2021 Discord rebrand. Type // before to disable, remove to enable. */
+//@import "https://goose-nest.github.io/GT-RevertRebrand/src/main.css";
 
-/* Colorizes various SVGs. Type // before to disable */
+/* Colorizes various SVGs. Type // before to disable, remove to enable. */
 @import "https://nyri4.github.io/Discolored/main.css";
 
-/* Adds icons to the discord context menu's. */
-@import url('https://corellanstoma.github.io/Menu-Icons/index.css');
-
-/* Variables */
+/* DO NOT CHANGE unless you're manually updating this file. If you are making a backup and force updating (in the Powercord updater), do not copy this value */
 :root {
-  --avatar-radius: 5px;     /* Squaretangle: 5px, Round: 50% */
-  --server-radius: 8px;     /* Squaretangle: 8px, Round: 50%*/
-  --chatbubble-radius: 6px; /* Squaretangle: 6px, Round: 15px */
-
-  /* DO NOT CHANGE unless you're manually updating this file. If you are making a backup and force updating, do not copy this value */
-  --pointless-settings-ver-1: none;
+  --pointless-settings-ver-2: none;
 }

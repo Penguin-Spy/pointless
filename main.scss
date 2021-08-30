@@ -1,8 +1,16 @@
+// Settings
 @forward 'settings.scss';       /* Include settings */
-@forward 'layout/radius';       /* Apply radius variable to avatars & server icons*/
-@forward 'layout/pisscorp';     /* Fix discord's jank non-use of theme variables on certain menus */
+@forward 'palette';             /* Palette option variables */
+
+// Technically optional stuff but probably will break things
 @forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
 @forward 'layout/user-popout';
 @forward 'layout/user-modal';
-@forward 'layout/chat';         /* Chat, channel list, toolbar, user area */
 @forward 'layout/no-nitro';     /* Hide all options for your use of nitro-only features (for example: hides the nitro gift & send sticker buttons) */
+@forward 'layout/font';         /* Apply new fonts. Please edit font settings in QuickCSS with :root {} */
+
+// Absolutley required stuff
+@forward 'layout/chat';         /* Chat, channel list, toolbar, user area */
+@forward 'layout/radius';       /* Apply radius variable to avatars & server icons*/
+@forward 'layout/pisscorp';     /* Fix discord's jank non-use of theme variables on certain menus */
+
