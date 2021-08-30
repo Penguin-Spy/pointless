@@ -169,7 +169,7 @@
   z-index: -1;
   height: 48px;
   width: 48px;
-  border-radius: var(--server-radius);
+  border-radius: var(--_pointless-radius-server);
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
   color: #fff;
@@ -331,12 +331,24 @@
 /* Floating Mark As Read/Jump To Present Pillbars */
 [class*="chatContent-"]>[class*="messagesWrapper-"]>[class*="newMessagesBar-"] {
   top: 8px;
-  border-radius: 8px;
+  border-radius: var(--_pointless-radius-interface);
 }
 [class*="chatContent-"]>[class*="messagesWrapper-"]>[class*="jumpToPresentBar-"] {
   bottom: 32px;
   padding-bottom: 0;
-  border-radius: 8px;
+  border-radius: var(--_pointless-radius-interface);
+}
+
+/* Settings close button */
+.closeButton-1tv5uR {
+  border-radius: var(--_pointless-radius-interface);
+}
+/* Settings switches */
+[class*="control-"]>[class*="container-"] {
+  border-radius: var(--_pointless-radius-interface);
+}
+[class*="control-"]>[class*="container-"]>svg>rect { /* inside bit */
+  rx: var(--_pointless-radius-interface);
 }
 
 /*

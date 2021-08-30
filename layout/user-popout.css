@@ -1,6 +1,6 @@
 /* Avatar hint */
 .avatarHint-2A3RNb foreignObject {mask: none;}
-.avatarHintInner-1TvA8u {border-radius: var(--avatar-radius);}
+.avatarHintInner-1TvA8u {border-radius: var(--_pointless-radius-avatar);}
 
 /* Remove background of avatar (popout, popout preview in settings) */
 .avatar-37jOim, .avatarUploaderInner-Oiob_P {
