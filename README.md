@@ -24,9 +24,9 @@ You may want to adjust the opacity by increasing/decreasing the `.05`.
 To configure the radiuses of various elements, add this to your QuickCSS (you can combine it with the above snippet):
 ```css
 :root {
-  --pointless-radius-avatar: 5px;     /* Squaretangle: 5px, Round: 50% */
-  --pointless-radius-server: 8px;     /* Squaretangle: 8px, Round: 50% */
-  --pointless-radius-interface: 6px;  /* Squaretangle: 6px, Round: 20px */
+  --pointless-radius-avatar: 5px;     /* Squircle: 5px, Round: 50% */
+  --pointless-radius-server: 8px;     /* Squircle: 8px, Round: 50% */
+  --pointless-radius-interface: 6px;  /* Squircle: 6px, Round: 20px */
 }
 ```
 To enable/disable other features, open the `settings.scss` file and follow the instructions enclosed. If you edit the settings at all, you should also open the `.gitignore` file and edit as instructed. A notice will appear to let you know if there are new settings and you need to manually update your settings file.

@@ -14,8 +14,8 @@
   --_pointless-palette_set-yellow-secondary:                rgba(176,176,0, var(--pointless-palette-yellow));
   --_pointless-palette_set-yellow-secondary_alt:            rgba(127,127,0, var(--pointless-palette-yellow));
   --_pointless-palette_set-yellow-tertiary:                 rgba(63 ,63 ,0, var(--pointless-palette-yellow));
-  --_pointless-palette_set-forest-chatbubble_self_0:        rgba(46 ,139,87 ,var(--pointless-palette-forest));
-  --_pointless-palette_set-forest-chatbubble_self_100:      rgba(42 ,127,42 ,var(--pointless-palette-forest));
+  --_pointless-palette_set-yellow-chatbubble_self_0:        rgba(46 ,139,87 ,var(--pointless-palette-yellow));
+  --_pointless-palette_set-yellow-chatbubble_self_100:      rgba(42 ,127,42 ,var(--pointless-palette-yellow));
 
   /* Discord */
   --_pointless-palette_set-discord-primary:                 rgba(54 ,57 ,63 ,var(--pointless-palette-discord));
