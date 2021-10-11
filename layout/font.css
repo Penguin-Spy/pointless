@@ -10,8 +10,9 @@
 :root {
   --font-primary: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-display: "Montserrat Alternates", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  /*--font-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  --font-korean: Whitney, "Apple SD Gothic Neo", "NanumBarunGothic", "\B9D1\C740   \ACE0\B515", "Malgun Gothic", Gulim, êµ´ë¦¼, Dotum, ë‹ì›€, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*--font-code: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;*/
+  --font-headline: Discord, Ginto Nord, Ginto, "Helvetica Neue", Helvetica, Arial, sans-serif;  
+  /*--font-korean: Whitney, "Apple SD Gothic Neo", "NanumBarunGothic", "\B9D1\C740   \ACE0\B515", "Malgun Gothic", Gulim, êµ´ë¦¼, Dotum, ë‹ì›€, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-japanese: Whitney, Hiragino Sans, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, Osaka, "MS PGothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-chinese-simplified: Whitney, "Microsoft YaHei New", å¾®è½¯é›…é»‘, "Microsoft Yahei", "Microsoft JhengHei", å®‹ä½“, SimSun, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-chinese-traditional: Whitney, "Microsoft JhengHei", å¾®è»Ÿæ­£é»‘é«”, "Microsoft JhengHei UI", "Microsoft YaHei", å¾®è»Ÿé›…é»‘, å®‹ä½“, SimSun, "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -159,6 +159,7 @@
   bottom: 0px;
   width: 72px;
   height: 64px;
+  padding-top:2px;
   border-radius: 0;
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child::after {
@@ -191,14 +192,20 @@
   min-width: 90px;
   padding: 2px 0;
 }
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child{ /* Krisp button to bottom row */
+[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
   position: absolute;
   top: 48px;
+  left: 48px;
+}
+[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
+  left: 54px;
+  width: 26px;
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
   position: relative;
   bottom: 64px;
-  left: 129px;
+  left: 150px;
+  width: 26px;
 }
 [class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
 
@@ -307,15 +314,38 @@
 
 /* ----- OTHER ----- */
 /* Pin home icon */
-.tutorialContainer-2sGCg9 {
+
+/* [class*="guilds-"]>ul>[class*="scroller-"] */
+[class*="guilds-"]>ul>[class*="scroller-"]>:first-child { /* Home button */
   position: fixed;
+  top: 22px;
   z-index: 1;
   background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
+  padding-bottom:2px;
 }
+[class*="guilds-"]>ul>[class*="scroller-"] {
+  padding-top: 48px;
+}
+
+
+/*
+[class*="guilds-"]>ul>[class*="scroller-"]> [class*="listItem-"]:nth-child(2) {
+  margin-bottom: 0;
+}
+[class*="guilds-"]>ul>[class*="scroller-"]> [class*="listItem-"]:nth-last-of-type(5) {
+  margin-top: 8px;
+}
+
+*/
+
+
 .guilds-1SWlCJ .scroller-1Bvpku { contain: none !important; padding-top: 0;}
-.container-2lgZY8> .guilds-1SWlCJ .scroller-1Bvpku> [aria-label] { margin-top: 54px;}
-.guilds-1SWlCJ .scroller-1Bvpku> [style] { margin-top: 56px;}
+/*.container-2lgZY8> .guilds-1SWlCJ .scroller-1Bvpku> [aria-label] { margin-top: 54px;}*/
+/*.guilds-1SWlCJ .scroller-1Bvpku> [style] { margin-top: 56px;}*/
 .guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [aria-label], .guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [style] { margin-top: 0px;}
+
+
+
 
 /* Blur when offline */
 .container-16j22k.fixClipping-3qAKRb{

@@ -4,29 +4,29 @@
 }
 
 /* Online Friends Count badge*/
-.listItem-GuPuDH .onlineFriends-counter {
+[class*="guilds-"]>ul>[class*="scroller-"]>[class*="listItem-"]>.onlineFriends-counter {
   overflow: hidden;
   text-overflow: clip;
   text-align: center;
   direction: rtl;
   white-space: nowrap;
   z-index: 1;
-  background: var(--background-tertiary);
+  background: var(--background-secondary);
   color: var(--text-normal);
   border-radius: 10px;
   position: fixed;
   top: 58px;
   left: 7px;
-  width: 1.3em;
+  width: 1.2em;
   height: 15px;
   padding-top: 1px;
   padding-right: .25em;
   transition: width .15s, left .15s, background-color .15s;
 }
-.listItem-GuPuDH .onlineFriends-counter:hover {
+[class*="guilds-"]>ul>[class*="scroller-"]>[class*="listItem-"]>.onlineFriends-counter:hover {
   width: inherit;
   padding: 1px 0 0;
-  left: 2px;
+  left: 0px;
   background: var(--brand-experiment);
 }
 /* "pin home icon" with above plugin enabled needs different margin
