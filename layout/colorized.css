@@ -202,6 +202,14 @@
   background-color: seagreen;
   color: #fff;
 }
+#guild-context-create-event, #guild-header-popout-create-event {
+  color: darkseagreen;
+}
+[class*="focused-"]:is(#guild-context-create-event, #guild-header-popout-create-event) {
+  background-color: darkseagreen;
+  color: #fff;
+}
+
 #guild-context-leave-guild, #guild-header-popout-leave {
   color: #ed4245;
 }
