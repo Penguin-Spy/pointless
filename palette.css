@@ -107,8 +107,8 @@
   --scrollbar-auto-track: var(--background-secondary);/* Track for above */
 
   /* Radius variables */
-  --_pointless-radius-avatar: var(--pointless-radius-avatar, 5px);
-  --_pointless-radius-server: var(--pointless-radius-server, 8px);
+  --_pointless-radius-avatar: var(--pointless-radius-avatar, 20%);
+  --_pointless-radius-server: var(--pointless-radius-server, 10%);
   --_pointless-radius-interface: var(--pointless-radius-interface, 6px);
 }
 
