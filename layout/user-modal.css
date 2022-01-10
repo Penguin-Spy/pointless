@@ -1,16 +1,22 @@
 /* Extra spacing below the username when there's no tabs (viewing your own profile) */
-.topSection-y3p-_D > header:only-child {
+[class*="topSection-"] > header:only-child {
   padding-bottom: 10px;
 }
 
 /* Remove background of avatar (modal, modal preview in settings) */
-.avatar-AvHqJA, .avatar-1uQSZT {
+[class*="root-"]>[class*="topSection-"]>header>[class*="header-"]>[class*="avatar-"] {
   border: none;
+  margin: 8px;
+  background: none;
+}
+[class*="accountProfileCard-"]>[class*="userInfo-"]>[class*="avatar-"] {
+  border: none;
+  margin: 7px;
   background: none;
 }
 
 /* Remove max length of about me in User Modal */
-.userBio-3tlrzS {
+[class*="root-"]>[class*="body-"]>[class*="infoScroller-"]>[class*="userInfoSection-"]>[class*="userBio-"]> {
   display: inline;
 }
 

@@ -15,18 +15,20 @@
   border-radius: 8px;
 }
 /* Wordmark */
-.wordmark-2iDDfm:after {
-  content: "Pointless";
-  font-size: 15px;
-  position: absolute;
-  width: 4000px;
-  top: 5px;
-  padding-left: -3px;
-  font-family: 'Discord';
-  color: var(--text-muted);
-}
-.wordmark-2iDDfm > svg {
-  width: 0px;
+[class*="wordmark-"] {
+  &:after {
+    content: "Pointless";
+    font-size: 15px;
+    position: absolute;
+    width: 4000px;
+    top: 5px;
+    padding-left: -3px;
+    font-family: 'Discord';
+    color: var(--text-muted);
+  }
+  & > svg {
+    width: 0px;
+  }
 }
 /** Add icon to wordmark **/
 /*.wordmark-2iDDfm {
@@ -42,32 +44,198 @@
   background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
 }*/
 
-/* ----- HEADER & BORDERS ----- */
-/* Remove header shadows & recolor*/
-.header-2V-4Sw, .searchBar-6Kv8R2 {
+#app-mount [class*="container-"] {
+  &>[class*="guilds-"], &>.BF-folderSidebar>[class*="guilds-"] {
+
+
+    &>ul>[class*="scroller-"] {
+      /* remove dividers between home & guilds, and between folders in Better Folders popout */
+      &>[class*="listItem-"]:not(:nth-last-child(2)) {
+        display: none;
+      }
+
+      /* Pin home icon */
+      &>[class*="tutorialContainer-"]:first-child, &>.expanded>[class*="listItem-"] { /* Home button */
+        position: sticky;
+        top: -10px;
+        z-index: 1;
+        background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
+        padding-top: 10px;
+        margin-top: -10px;
+      }
+
+      /* Make space for settings icon */
+      &>[class*="listItem-"]:nth-last-child(2) {
+        padding-bottom: 56px;
+      }
+    }
+  }
+
+  &>[class*="base-"] {
+    /* Detached notices */
+    &>[class*="notice-"] {
+      margin-bottom: 4px;
+      border-radius: 8px;
+    }
+
+    &>[class*="content-"] {
+
+      /* ----- HEADER & BORDERS ----- */
+      /* Remove header shadows & recolor*/
+      &>[class*="sidebar-"]>nav header {
+        background-color: var(--background-secondary-alt);
+        box-shadow: none;
+      }
+      &>[class*="chat-"] {
+        &>section {
+          background-color: var(--background-primary-alt);
+          &>[class*="children-"]::after {
+            background: linear-gradient(90deg,rgba(54,57,63,0) 0,var(--background-primary-alt)) !important;
+          }
+        }
+        &>[class*="content-"]::before {
+          content: none;
+        }
+      }
+
+      &>[class*="sidebar-"] {
+        &>section {
+          /* ----- SPLIT UP USER AREA ----- */
+          /* Remove user area container */
+          &>[class*="container-"] {
+            height:0;
+            margin-bottom: 0;
+          }
+          &>[class*="wrapper-"]>[class*="container-"] {border:none}
+
+          /* Settings to bottom left */
+          &>[class*="container-"]>[class*="flex-"]> button:last-child {
+            background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
+            color: var(--text-normal);
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            width: 72px;
+            height: 64px;
+            padding-top:2px;
+            border-radius: 0;
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:last-child::after {
+            background-color: var(--background-primary);
+            transition: background-color .15s ease-out,color .15s ease-out;
+            position: absolute;
+            content: "";
+            z-index: -1;
+            height: 48px;
+            width: 48px;
+            border-radius: var(--_pointless-radius-server);
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
+            color: #fff;
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
+            background-color: var(--brand-experiment);
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:last-child:active {
+            transform: translateY(1px);
+          }
+
+          /* Mute/Deafen in VC area */
+          &>[class*="wrapper-"]>[class*="container-"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
+          &>[class*="wrapper-"] >div> [class*="actionButtons-"] {width:190px}
+          &>[class*="wrapper-"] >div> [class*="actionButtons-"]> button {
+            min-width: 90px;
+            padding: 2px 0;
+          }
+          &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
+            position: absolute;
+            top: 48px;
+            left: 48px;
+          }
+          &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
+            left: 54px;
+            width: 26px;
+          }
+          &>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
+            position: relative;
+            bottom: 64px;
+            left: 150px;
+            width: 26px;
+          }
+          &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
+
+          /* User area pfp aligned with our messages */
+          & [class*="avatarWrapper-"] {
+            left: 261px;
+            bottom: 8px;
+            position: absolute;
+            z-index: 1;
+          }
+          & [class*="avatarWrapper-"]:active {
+            transform: translateY(1px);
+          }
+          & [class*="avatar-"][class*="wrapper-"] {
+            /*width: 40px;*/
+            height: 40px !important;
+          }
+          /*& [class*="avatar-"][class*="wrapper-"] svg {
+            overflow: unset;
+          }*/
+
+          /* GameActivityToggle button to status picker */
+          &>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {
+            display: none;
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:not([aria-checked]):first-child {
+            position: absolute;
+            left: 510px;
+            bottom: 86px;
+            z-index: 10005;
+          }
+        }
+
+        /* Round split between channel list & chat */
+        border-radius: 15px 15px 0 0 !important;
+      }
+
+      &>:nth-child(2) {
+        /* Round split between channel list & chat */
+        border-radius: 15px 15px 0 0 !important;
+
+        position: relative;
+        margin-left: 5px;
+      }
+
+      &>[class*="chat-"]>[class*="content-"] { /* main chat window */
+        &>[class*="container-"]>[class*="container-"]>aside>[class*="members-"]>[class*="content-"] { /* member list */
+
+          /* Member list backgrounds */
+          &>[class*="member-"] [class*="roleColor-"]::after {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0.125;
+            background: currentColor;
+            border-radius: var(--_pointless-radius-interface);
+          }
+          &>[class*="membersGroup-"] + [class*="member-"] {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* recolor search box backgrounds */
+.searchBar-zdmu7v {
   background-color: var(--background-secondary-alt);
-  box-shadow: none;
 }
-.content-yTz4x3:before, .chat-15Vmww:before {content: none}
-[class*="content-"]>[class*="chat-"]>[class*="title-"] {
-  background-color: var(--background-primary-alt);
-}
-.children-19S4PO:after {
-  background: linear-gradient(90deg,rgba(54,57,63,0) 0,var(--background-primary-alt)) !important;
-}
-/* Round split between channel list & chat */
-.sidebar-2K8pFh, .chat-3bRxxu, .container-1a3EgQ, .container-1D34oG, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
-  border-radius: 15px 15px 0 0 !important;
-}
-.chat-3bRxxu, .container-1D34oG, .container-1a3EgQ, .applicationStore-1pNvnv, .pageWrapper-1PgVDX, .threadSidebar-1o3BTy {
-  position: relative;
-  margin-left: 5px;
-}
-/* Detached notices */
-[class*="container-"]>[class*="base-"]>[class*="notice-"] {
-  margin-bottom: 4px;
-  border-radius: 8px;
-}
+
+
 
 /* Resizable thread side (li'l buggy) */
 :root {
@@ -95,29 +263,6 @@
   color: var(--text-muted)
 }
 
-/* ----- MEMBER LIST ----- */
-.roleColor-rz2vM0::after {
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0.125;
-  background: currentColor;
-}
-.member-3-YXUe .badges {
-  z-index: 0;
-}
-.member-3-YXUe.selected-aXhQR6 .roleColor-rz2vM0::after {
-  border-radius: 4px;
-}
-.membersGroup-v9BXpm + .member-3-YXUe {
-  margin-top: 5px;
-}
-.member-3-YXUe .roleColor-rz2vM0::after {
-  border-radius: 5px;
-}
 
 /* ----- MESSAGE TEXTAREA ----- */
 /* Move attach file to the right side */
@@ -142,90 +287,6 @@
 }
 
 
-/* ----- SPLIT UP USER AREA ----- */
-/* Remove user area container */
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"] {
-  height:0;
-  margin-bottom: 0;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"]>[class*="container-"] {border:none}
-
-/* Settings to bottom left */
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child {
-  background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
-  color: var(--text-normal);
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  width: 72px;
-  height: 64px;
-  padding-top:2px;
-  border-radius: 0;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child::after {
-  background-color: var(--background-primary);
-  transition: background-color .15s ease-out,color .15s ease-out;
-  position: absolute;
-  content: "";
-  z-index: -1;
-  height: 48px;
-  width: 48px;
-  border-radius: var(--_pointless-radius-server);
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
-  color: #fff;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
-  background-color: var(--brand-experiment);
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:last-child:active {
-  transform: translateY(1px);
-}
-.scroller-1Bvpku> .listItem-GuPuDH:nth-last-child(2) {
-  padding-bottom: 56px;
-}
-
-/* Mute/Deafen in VC area */
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"]>[class*="container-"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="actionButtons-"] {width:190px}
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="actionButtons-"]> button {
-  min-width: 90px;
-  padding: 2px 0;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
-  position: absolute;
-  top: 48px;
-  left: 48px;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
-  left: 54px;
-  width: 26px;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
-  position: relative;
-  bottom: 64px;
-  left: 150px;
-  width: 26px;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
-
-/* User area pfp aligned with our messages */
-[class*="sidebar-"]>[class*="panels-"] [class*="avatarWrapper-"] {
-  left: 261px;
-  bottom: 8px;
-  position: absolute;
-  z-index: 1;
-}
-[class*="sidebar-"]>[class*="panels-"] [class*="avatarWrapper-"]:active {
-  transform: translateY(1px);
-}
-[class*="sidebar-"]>[class*="panels-"] [class*="avatar-"][class*="wrapper-"] {
-  /*width: 40px;*/
-  height: 40px !important;
-}
-/*[class*="sidebar-"]>[class*="panels-"] [class*="avatar-"][class*="wrapper-"] svg {
-  overflow: unset;
-}*/
 /* Move message bar to make space for user pfp (but not in threads) */
 .chat-3bRxxu .form-2fGMdU {
   padding-left: 72px;
@@ -233,6 +294,7 @@
 .chat-3bRxxu .form-2fGMdU::before {
   width: 6rem;
 }
+
 
 /* User area "popout" (status picker, but now also shows name [& background?]) */
 .menu-3sdvDG#status-picker {
@@ -283,16 +345,6 @@
     margin: 0;
     align-items: center;*/
 }
-/* GameActivityToggle button to status picker */
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {
-  display: none;
-}
-[class*="sidebar-"]>[class*="panels-"]>[class*="container-"]>[class*="flex-"]> button:not([aria-checked]):first-child {
-  position: absolute;
-  left: 510px;
-  bottom: 86px;
-  z-index: 10005;
-}
 
 /* hide unhovered status names, descriptions & status names for statuses with descriptions */
 .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte .status-1fhblQ:not(:last-child), .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .description-2L932D {
@@ -313,19 +365,8 @@
 }
 
 /* ----- OTHER ----- */
-/* Pin home icon */
 
 /* [class*="guilds-"]>ul>[class*="scroller-"] */
-[class*="guilds-"]>ul>[class*="scroller-"]>:first-child { /* Home button */
-  position: fixed;
-  top: 22px;
-  z-index: 1;
-  background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
-  padding-bottom:2px;
-}
-[class*="guilds-"]>ul>[class*="scroller-"] {
-  padding-top: 48px;
-}
 
 
 /*
@@ -348,7 +389,7 @@
 
 
 /* Blur when offline */
-.container-16j22k.fixClipping-3qAKRb{
+#app-mount>[class*="app-"]>[class*="container-"] {
   background:rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
 }
