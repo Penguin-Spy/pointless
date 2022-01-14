@@ -1,3 +1,17 @@
+/* animation for the "user is typing..." box to float up */
+@keyframes textArea-typing {
+	from {
+		transform: translateY(52px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+
+
 /* Changes to main chat window + channel, server, & member list */
 
 /* Settings update notice */
@@ -225,10 +239,59 @@
             margin-top: 5px;
           }
         }
+
+        &>[class*="chatContent-"]>form { /* messages & textarea */
+          /* position "user is typing..." box above the text area */
+          &>[class*="typing-"] {
+            bottom: 52px;
+	          animation: textArea-typing .2s ease-out;
+          }
+
+          & [class*="channelTextArea-"], & [class*="wrapper-"] {
+            /* resize textarea box */
+            margin-bottom: 8px; /* move down to swap with the typing indicator */
+            margin-left: 56px;  /* make space for the user area pfp */
+            width: unset; /* prevent the textarea from going offscreen */
+
+            &>[class*=scrollableContainer-]>div {
+              /* move the (+) file upload & thread button to the right */
+              &>[class*=attachWrapper-] {
+                order: 1;
+                /*right: 66px;*/
+                /*right: 18px;
+                position: fixed;*/
+                right: -14px;
+                position: absolute;
+                z-index: 1;
+              }
+
+              /* make space for the file upload button (but only when it's there) */
+              &>[class*=attachWrapper-] ~ [class*="buttons-"] {
+                right: 32px;
+              }
+
+              /* Hide unnecessary buttons */
+              &>[class*="buttons-"] {
+                &>[class*="buttonContainer-"]>[class*="button-"]:not([class*="emojiButton-"]), /* Sticker & GIF button */
+                &>button[class*="button-"]>[class*="button-"] {  /* Nitro Gift */
+                  display: none;
+                }
+
+                /* make space for file upload button before the Accessibility Send button (not always present) */
+                /*&>[class*="separator-"] {
+                  right: -32px;
+                  position: relative;
+                }*/
+              }
+            }
+
+          }
+        }
       }
     }
   }
 }
+
 
 /* recolor search box backgrounds */
 .searchBar-zdmu7v {
@@ -261,29 +324,6 @@
 }
 .spine--Wla_O { /* thread 'icon' in channel list */
   color: var(--text-muted)
-}
-
-
-/* ----- MESSAGE TEXTAREA ----- */
-/* Move attach file to the right side */
-.form-2fGMdU .attachWrapper-2TRKBi{order:1;margin-left:13px;}
-.form-2fGMdU .attachButton-2WznTc {padding-right:5px}
-.form-2fGMdU .channelTextArea-rNsIhG {
-  margin-bottom: 8px;
-}
-/*.form-2fGMdU .typing-2GQL18 {
-}*/
-/* attempt to move the typing users text up with an animation
- * this is annoying to test so i gave up after like 5 seconds */
-/*.form-2fGMdU .typing-2GQL18 {
-  transition: bottom ease-in-out;
-}*/
-[class*="chatContent-"]>[class*="form-"]>[class*="base-"] {
-  bottom: 52px;
-}
-[class*="channelTextArea-"] [class*="buttons-"]>[class*="buttonContainer-"]>[class*="button-"]:not([class*="emojiButton-"]), /* Sticker & GIF button */
-[class*="channelTextArea-"] [class*="buttons-"]>button[class*="button-"]> [class*="button-"] {  /* Nitro Gift */
-  display: none;
 }
 
 
