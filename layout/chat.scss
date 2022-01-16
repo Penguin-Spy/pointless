@@ -342,6 +342,101 @@
 }
 
 
+/* chat message username bg
+  by: ashtrath. (chloe.#9079) https://discord.com/channels/538759280057122817/755005803303403570/912038821565173781
+  edited to use class string selectors
+*/
+[class*="compact-"] [class*="headerText-"] > span::before {
+  content: '';
+  width: calc(100% + 6px);
+  height: 100%;
+  border-radius: 5px;
+  background-color: currentColor;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: -4px;
+  z-index: -1;
+}
+[class*="compact-"] [class*="headerText-"] > span::after {
+  content: ":";
+}
+
+[class*="cozy-"] [class*="headerText-"] > span::before {
+  content: '';
+  width: calc(100% + 7px);
+  height: 100%;
+  border-radius: 5px;
+  background-color: currentColor;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  /* repairs left shift*/
+  left: -3px;
+}
+/*[class*="cozy-"] [class*="headerText-"] > span::after {
+  content: ":";
+}*/
+/* repairs left shift */
+[class*="cozy-"] [class*="headerText-"] > span {
+  margin-left: 3px;
+}
+
+/* gives me a tag :)
+  by: dante_nl#1234 https://discord.com/channels/538759280057122817/755005803303403570/929388259598008320
+*/
+[class*="compact-"][data-author-id="97399302313242624"] [class*="username-"]::before,
+[class*="cozyMessage-"][data-author-id="97399302313242624"] [class*="username-"]::after {
+  content: "pointless";
+  position: relative;
+  bottom: 2px;
+  background-color: #5865F2;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  line-height: 1.3;
+  margin-left: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Jump to Message buttons
+  by: ThatOtherAndrew#8134 https://canary.discord.com/channels/538759280057122817/755005803303403570/929440925791449148
+*/
+[title^="https://discord.com/channels/"], [title^="https://ptb.discord.com/channels/"], [title^="https://canary.discord.com/channels/"] {
+  line-height: 0;
+  font-size: 0;
+  text-decoration-color: #fff !important;
+}
+[title^="https://discord.com/channels/"]::before, [title^="https://ptb.discord.com/channels/"]::before, [title^="https://canary.discord.com/channels/"]::before {
+  content: "✉ Jump to Message";
+  font-size: 16px;
+  user-select: text;
+  font-weight: 500;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 2px;
+  background: hsla(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%, 0.3);
+  color: hsl(236, calc(var(--saturation-factor, 1) * 83.3%), 92.9%);
+}
+[title^="https://discord.com/channels/"]:hover::before, [title^="https://ptb.discord.com/channels/"]:hover::before, [title^="https://canary.discord.com/channels/"]:hover::before {
+  background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%);
+  color: #fff;
+}
+
+/* colored window buttons
+  by: ِJJ#0001 https://canary.discord.com/channels/538759280057122817/755005803303403570/929921672482529310
+*/
+[class*="winButton-"]:nth-child(3):hover {background-color: var(--brand-experiment) ;}
+[class*="winButton-"]:nth-child(4):hover {background-color: orange ;}
+
+
 
 /* Resizable thread side (li'l buggy) */
 :root {
@@ -370,17 +465,8 @@
 }
 
 
-/* Move message bar to make space for user pfp (but not in threads) */
-.chat-3bRxxu .form-2fGMdU {
-  padding-left: 72px;
-}
-.chat-3bRxxu .form-2fGMdU::before {
-  width: 6rem;
-}
-
-
 /* User area "popout" (status picker, but now also shows name [& background?]) */
-.menu-3sdvDG#status-picker {
+/*#status-picker {
   position: fixed;
   bottom: 8px;
   left: 77px;
@@ -388,34 +474,34 @@
   height: 225px;
   background: var(--background-tertiary);
   border-radius: 5px;
+  z-index: -1;
 }
-.menu-3sdvDG#status-picker .item-1tOPte svg{
+#status-picker [class*="item-"] svg{
   width: 16px;
   height: 16px;
 }
-.menu-3sdvDG#status-picker .scrollerBase-289Jih {
+#status-picker [class*="scrollerBase-"] {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: 40px 40px;
   margin: auto 4px 4px 4px;
 }
-.menu-3sdvDG#status-picker .separator-2I32lJ {
+#status-picker [class*="separator-"] {
   display: none;
 }
-
-.menu-3sdvDG#status-picker .item-1tOPte {
+#status-picker [class*="item-"] {
   height: 32px;
-}
+}*/
 
 /* usernametag to status picker */
-.container-3baos1 .avatarWrapper-2yR4wp[aria-expanded="false"] ~ .nameTag-3uD-yy {
+[class*="container-"] [class*="avatarWrapper-"][aria-expanded="false"] ~ [class*="nameTag-"] {
   display: none;
 }
-.container-3baos1 .avatarWrapper-2yR4wp[aria-expanded="true"] ~ .nameTag-3uD-yy {
+[class*="container-"] [class*="avatarWrapper-"][aria-expanded="true"] ~ [class*="nameTag-"] {
   display: unset;
   position: absolute;
-  left: 290px;
-  bottom: 64px;
+  left: 160px;
+  bottom: 16px;
   z-index: 10005;
   /*
     position: absolute;
@@ -430,46 +516,24 @@
 }
 
 /* hide unhovered status names, descriptions & status names for statuses with descriptions */
-.menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte .status-1fhblQ:not(:last-child), .menu-3sdvDG#status-picker .item-1tOPte:not(.focused-3afm-j) .description-2L932D {
+/*[class*="menu-"]#status-picker [class*="item-"]:not([class*="focused-"]) [class*="status-"]:last-child, [class*="menu-"]#status-picker [class*="item-"] [class*="status-"]:not(:last-child), [class*="menu-"]#status-picker [class*="item-"]:not([class*="focused-"]) [class*="description-"] {
   display: none;
-}
+}*/
 
 /* Show status names/descriptions when hovered */
-.menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .status-1fhblQ:last-child, .menu-3sdvDG#status-picker .item-1tOPte.focused-3afm-j .description-2L932D {
+/*[class*="menu-"]#status-picker [class*="item-"][class*="focused-"] [class*="status-"]:last-child, [class*="menu-"]#status-picker [class*="item-"][class*="focused-"] [class*="description-"] {
   display: block;
   position: absolute;
   bottom: 30px;
   width: 100%;
   right: 0;
   text-align: center;
-}
-:root .panels-j1Uci_ {
+}*/
+:root [class*="panels-"] {
   z-index: unset;
 }
 
 /* ----- OTHER ----- */
-
-/* [class*="guilds-"]>ul>[class*="scroller-"] */
-
-
-/*
-[class*="guilds-"]>ul>[class*="scroller-"]> [class*="listItem-"]:nth-child(2) {
-  margin-bottom: 0;
-}
-[class*="guilds-"]>ul>[class*="scroller-"]> [class*="listItem-"]:nth-last-of-type(5) {
-  margin-top: 8px;
-}
-
-*/
-
-
-.guilds-1SWlCJ .scroller-1Bvpku { contain: none !important; padding-top: 0;}
-/*.container-2lgZY8> .guilds-1SWlCJ .scroller-1Bvpku> [aria-label] { margin-top: 54px;}*/
-/*.guilds-1SWlCJ .scroller-1Bvpku> [style] { margin-top: 56px;}*/
-.guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [aria-label], .guilds-1SWlCJ .scroller-1Bvpku> [style] ~ [style] { margin-top: 0px;}
-
-
-
 
 /* Blur when offline */
 #app-mount>[class*="app-"]>[class*="container-"] {
@@ -478,7 +542,7 @@
 }
 
 /* Hide cursor in fullscreen video when: */
-.wrapperControlsHidden-35Gtol {
+[class*="wrapperControlsHidden-"] {
   cursor: none;
 }
 
@@ -493,19 +557,8 @@
   border-radius: var(--_pointless-radius-interface);
 }
 
-/* Settings close button */
-.closeButton-1tv5uR {
-  border-radius: var(--_pointless-radius-interface);
-}
-/* Settings switches */
-[class*="control-"]>[class*="container-"] {
-  border-radius: var(--_pointless-radius-interface);
-}
-[class*="control-"]>[class*="container-"]>svg>rect { /* inside bit */
-  rx: var(--_pointless-radius-interface);
-}
 
-/*
+/* link target tooltip
 .grid-1nZz7S {
     overflow: visible !important;
 }

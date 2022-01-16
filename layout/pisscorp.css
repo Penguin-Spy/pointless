@@ -47,7 +47,7 @@
   background-color: var(--interactive-muted);
 }
 [class*="userSettingsVoice-"] [class*="micTest-"] [class*="notches-"] {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='20' fill='none'%3E%3Cpath fill-rule='evenodd' d='M0 0h8v20H0V0zm4 2a2 2 0 00-2 2v12a2 2 0 104 0V4a2 2 0 00-2-2z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='20' fill='none'%3E%3C/svg%3E");
 }
 
 /* Slider bar backgrounds */
@@ -68,7 +68,7 @@
 }
 
 /* Search menu */
-[class*="layer-"] > #search-results {
+[class*="layerContainer-"]>[class*="layer-"]>[class*="container-"][id][aria-activedescendant][style] {
   background-color: var(--background-secondary-alt);
 }
 [class*="layer-"] > #search-results > [class*="resultsGroup-"] { /*background*/
@@ -122,7 +122,7 @@
 [class*="modal-"]>[class*="inner-"]>[class*="modal-"] {
   background-color: var(--background-primary);
 }
-[class*="layerContainer-"] [class*="root-"]:not([class*="modal-"]) [class*="footer-"],
+[class*="layerContainer-"] [class*="root-"] [class*="footer-"],
 [class*="backdrop-"] ~ [class*="modal-"] [class*="footer-"] {
   background-color: var(--background-secondary);
   box-shadow: none;

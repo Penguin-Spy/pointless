@@ -26,3 +26,13 @@ img[class*="guildIcon-"]
 {
   border-radius: unset;
 }
+
+/* Settings switches */
+[class*="control-"]>[class*="container-"],
+.powercord-product-header [class*="container-"] {
+  border-radius: var(--_pointless-radius-interface);
+}
+[class*="control-"]>[class*="container-"]>svg>rect,
+.powercord-product-header [class*="container-"]>svg>rect { /* inside bit */
+  rx: var(--_pointless-radius-interface);
+}
