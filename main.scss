@@ -6,6 +6,7 @@
 @forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
 @forward 'layout/user-popout';
 @forward 'layout/user-modal';
+@forward 'layout/settings';     /* Settings menu */
 @forward 'layout/no-nitro';     /* Hide all options for your use of nitro-only features (for example: hides the nitro gift & send sticker buttons) */
 @forward 'layout/font';         /* Apply new fonts. Please edit font settings in QuickCSS with :root {} */
 

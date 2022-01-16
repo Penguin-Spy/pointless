@@ -1,7 +1,7 @@
 /* Applies color variables to all the places where Discord didn't use them */
 
 /* the powercord notices plugin literally defines it's own copy of the discord colors for some reason */
-:root {
+.theme-light, .theme-dark {
   --toast-background: var(--background-secondary);
   --toast-header: var(--background-tertiary);
   --toast-contents: var(--background-primary);
@@ -129,6 +129,6 @@
 }
 
 /* Delete message modal */
-[class*="layerContainer-"] [class*="root-"] [class*="message-"] {
+[class*="layerContainer-"] [class*="root-"] [class*="content-"]>[class*="message-"] {
   background-color: var(--background-primary);
 }

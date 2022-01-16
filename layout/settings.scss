@@ -1,0 +1,343 @@
+/* THIS FILE RESTYLES THE DISCORD SETTINGS MENU,
+   IT IS NOT INTENDED TO BE EDITED BY END USERS!
+
+  To edit the Pointless theme settings, see the 'settings.scss' file in
+  the main folder of the theme, not this one in the 'layout' folder.
+
+  NOTE: this targets both the User Settings and Guild Settings menus!
+*/
+
+
+[class*="guilds-"]>ul>[class*="scroller-"] [class*="listItem-"]>[class*="wrapper-3XVBev"],
+[class*="content-"]>main[class*="chatContent-"]>[class*="layerContainer-"] {
+  pointer-events: none !important;
+}
+
+#app-mount [class*="layers-"] {
+
+  /* Settings content */
+  &>:not([class*="baseLayer-"]) {
+    left: 72px;
+    /*z-index: 9999;
+    /*opacity: 0.85 !important;*/
+
+    & [class*="standardSidebarView-"] {
+      background-color: var(--background-tertiary);
+
+      /* Settings tab scroller */
+      &>[class*="sidebarRegion-"] {
+        flex: 0 0 240px;
+        width: 240px;
+
+        &::before {
+          content: "Settings";
+          position: absolute;
+          display: block;
+          width: 208px;
+          height: 20px;
+          padding: 14px 16px;
+          border-radius: 15px 15px 0 0;
+          background-color: var(--background-secondary-alt);
+
+          font-size: 15px;
+          line-height: 20px;
+          font-weight: 600;
+          color: var(--header-primary);
+        }
+
+        &>[class*="sidebarRegionScroller-"] {
+          display: block;
+          margin-top: 48px;
+
+          &>nav {
+            width: 232px;
+            padding: unset;
+
+            /* direct container of settings tab list items */
+            &>div {
+              /* "Category" header */
+              &>[class*="header-"] {
+                padding: 20px 16px 4px;
+                letter-spacing: .25px;
+              }
+
+              /* "Channel" */
+              &>[class*="item-"] {
+                padding: 7px 8px 5px;
+                margin-left: 8px;
+                display: flex;
+                align-items: center;
+
+                /* "Channel" icon */
+                &::before {
+                  content: "";
+                  width: 20px;
+                  height: 20px;
+                  margin-right: 6px;
+                  background: currentColor;
+                  mask: var(--icon-mask) center/contain no-repeat;
+                  -webkit-mask: var(--icon-mask) center/contain no-repeat;
+                  flex-shrink: 0;
+                  --icon-mask: var(--icon, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 447 447'%3E%3Cpath fill='white' d='M221 117.1l-33.8-33.8 70-70c9.3-9.3 24.5-9.3 33.8 0 9.3 9.3 9.3 24.5 0 33.8l-70 70z'/%3E%3Cpath fill='white' d='M216.3 121.7l-33.8-33.8c-2.6-2.6-2.6-6.8 0-9.3l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70c-2.6 2.6-6.7 2.6-9.3 0zm-19.8-38.4l24.5 24.5 65.3-65.3c6.7-6.7 6.7-17.7 0-24.5-6.7-6.7-17.7-6.7-24.5 0l-65.3 65.3z'/%3E%3Cpath fill='white' d='M312.7 208.8L278.9 175l70-70c9.3-9.3 24.5-9.3 33.8 0 9.3 9.3 9.3 24.5 0 33.8l-70 70z'/%3E%3Cpath fill='white' d='M308 213.4l-33.8-33.8c-2.6-2.6-2.6-6.8 0-9.3l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70c-2.5 2.6-6.7 2.6-9.3 0zM288.2 175l24.5 24.5 65.3-65.3c6.7-6.7 6.7-17.7 0-24.5s-17.7-6.7-24.5 0L288.2 175z'/%3E%3Cpath fill='white' d='M143.71 88.065l24.112-24.113L331.94 228.07l-24.112 24.112z'/%3E%3Cpath fill='white' d='M303 257L138.9 92.9c-2.7-2.7-2.7-7 0-9.7L163 59.1c2.7-2.7 7-2.7 9.7 0l164.1 164.1c2.7 2.7 2.7 7 0 9.7L312.7 257c-2.7 2.7-7 2.7-9.7 0zM153.4 88.1l154.5 154.5 14.5-14.5L167.9 73.6l-14.5 14.5z'/%3E%3Cpath fill='white' d='M161.2 327.6l-92.9-92.9c-14.3-14.3-14.3-37.6 0-51.9l85.1-85.1 144.8 144.8-85.1 85.1c-14.3 14.4-37.6 14.4-51.9 0z'/%3E%3Cpath fill='white' d='M156.4 332.4l-92.9-92.9c-17-17-17-44.6 0-61.6l85.1-85.1c2.7-2.7 7-2.7 9.7 0L303 237.7c2.7 2.7 2.7 7 0 9.7l-85 85c-17 17-44.7 17-61.6 0zm-3-225l-80.2 80.2c-11.7 11.7-11.7 30.6 0 42.3l92.9 92.9c11.7 11.7 30.6 11.7 42.3 0l80.2-80.2-135.2-135.2z'/%3E%3Cpath fill='white' d='M71.328 295.671l28.991-28.991 28.991 28.991-28.991 28.991z'/%3E%3Cpath fill='white' d='M95.4 329.5l-29-29c-2.7-2.7-2.7-7 0-9.7l29-29c2.7-2.7 7-2.7 9.7 0l29 29c2.7 2.7 2.7 7 0 9.7l-29 29c-2.7 2.6-7 2.6-9.7 0zM81 295.7l19.3 19.3 19.3-19.3-19.3-19.3L81 295.7z'/%3E%3Cpath fill='white' d='M143.7 445.3L81 382.6c-21.3-21.3-21.3-55.9 0-77.2 2.7-2.7 7-2.7 9.7 0 2.7 2.7 2.7 7 0 9.7-16 16-16 42 0 57.9l62.8 62.8c2.7 2.7 2.7 7 0 9.7s-7.1 2.5-9.8-.2z'/%3E%3C/svg%3E"));
+                }
+              }
+
+              /* divider */
+              &>[class*="separator-"] {
+                display: none;
+              }
+
+              /* fake category for other stuff */
+              &>[aria-controls="hypesquad-online-tab"] {
+                margin-top: 40px;
+                overflow: visible;
+              }
+              &>[aria-controls="hypesquad-online-tab"]::after {
+                content: "Other";
+                position: absolute;
+                top: -40px;
+                left: -8px;
+                display: block;
+                width: 208px;
+                height: 20px;
+                padding: 20px 16px 4px;
+
+                font-size: 12px;
+                font-weight: 700;
+                font-family: var(--font-display);
+                line-height: 16px;
+                text-transform: uppercase;
+                color: var(--channels-default);
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                flex-shrink: 0;
+                letter-spacing: 0.25px;
+              }
+
+              /* Logout, Changelog, & Delete (guild) as buttons */
+              &>[aria-controls="changelog-tab"],
+              &>[aria-controls="logout-tab"],
+              &>[aria-controls="delete-tab"] {
+                order: 1;
+                position: relative;
+                padding: 8px 16px;
+
+                &::before {
+                  content: none;
+                }
+              }
+              &>[aria-controls="changelog-tab"] {
+                margin: 8px 0 4px 8px;
+                transition: background-color .17s ease,color .17s ease;
+                color: #fff;
+                background-color: var(--brand-experiment);
+                &:hover {
+                  background-color: var(--brand-experiment-560);
+                }
+              }
+              &>[aria-controls="logout-tab"], &>[aria-controls="delete-tab"] {
+                margin: 4px 0 8px 8px;
+                transition: color .17s ease,background-color .17s ease,border-color .17s ease;
+                border-width: 1px;
+                border-style: solid;
+                border-color: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%);
+
+                &:hover {
+                  color: #fff !important;
+                }
+              }
+
+              &>[class*="socialLinks-"] {
+                order: 2;
+                padding: 8px 20px 4px;
+
+                /* use svg for Powercord icon */
+                &>.powercord-pc-icon::before {
+                  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 447 447'%3E%3Cpath fill='white' d='M221 117.1l-33.8-33.8 70-70c9.3-9.3 24.5-9.3 33.8 0 9.3 9.3 9.3 24.5 0 33.8l-70 70z'/%3E%3Cpath fill='white' d='M216.3 121.7l-33.8-33.8c-2.6-2.6-2.6-6.8 0-9.3l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70c-2.6 2.6-6.7 2.6-9.3 0zm-19.8-38.4l24.5 24.5 65.3-65.3c6.7-6.7 6.7-17.7 0-24.5-6.7-6.7-17.7-6.7-24.5 0l-65.3 65.3z'/%3E%3Cpath fill='white' d='M312.7 208.8L278.9 175l70-70c9.3-9.3 24.5-9.3 33.8 0 9.3 9.3 9.3 24.5 0 33.8l-70 70z'/%3E%3Cpath fill='white' d='M308 213.4l-33.8-33.8c-2.6-2.6-2.6-6.8 0-9.3l70-70c11.9-11.9 31.2-11.9 43.1 0s11.9 31.2 0 43.1l-70 70c-2.5 2.6-6.7 2.6-9.3 0zM288.2 175l24.5 24.5 65.3-65.3c6.7-6.7 6.7-17.7 0-24.5s-17.7-6.7-24.5 0L288.2 175z'/%3E%3Cpath fill='white' d='M143.71 88.065l24.112-24.113L331.94 228.07l-24.112 24.112z'/%3E%3Cpath fill='white' d='M303 257L138.9 92.9c-2.7-2.7-2.7-7 0-9.7L163 59.1c2.7-2.7 7-2.7 9.7 0l164.1 164.1c2.7 2.7 2.7 7 0 9.7L312.7 257c-2.7 2.7-7 2.7-9.7 0zM153.4 88.1l154.5 154.5 14.5-14.5L167.9 73.6l-14.5 14.5z'/%3E%3Cpath fill='white' d='M161.2 327.6l-92.9-92.9c-14.3-14.3-14.3-37.6 0-51.9l85.1-85.1 144.8 144.8-85.1 85.1c-14.3 14.4-37.6 14.4-51.9 0z'/%3E%3Cpath fill='white' d='M156.4 332.4l-92.9-92.9c-17-17-17-44.6 0-61.6l85.1-85.1c2.7-2.7 7-2.7 9.7 0L303 237.7c2.7 2.7 2.7 7 0 9.7l-85 85c-17 17-44.7 17-61.6 0zm-3-225l-80.2 80.2c-11.7 11.7-11.7 30.6 0 42.3l92.9 92.9c11.7 11.7 30.6 11.7 42.3 0l80.2-80.2-135.2-135.2z'/%3E%3Cpath fill='white' d='M71.328 295.671l28.991-28.991 28.991 28.991-28.991 28.991z'/%3E%3Cpath fill='white' d='M95.4 329.5l-29-29c-2.7-2.7-2.7-7 0-9.7l29-29c2.7-2.7 7-2.7 9.7 0l29 29c2.7 2.7 2.7 7 0 9.7l-29 29c-2.7 2.6-7 2.6-9.7 0zM81 295.7l19.3 19.3 19.3-19.3-19.3-19.3L81 295.7z'/%3E%3Cpath fill='white' d='M143.7 445.3L81 382.6c-21.3-21.3-21.3-55.9 0-77.2 2.7-2.7 7-2.7 9.7 0 2.7 2.7 2.7 7 0 9.7-16 16-16 42 0 57.9l62.8 62.8c2.7 2.7 2.7 7 0 9.7s-7.1 2.5-9.8-.2z'/%3E%3C/svg%3E") no-repeat;
+                }
+              }
+
+              /* display theme version at end of list */
+              &>[class*="info-"] {
+                order: 2;
+                text-transform: none;
+                &::after {
+                  content: "pointless 0.4.0 (commit)";
+                  font-size: 12px;
+                  line-height: 16px;
+                  color: var(--text-muted);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      /* content of selected tab */
+      &>[class*="contentRegion-"] {
+        margin-left: 5px;
+        background-color: unset;
+
+        &>[class*="contentTransitionWrap-"] {
+          border-radius: 15px 15px 0 0;
+          background-color: var(--background-primary-alt);
+
+          &>[class*="contentRegionScroller-"] {
+            /* title as "channel" title */
+            margin-top: 48px;
+
+            &>main {
+              padding: 16px 16px 80px 16px;
+
+              /* "channel title" */
+              &>div:first-child:not([class*="margin"])>[class*="sectionTitle-"],
+              &>div>div:first-child:not([class*="margin"])>[class*="sectionTitle-"],
+              &>div>[class*="title-"],
+              &>.powercord-settings-error>h2 {
+                position: fixed;
+                top: 22px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+
+                &>h1 {
+                  height: 24px;
+                  margin-bottom: 0;
+                  font-size: 16px;
+                  line-height: 20px;
+                  font-weight: 600;
+                  color: var(--header-primary);
+                  font-weight: 600;
+                  font-family: var(--font-display);
+                  overflow: hidden;
+                  white-space: nowrap;
+                  display: flex;
+                  align-items: center;
+                }
+              }
+
+              /* "channel title" icon */
+              &>div:first-child:not([class*="margin"])>[class*="sectionTitle-"]>h1::before,
+              &>div>div:first-child:not([class*="margin"])>[class*="sectionTitle-"]>h1::before,
+              &>div>[class*="title-"]::before,
+              &>.powercord-settings-error>h2::before {
+                content: "";
+                width: 24px;
+                height: 24px;
+                margin-right: 8px;
+                background: currentColor;
+                mask: var(--pointless-icon-settings) center/contain no-repeat;
+                -webkit-mask: var(--pointless-icon-settings) center/contain no-repeat;
+                flex-shrink: 0;
+              }
+            }
+
+            /* Close button invisibly over guild list */
+            &>[class*="contentColumn-"] {
+              max-width: unset;
+            }
+            &>[class*="toolsContainer-"] {
+              position: absolute;
+              left: -317px;
+              padding-top: 0;
+
+              &>div { /* tools- */
+                width: 72px;
+                height: 100%;
+
+                &>div { /* container- */
+                  height: 100%;
+                  display: grid;
+
+                  &>[class*="closeButton-"] {
+                    width: 100%;
+                    height: 100%;
+                    display: unset;
+                    border: none;
+                    border-radius: unset;
+
+                    &:hover {
+                      background-color: unset;
+                    }
+                    &>svg {
+                      display: none;
+                    }
+                  }
+                  &>[class*="keybind-"] {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* force colors & pills of Home, guild & settings icons */
+  &>[class*="baseLayer-"][aria-hidden="true"]>[class*="container-"] {
+    &>[class*="guilds-"]>ul>[class*="scroller-"] {
+      &>[class*="tutorialContainer-"]:first-child>div [class*="childWrapper-"] {
+        background-color: var(--background-primary);
+        color: var(--text-normal);
+      }
+      &>[class*="listItem-"]:nth-last-child(2) [class*="circleIconButton-"] {
+        background-color: var(--background-primary);
+        color: hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
+      }
+      & [class*="listItem-"] {
+        & [class*="item-"] {
+          opacity: 0 !important;
+        }
+      }
+    }
+
+    [class*=base-] > [class*=content-] > [class*=sidebar-] > section > [class*=container-] > [class*=flex-] > button:last-child {
+      color: #fff;
+      &::after {
+        background-color: var(--brand-experiment);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 8px;
+        height: 40px;
+        left: 0;
+        top: 13px;
+        border-radius: 0 4px 4px 0;
+        margin-left: -4px;
+        background-color: var(--header-primary);
+      }
+    }
+  }
+
+  /* Remove transition animations */
+
+  /* Both main & settings content */
+  &>[class*="animating-"] {
+    pointer-events: initial;
+    will-change: unset;
+
+    /* oh so this is why the settings animation is so f-ing laggy
+       it updates this property for EVERY SINGLE ELEMENT IN THE FUCKING APPLICATION TWICE WHY DISCORD */
+    & * {
+      pointer-events: unset !important;
+    }
+  }
+
+  /* Main content, Settings content in */
+  &>div {
+    opacity: 1 !important;
+    transform: unset !important;
+  }
+
+  /* Settings content out */
+  &>[aria-hidden="false"] ~ [aria-hidden="false"] {
+    display: none;
+    pointer-events: none;
+  }
+}

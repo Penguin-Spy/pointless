@@ -58,7 +58,8 @@
   background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
 }*/
 
-#app-mount [class*="container-"] {
+/* main app content */
+#app-mount [class*="layer-"]>[class*="container-"] {
   &>[class*="guilds-"], &>.BF-folderSidebar>[class*="guilds-"] {
 
 
@@ -71,11 +72,11 @@
       /* Pin home icon */
       &>[class*="tutorialContainer-"]:first-child, &>.expanded>[class*="listItem-"] { /* Home button */
         position: sticky;
-        top: -10px;
+        top: -4px;
         z-index: 1;
         background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
-        padding-top: 10px;
-        margin-top: -10px;
+        padding-top: 4px;
+        padding-bottom: 2px;
       }
 
       /* Make space for settings icon */
@@ -96,18 +97,19 @@
 
       /* ----- HEADER & BORDERS ----- */
       /* Remove header shadows & recolor*/
-      &>[class*="sidebar-"]>nav header {
+      &>[class*="sidebar-"]>nav :is(header, [class*="searchBar-"]) {
         background-color: var(--background-secondary-alt);
         box-shadow: none;
       }
-      &>[class*="chat-"] {
+      /* Select whatever window is the main content */
+      &>:nth-child(2) {
         &>section {
           background-color: var(--background-primary-alt);
           &>[class*="children-"]::after {
             background: linear-gradient(90deg,rgba(54,57,63,0) 0,var(--background-primary-alt)) !important;
           }
         }
-        &>[class*="content-"]::before {
+        &>div::before {
           content: none;
         }
       }
@@ -133,6 +135,18 @@
             height: 64px;
             padding-top:2px;
             border-radius: 0;
+          }
+          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 8px;
+            height: 20px;
+            left: 0;
+            top: 23px;
+            border-radius: 0 4px 4px 0;
+            margin-left: -4px;
+            background-color: var(--header-primary);
           }
           &>[class*="container-"]>[class*="flex-"]> button:last-child::after {
             background-color: var(--background-primary);
@@ -209,14 +223,14 @@
         }
 
         /* Round split between channel list & chat */
-        border-radius: 15px 15px 0 0 !important;
+        border-radius: 15px 15px 0 0;
       }
 
+      /* Select whatever window is the main content */
       &>:nth-child(2) {
         /* Round split between channel list & chat */
-        border-radius: 15px 15px 0 0 !important;
+        border-radius: 15px 15px 0 0;
 
-        position: relative;
         margin-left: 5px;
       }
 
@@ -253,9 +267,9 @@
             margin-left: 56px;  /* make space for the user area pfp */
             width: unset; /* prevent the textarea from going offscreen */
 
-            &>[class*=scrollableContainer-]>div {
+            &>[class*="scrollableContainer-"]>div {
               /* move the (+) file upload & thread button to the right */
-              &>[class*=attachWrapper-] {
+              &>[class*="attachWrapper-"] {
                 order: 1;
                 /*right: 66px;*/
                 /*right: 18px;
@@ -266,7 +280,9 @@
               }
 
               /* make space for the file upload button (but only when it's there) */
-              &>[class*=attachWrapper-] ~ [class*="buttons-"] {
+              //TODO: fix icons for the menu this button shows
+              // and a clock icon for the timeout user context menu
+              &>[class*="attachWrapper-"] ~ [class*="buttons-"] {
                 right: 32px;
               }
 
@@ -292,8 +308,35 @@
   }
 }
 
+/* Move settings tooltip back on screen */
+#app-mount>[class*="layerContainer-"]>:is(
+  [style="position: absolute; left: -23px; bottom: 72px;"],
+  [style="position: absolute; left: -29px; bottom: 72px;"]
+) {
+  left: 80px !important;
+  bottom: 15px !important;
 
-/* recolor search box backgrounds */
+  &>div {
+    transform-origin: 0 50%;
+    max-width: 196px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    word-wrap: break-word;
+
+    &>[class*="tooltipPointer-"] {
+      position: absolute;
+      right: 100%;
+      left: unset;
+      top: 50%;
+      margin-top: -5px;
+      border-left-width: 5px;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+/* TODO: recolor search box backgrounds */
 .searchBar-zdmu7v {
   background-color: var(--background-secondary-alt);
 }
