@@ -40,13 +40,14 @@
   background-color: var(--background-secondary);
   border-color: var(--background-tertiary);
 }
-[class*="userSettingsVoice-"] [class*="micTest-"] [class*="container-"] { /* Mic test, this removes the notches because it's not possible to color the cutout that makes the notches */
+/* Mic test, this removes the notches because i can't figure out how to color them (also styles the Krisp popout) */
+[class*="micTest-"] [class*="wrapper-"]>[class*="container-"] {
   border-radius: 4px;
 }
-[class*="userSettingsVoice-"] [class*="micTest-"] [class*="progress-"] {
+[class*="micTest-"] [class*="wrapper-"] [class*="progress-"] {
   background-color: var(--interactive-muted);
 }
-[class*="userSettingsVoice-"] [class*="micTest-"] [class*="notches-"] {
+[class*="micTest-"] [class*="wrapper-"] [class*="notches-"] {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='20' fill='none'%3E%3C/svg%3E");
 }
 
@@ -111,6 +112,30 @@
 [class*="standardSidebarView-"] [class*="noticeRegion-"]>[class*="container-"] {
   background-color: var(--background-tertiary) !important;
   opacity: .9;
+}
+
+/* Stream ended background */
+.pictureInPictureVideo-2puO2Q {
+  background-color: var(--background-floating);
+}
+.pictureInPictureVideo-2puO2Q .button-3Vyz67 {
+  background-color: var(--interactive-muted);
+}
+/* stream ended */
+[class*="callContainer-"] [class*="wrapper-"]>[class*="tile-"],
+[class*="callContainer-"] [class*="wrapper-"] [class*="videoWrapper-"] {
+  background-color: var(--background-tertiary);
+}
+[class*="video-"]>[class*="callContainer-"] {
+  background: unset;
+}
+.emptyPreview-1SMLD4 {
+  background: linear-gradient(120deg,var(--background-tertiary),var(--background-secondary-alt));
+}
+
+/* Screen share hover popup */
+[class*="layerContainer-"] [class*="streamPreview-"] {
+  background-color: var(--background-tertiary);
 }
 
 /* ----- Modals (there's like 3-4 types so this is :thonk:

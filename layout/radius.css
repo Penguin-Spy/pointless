@@ -2,27 +2,35 @@
 img[class*="avatar-"], /* most avatars */
 [class*="avatar-"][style], /* voice channel members */
 svg[class*="avatarHint-"], /* user popout "View Profile" overlay */
-[class*="avatarUploaderInner-"] /* settings popout preview */
+[class*="avatarUploaderInner-"], /* settings popout preview */
+img[class*="avatar-"] ~ [class*="avatarSpeaking-"] /* user area speaking outline */
 {
   border-radius: var(--_pointless-radius-avatar) !important;
 }
 
 /* clear extra avatar (& emoji picker guild icon) radii masks */
-foreignObject[mask*="url(#svg-mask-avatar"], foreignObject[mask*="url(#svg-mask-squircle)"] {
+foreignObject[mask*="url(#svg-mask-avatar"],
+foreignObject[mask="url(#svg-mask-squircle)"],
+foreignObject[mask="url(#svg-mask-voice-user-summary-item)"],
+[class*="bottomControls-"] [class*="viewer-"] {
   mask: none;
 }
 
 /* ----- Guild Icon Radius ----- */
-#app-mount [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject, /* server & Discord, add server, explore icons */
-#app-mount [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject [class*="folderIconWrapper-"] [class*="iconInactive-"], /* mini-icons in folders */
-img[class*="guildIcon-"]
+[class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject, /* server & Discord, add server, explore icons */
+[class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject [class*="folderIconWrapper-"] [class*="iconInactive-"], /* mini-icons in folders */
+img[class*="guildIcon-"],
+/* video call buttons */
+[class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"],
+[class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"] foreignObject,
+[class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"] button
 {
   mask: none;
   border-radius: var(--_pointless-radius-server);
 }
 /* Remove extra border radii on icons & folders */
-#app-mount [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] [class*="wrapperSimple-"], /* same as above, repectively */
-#app-mount [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject [class*="folderIconWrapper-"]
+[class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] [class*="wrapperSimple-"], /* same as above, repectively */
+[class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject [class*="folderIconWrapper-"]
 {
   border-radius: unset;
 }
@@ -35,4 +43,16 @@ img[class*="guildIcon-"]
 [class*="control-"]>[class*="container-"]>svg>rect,
 .powercord-product-header [class*="container-"]>svg>rect { /* inside bit */
   rx: var(--_pointless-radius-interface);
+}
+
+/* red LIVE indicators */
+[class*="streamQualityIndicator-"] [class*="liveQualityIndicator-"] {
+  border-radius: 3px 0 0 3px;
+}
+[class*="streamQualityIndicator-"] [class*="liveIndicator-"],
+[class*="streamQualityIndicator-"] [class*="liveShapeRoundRight-"] {
+  border-radius: 0 3px 3px 0 !important;
+}
+[class*="liveShapeRound-"] {
+  border-radius: 3px;
 }
