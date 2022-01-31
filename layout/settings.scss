@@ -85,7 +85,14 @@
 
               /* divider */
               &>[class*="separator-"] {
-                display: none;
+                display: none !important;
+              }
+
+              /* "BetterSettings"'s search bar */
+              &>.searchdiv {
+                z-index: 9999;
+                position: absolute;
+                top: -5px;
               }
 
               /* fake category for other stuff */
@@ -142,6 +149,7 @@
                 transition: color .17s ease,background-color .17s ease,border-color .17s ease;
                 border-width: 1px;
                 border-style: solid;
+                color: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%);
                 border-color: hsl(359, calc(var(--saturation-factor, 1) * 82.6%), 59.4%);
 
                 &:hover {
@@ -167,7 +175,7 @@
                   text-transform: capitalize;
                 }
                 &::after {
-                  content: "pointless 0.4.1 (9eafc2f)";
+                  content: "pointless 0.4.2";
                   font-size: 12px;
                   line-height: 16px;
                   color: var(--text-muted);

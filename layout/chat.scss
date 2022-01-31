@@ -74,7 +74,7 @@
         position: sticky;
         top: -4px;
         z-index: 1;
-        background: linear-gradient(var(--background-tertiary) 85%, transparent 100%);
+        background: linear-gradient(var(--background-tertiary) 88%, transparent 100%);
         padding-top: 4px;
         padding-bottom: 2px;
       }
@@ -126,14 +126,14 @@
 
           /* Settings to bottom left */
           &>[class*="container-"]>[class*="flex-"]> button:last-child {
-            background: linear-gradient(transparent 0%, var(--background-tertiary) 15%);
+            background: linear-gradient(transparent 0%, var(--background-tertiary) 10%);
             color: var(--text-normal);
             position: fixed;
             left: 0px;
             bottom: 0px;
             width: 72px;
             height: 64px;
-            padding-top:2px;
+            padding-top: 1px;
             border-radius: 0;
           }
           &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::before {
@@ -178,7 +178,7 @@
           &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
             position: absolute;
             top: 48px;
-            left: 48px;
+            left: 204px;
           }
           &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
             left: 54px;
@@ -187,7 +187,7 @@
           &>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
             position: relative;
             bottom: 64px;
-            left: 150px;
+            left: 146px;
             width: 26px;
           }
           &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
@@ -235,7 +235,7 @@
       }
 
       &>[class*="chat-"]>[class*="content-"] { /* main chat window */
-        &>[class*="container-"]>[class*="container-"]>aside>[class*="members-"]>[class*="content-"] { /* member list */
+        &>[class*="container-"] aside>[class*="members-"]>[class*="content-"] { /* member list */
 
           /* Member list backgrounds */
           &>[class*="member-"] [class*="roleColor-"]::after {
@@ -261,7 +261,7 @@
 	          animation: textArea-typing .2s ease-out;
           }
 
-          & [class*="channelTextArea-"], & [class*="wrapper-"] {
+          & [class*="channelTextArea-"], &>[class*="wrapper-"], &>div>div>[class*="wrapper-"] {
             /* resize textarea box */
             margin-bottom: 8px; /* move down to swap with the typing indicator */
             margin-left: 56px;  /* make space for the user area pfp */
@@ -280,8 +280,6 @@
               }
 
               /* make space for the file upload button (but only when it's there) */
-              //TODO: fix icons for the menu this button shows
-              // and a clock icon for the timeout user context menu
               &>[class*="attachWrapper-"] ~ [class*="buttons-"] {
                 right: 32px;
               }
@@ -336,17 +334,36 @@
   }
 }
 
-/* TODO: recolor search box backgrounds */
-.searchBar-zdmu7v {
-  background-color: var(--background-secondary-alt);
-}
+/* highly improved crash screen */
+#app-mount>[class*="errorPage-"] {
+  & [class*="text-"] {
+    width: unset;
 
+    & h4, & p {
+      font-size: 0;
+      &::after {
+        font-size: 16px;
+      }
+    }
+
+    & h4::after {
+      font-size: 24px;
+      content: "OOPSIE WOOPSIE!!";
+    }
+    & p:first-child::after {
+      content: "Uwu We made a fucky wucky!! A wittle fucko boingo!";
+    }
+    & p:last-child::after {
+      content: "The code monkeys at our headquarters are working VEWY HAWD to fix this!";
+    }
+  }
+}
 
 /* chat message username bg
   by: ashtrath. (chloe.#9079) https://discord.com/channels/538759280057122817/755005803303403570/912038821565173781
   edited to use class string selectors
 */
-[class*="compact-"] [class*="headerText-"] > span::before {
+[class*="compact-"] [class*="headerText-"] > span:first-child::before {
   content: '';
   width: calc(100% + 6px);
   height: 100%;
@@ -358,13 +375,13 @@
   left: -4px;
   z-index: -1;
 }
-[class*="compact-"] [class*="headerText-"] > span::after {
+[class*="compact-"] [class*="headerText-"] > span:first-child::after {
   content: ":";
 }
 
-[class*="cozy-"] [class*="headerText-"] > span::before {
+[class*="cozy-"] [class*="headerText-"] > span:first-child::before {
   content: '';
-  width: calc(100% + 7px);
+  width: calc(100% + 6px);
   height: 100%;
   border-radius: 5px;
   background-color: currentColor;
@@ -383,8 +400,44 @@
   margin-left: 3px;
 }
 
+/* voice channel user background */
+[class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"],
+[class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"]>[class*="userSmall-"],
+[class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"] [class*="content-"] {
+  height: 36px;
+}
+[class*="voiceUser-"] [class*="avatar-"] {z-index: 1;}
+[class*="voiceUser-"] .rolecolor-colored {overflow: visible;}
+[class*="voiceUser-"] .rolecolor-colored::after {
+  /* discord randomly flips which one of these works (TODO: figure out why) */
+  /*content: '';
+  width: calc(100% + 42px);
+  height: calc(100% + 14px);
+  border-radius: 5px;
+  background-color: currentColor;
+  opacity: 0.3;
+  position: absolute;
+  top: -7px;
+  left: -42px;
+  z-index: -1;*/
+
+  content: '';
+  width: calc(100% + 6px);
+  height: 100%;
+  border-radius: 5px;
+  background-color: currentColor;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: -4px;
+  z-index: -1;
+}
+.avatarSpeaking-2pCGrZ {
+  box-shadow: inset 0 0 0 2px hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
+}
+
 /* gives me a tag :)
-  by: dante_nl#1234 https://discord.com/channels/538759280057122817/755005803303403570/929388259598008320
+  og by: dante_nl#1234 https://discord.com/channels/538759280057122817/755005803303403570/929388259598008320
 */
 [class*="compact-"][data-author-id="97399302313242624"] [class*="username-"]::before,
 [class*="cozyMessage-"][data-author-id="97399302313242624"] [class*="username-"]::after {
@@ -436,7 +489,158 @@
 [class*="winButton-"]:nth-child(3):hover {background-color: var(--brand-experiment) ;}
 [class*="winButton-"]:nth-child(4):hover {background-color: orange ;}
 
+/* Game activity as guild list item */
+[class*="activityPanel-"] {
+  border: unset;
+  padding: unset;
 
+  & [class*="gameWrapper-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(transparent 0%, var(--background-tertiary) 10%);
+    color: var(--text-normal);
+    position: fixed;
+    left: 0px;
+    bottom: 55px;
+    width: 72px;
+    height: 64px;
+    padding-top: 1px;
+    border-radius: 0;
+  }
+  & [class*="gameIcon-"] {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--_pointless-radius-server);
+  }
+  &:active [class*="gameIcon-"] {
+    transform: translateY(1px);
+  }
+  /* game title as tooltip */
+  & [class*="info-"] {
+    display: none;
+    position: fixed;
+    left: 72px;
+    bottom: 70px;
+
+    border-radius: 5px;
+    background-color: var(--background-floating);
+    box-shadow: var(--elevation-high);
+    color: var(--text-normal);
+
+    overflow: visible;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: calc(50% - 5px);
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-right-color: var(--background-floating);
+    }
+
+    & [class*="title-"] {
+      max-width: 196px;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+      word-wrap: break-word;
+
+      padding: 8px 12px;
+      overflow: hidden;
+    }
+  }
+  & [class*="gameWrapper-"]:hover [class*="info-"] {
+    display: unset;
+  }
+
+  /* stream button as exponent, can click anywhere */
+  & [class*="actions-"] {
+    position: fixed;
+    left: 0px;
+    bottom: 55px;
+    width: 72px;
+    height: 64px;
+    margin-left: 0px;
+    padding-top: 1px;
+    & button {
+      width: 72px;
+      height: 64px;
+      align-items: flex-start;
+      justify-content: flex-end;
+
+      & [class*="contents-"] {
+        background-color: var(--background-tertiary);
+        padding: 3px;
+        border-radius: 50%;
+      }
+      & svg {
+        width: 16px;
+        height: 16px;
+        margin: 1px;
+      }
+    }
+    &>button:hover {
+      background-color: transparent;
+    }
+    & button[class*="disabled-"] {
+      opacity: unset;
+      & svg {
+        opacity: .4;
+      }
+    }
+  }
+  /* pill */
+  & [class*="actions-"] button:hover::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 20px;
+    left: 0;
+    top: 23px;
+    border-radius: 0 4px 4px 0;
+    margin-left: -4px;
+    background-color: var(--header-primary);
+  }
+  &:active [class*="actions-"] {
+    transform: translateY(1px);
+  }
+}
+/* move stream button tooltip to the left */
+#app-mount>[class*="layerContainer-"]>:is(
+  [style="position: absolute; left: -58px; bottom: 127px;"],
+  [style="position: absolute; left: -59px; bottom: 127px;"]
+){
+  left: 80px !important;
+  bottom: 70px !important;
+
+  &>div {
+    transform-origin: 0 50%;
+    max-width: unset;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    word-wrap: break-word;
+
+    &>[class*="tooltipPointer-"] {
+      position: absolute;
+      right: 100%;
+      left: unset;
+      top: 50%;
+      margin-top: -5px;
+      border-left-width: 5px;
+      transform: rotate(90deg);
+    }
+  }
+}
+/* better 'danger' buttons */
+button[class*="lookOutlined"][class*="colorRed"]:hover {
+  background-color: var(--background-modifier-hover);
+  color: #fff;
+}
 
 /* Resizable thread side (li'l buggy) */
 :root {

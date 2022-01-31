@@ -1,7 +1,7 @@
 {
     "name": "Pointless",
     "description": "A rectangular -but not pointy- customizable Powercord theme.",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "author": "Penguin_Spy#5817",
     "theme": "main.scss",
     "splashTheme": "splash.scss",
