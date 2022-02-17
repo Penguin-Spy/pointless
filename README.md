@@ -1,7 +1,7 @@
 ⚠ THIS THEME IS IN BETA! it should work and i won't commit any completly broken code, but some stuff may look funky/unstyled. you have been warned.
 
 # Pointless
-![clones](https://img.shields.io/endpoint?url=https%3A%2F%2Fstatthegit.penguinspy.repl.co%2Fsheilds%2Fpointless) [![Powercord](https://img.shields.io/badge/client-Powercord-7289D9?logo=discord&logoColor=fff)](https://powercord.dev/)  
+![clones](https://img.shields.io/endpoint?url=https://githubstats.penguinspy.repl.co/shields/pointless) [![Powercord](https://img.shields.io/badge/client-Powercord-7289D9?logo=discord&logoColor=fff)](https://powercord.dev/)  
 A rectangular -but not pointy- customizable Powercord theme, with multiple skins (supporting dark and light mode), an option for backround images, and message bubbles + your messages are right-aligned.  
 
 ## Configuration
