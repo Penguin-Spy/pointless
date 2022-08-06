@@ -15,8 +15,8 @@
 /* Changes to main chat window + channel, server, & member list */
 
 /* Settings update notice */
-#app-mount [class*="container-"]>[class*="base-"]::before {
-  display: var(--pointless-settings-ver-2, unset);
+#app-mount [class*="baseLayer-"]>[class*="container-"]>[class*="base-"]::before {
+  display: var(--pointless-settings-ver-3, unset);
   content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
   color: #fff;
   font-size: 14px;
@@ -25,71 +25,65 @@
   text-align: center;
   z-index: 1;
   background-color: var(--status-danger-background);
-  margin-bottom: 4px;
-  border-radius: 8px;
+  margin-bottom: 5px;
+  border-radius: var(--_pointless-radius-interface);
 }
 /* Wordmark */
 [class*="wordmark-"] {
+  left: 4px;
+
   &:after {
     content: "Pointless";
     font-size: 15px;
     position: absolute;
-    width: 4000px;
-    top: 5px;
-    padding-left: -3px;
+    left: 20px;
     font-family: 'Discord';
     color: var(--text-muted);
   }
-  & > svg {
+  &>svg {
     width: 0px;
   }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 0;
+    right: 0;
+    background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
+  }
 }
-/** Add icon to wordmark **/
-/*.wordmark-2iDDfm {
-  left: 25px;
-}
-.wordmark-2iDDfm:before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 50px;
-  bottom: 0;
-  right: 0;
-  background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
-}*/
 
-/* main app content */
-#app-mount [class*="layer-"]>[class*="container-"] {
-  &>[class*="guilds-"], &>.BF-folderSidebar>[class*="guilds-"] {
-
-
-    &>ul>[class*="scroller-"] {
-      /* remove dividers between home & guilds, and between folders in Better Folders popout */
-      &>[class*="listItem-"]:not(:nth-last-child(2)) {
-        display: none;
-      }
-
-      /* Pin home icon */
-      &>[class*="tutorialContainer-"]:first-child, &>.expanded>[class*="listItem-"] { /* Home button */
-        position: sticky;
-        top: -4px;
-        z-index: 1;
-        background: linear-gradient(var(--background-tertiary) 88%, transparent 100%);
-        padding-top: 4px;
-        padding-bottom: 2px;
-      }
-
-      /* Make space for settings icon */
-      &>[class*="listItem-"]:nth-last-child(2) {
-        padding-bottom: 56px;
-      }
-    }
+:not(.BF-folderSidebar)>[class*="guilds-"] [class*="scroller-"] {
+  /* remove dividers between home & guilds, but not between folders in Better Folders popout */
+  &>[class*="listItem-"]:not(:nth-last-child(2)) {
+    display: none;
   }
 
-  &>[class*="base-"] {
+  /* Pin home icon */
+  &>[class*="tutorialContainer-"]:first-child, &>.expanded>[class*="listItem-"] { /* Home button */
+    position: fixed;
+    top: 18px;
+    z-index: 1;
+    background: linear-gradient(var(--background-tertiary) 88%, transparent 100%);
+    padding-top: 4px;
+    padding-bottom: 2px;
+  }
+  padding-top: 56px;
+
+  /* Make space for settings icon */
+  &>[class*="listItem-"]:nth-last-child(2) {
+    padding-bottom: 112px;
+  }
+}
+.BF-folderSidebar [class*="scrollerBase-"] {
+  padding-top: 0;
+}
+
+#app-mount [class*="layer-"]>[class*="container-"]>[class*="base-"] {
     /* Detached notices */
     &>[class*="notice-"] {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       border-radius: 8px;
     }
 
@@ -114,123 +108,14 @@
         }
       }
 
-      &>[class*="sidebar-"] {
-        &>section {
-          /* ----- SPLIT UP USER AREA ----- */
-          /* Remove user area container */
-          &>[class*="container-"] {
-            height:0;
-            margin-bottom: 0;
-          }
-          &>[class*="wrapper-"]>[class*="container-"] {border:none}
 
-          /* Settings to bottom left */
-          &>[class*="container-"]>[class*="flex-"]> button:last-child {
-            background: linear-gradient(transparent 0%, var(--background-tertiary) 10%);
-            color: var(--text-normal);
-            position: fixed;
-            left: 0px;
-            bottom: 0px;
-            width: 72px;
-            height: 64px;
-            padding-top: 1px;
-            border-radius: 0;
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::before {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 8px;
-            height: 20px;
-            left: 0;
-            top: 23px;
-            border-radius: 0 4px 4px 0;
-            margin-left: -4px;
-            background-color: var(--header-primary);
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:last-child::after {
-            background-color: var(--background-primary);
-            transition: background-color .15s ease-out,color .15s ease-out;
-            position: absolute;
-            content: "";
-            z-index: -1;
-            height: 48px;
-            width: 48px;
-            border-radius: var(--_pointless-radius-server);
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
-            color: #fff;
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
-            background-color: var(--brand-experiment);
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:last-child:active {
-            transform: translateY(1px);
-          }
 
-          /* Mute/Deafen in VC area */
-          &>[class*="wrapper-"]>[class*="container-"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
-          &>[class*="wrapper-"] >div> [class*="actionButtons-"] {width:190px}
-          &>[class*="wrapper-"] >div> [class*="actionButtons-"]> button {
-            min-width: 90px;
-            padding: 2px 0;
-          }
-          &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
-            position: absolute;
-            top: 48px;
-            left: 204px;
-          }
-          &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
-            left: 54px;
-            width: 26px;
-          }
-          &>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
-            position: relative;
-            bottom: 64px;
-            left: 146px;
-            width: 26px;
-          }
-          &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
-
-          /* User area pfp aligned with our messages */
-          & [class*="avatarWrapper-"] {
-            left: 261px;
-            bottom: 8px;
-            position: absolute;
-            z-index: 1;
-          }
-          & [class*="avatarWrapper-"]:active {
-            transform: translateY(1px);
-          }
-          & [class*="avatar-"][class*="wrapper-"] {
-            /*width: 40px;*/
-            height: 40px !important;
-          }
-          /*& [class*="avatar-"][class*="wrapper-"] svg {
-            overflow: unset;
-          }*/
-
-          /* GameActivityToggle button to status picker */
-          &>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {
-            display: none;
-          }
-          &>[class*="container-"]>[class*="flex-"]> button:not([aria-checked]):first-child {
-            position: absolute;
-            left: 510px;
-            bottom: 86px;
-            z-index: 10005;
-          }
-        }
-
-        /* Round split between channel list & chat */
+      /* Round split between channel list & chat */
+      &>[class*="sidebar-"],
+      &>:nth-child(2) {
         border-radius: 15px 15px 0 0;
       }
-
-      /* Select whatever window is the main content */
       &>:nth-child(2) {
-        /* Round split between channel list & chat */
-        border-radius: 15px 15px 0 0;
-
         margin-left: 5px;
       }
 
@@ -303,7 +188,6 @@
         }
       }
     }
-  }
 }
 
 /* Move settings tooltip back on screen */
@@ -401,10 +285,13 @@
 }
 
 /* voice channel user background */
+[class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"] {
+  padding: 2px 0;
+}
 [class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"],
 [class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"]>[class*="userSmall-"],
 [class*="containerDefault-"]>[class*="list-"]>[class*="draggable-"] [class*="content-"] {
-  height: 36px;
+  height: 34px;
 }
 [class*="voiceUser-"] [class*="avatar-"] {z-index: 1;}
 [class*="voiceUser-"] .rolecolor-colored {overflow: visible;}
@@ -422,17 +309,17 @@
   z-index: -1;*/
 
   content: '';
-  width: calc(100% + 6px);
-  height: 100%;
+  width: calc(100% + 0px);
+  height: calc(100% - 0px);
   border-radius: 5px;
   background-color: currentColor;
   opacity: 0.3;
   position: absolute;
-  top: 0;
-  left: -4px;
+  top: 0px;
+  left: 0px;
   z-index: -1;
 }
-.avatarSpeaking-2pCGrZ {
+[class*="voiceUser-"] [class*="avatarSpeaking-"] {
   box-shadow: inset 0 0 0 2px hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
 }
 
@@ -579,7 +466,7 @@
       & svg {
         width: 16px;
         height: 16px;
-        margin: 1px;
+        margin: 0px;
       }
     }
     &>button:hover {
@@ -611,8 +498,7 @@
 }
 /* move stream button tooltip to the left */
 #app-mount>[class*="layerContainer-"]>:is(
-  [style="position: absolute; left: -58px; bottom: 127px;"],
-  [style="position: absolute; left: -59px; bottom: 127px;"]
+  [style^="position: absolute; left: -"][style$="px; bottom: 127px;"]
 ){
   left: 80px !important;
   bottom: 70px !important;
@@ -642,30 +528,28 @@ button[class*="lookOutlined"][class*="colorRed"]:hover {
   color: #fff;
 }
 
-/* Resizable thread side (li'l buggy) */
-:root {
-  --sidebar-width: 240px; /* change if your theme resizes the sidebar */
+/* server list icon badges */
+[class*="guilds-"] [class*="listItem-"] {
+  [class*="upperBadge-"] {
+    transform: translate(8px, -8px) !important;
+  }
+  
+  [class*="iconBadge-"] {
+    padding: 3px;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    
+    & [class*="icon-"] {
+      width: 16px;
+      height: 16px;
+      margin: 0px;
+      padding: 0;
+    }
+  }
 }
-.chat-3bRxxu.threadSidebarOpen-vdkwIh {
-  resize: horizontal;
-  min-width: 400px;
-  max-width: calc(100vw - var(--sidebar-width) - 72px - 400px);
-}
-.chat-3bRxxu:not(.threadSidebarOpen-vdkwIh) {
-  width: unset !important;
-  flex: 1 1 auto;
-}
-.threadSidebar-1o3BTy {
-  width: unset;
-  flex: 1 1 auto;
-}
-
-/* ----- CHANNEL LIST ----- */
-.iconVisibility-sTNpHs.modeSelected-346R90 .iconContainer-1BBaeJ svg, .iconVisibility-sTNpHs.modeConnected-3IsKId .iconContainer-1BBaeJ svg{
-  color: var(--text-normal)
-}
-.spine--Wla_O { /* thread 'icon' in channel list */
-  color: var(--text-muted)
+.theme-dark [class*="guilds-"] [class*="listItem-"] [class*="iconBadge-"] {
+  background-color: var(--background-tertiary);
 }
 
 

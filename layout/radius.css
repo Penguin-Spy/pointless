@@ -20,6 +20,7 @@ foreignObject[mask="url(#svg-mask-voice-user-summary-item)"],
 [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject, /* server & Discord, add server, explore icons */
 [class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] svg>foreignObject [class*="folderIconWrapper-"] [class*="iconInactive-"], /* mini-icons in folders */
 img[class*="guildIcon-"],
+[class*="container-"]>:is([class*="guilds-"], .BF-folderSidebar) [class*="listItem-"] [class*="dragInner-"],
 /* video call buttons */
 [class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"],
 [class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"] foreignObject,

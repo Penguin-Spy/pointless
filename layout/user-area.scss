@@ -1,0 +1,107 @@
+
+#app-mount [class*="layer-"]>[class*="container-"]>[class*="base-"]>[class*="content-"]>[class*="sidebar-"]>section {
+  /* ----- SPLIT UP USER AREA ----- */
+  /* Remove user area container */
+  &>[class*="container-"] {
+    height:0;
+    margin-bottom: 0;
+  }
+  &>[class*="wrapper-"]>[class*="container-"] {border:none}
+
+  /* Settings to bottom left */
+  &>[class*="container-"]>[class*="flex-"]> button:last-child {
+    background: linear-gradient(transparent 0%, var(--background-tertiary) 10%);
+    color: var(--text-normal);
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 72px;
+    height: 64px;
+    padding-top: 1px;
+    border-radius: 0;
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 20px;
+    left: 0;
+    top: 23px;
+    border-radius: 0 4px 4px 0;
+    margin-left: -4px;
+    background-color: var(--header-primary);
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:last-child::after {
+    background-color: var(--background-primary);
+    transition: background-color .15s ease-out,color .15s ease-out;
+    position: absolute;
+    content: "";
+    z-index: -1;
+    height: 48px;
+    width: 48px;
+    border-radius: var(--_pointless-radius-server);
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
+    color: #fff;
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
+    background-color: var(--brand-experiment);
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:last-child:active {
+    transform: translateY(1px);
+  }
+
+  /* Mute/Deafen in VC area */
+  &>[class*="wrapper-"]>[class*="container-"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
+  &>[class*="wrapper-"] >div> [class*="actionButtons-"] {width:190px}
+  &>[class*="wrapper-"] >div> [class*="actionButtons-"]> button {
+    min-width: 90px;
+    padding: 2px 0;
+  }
+  &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
+    position: absolute;
+    top: 48px;
+    left: 204px;
+  }
+  &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
+    left: 54px;
+    width: 26px;
+  }
+  &>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
+    position: relative;
+    bottom: 64px;
+    left: 146px;
+    width: 26px;
+  }
+  &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
+
+  /* User area pfp aligned with our messages */
+  & [class*="avatarWrapper-"] {
+    left: 261px;
+    bottom: 8px;
+    position: absolute;
+    z-index: 1;
+  }
+  & [class*="avatarWrapper-"]:active {
+    transform: translateY(1px);
+  }
+  & [class*="avatar-"][class*="wrapper-"] {
+    /*width: 40px;*/
+    height: 40px !important;
+  }
+  /*& [class*="avatar-"][class*="wrapper-"] svg {
+    overflow: unset;
+  }*/
+
+  /* GameActivityToggle button to status picker */
+  &>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {
+    display: none;
+  }
+  &>[class*="container-"]>[class*="flex-"]> button:not([aria-checked]):first-child {
+    position: absolute;
+    left: 510px;
+    bottom: 86px;
+    z-index: 10005;
+  }
+}

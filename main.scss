@@ -1,14 +1,15 @@
 // Settings
-@forward 'settings.scss';       /* Include settings */
+@forward 'settings.scss';       /* Include user's settings */
 @forward 'palette';             /* Palette option variables */
 
 // Technically optional stuff but probably will break things
 @forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
 @forward 'layout/user-popout';
 @forward 'layout/user-modal';
-@forward 'layout/settings';     /* Settings menu */
-@forward 'layout/no-nitro';     /* Hide all options for your use of nitro-only features (for example: hides the nitro gift & send sticker buttons) */
+@forward 'layout/user-area';    /* Split up the user area: pfp & status picker next to message bar, settings & game activity into guild list */
+@forward 'layout/settings';     /* Settings menu styled as a guild w/ channels & pages */
 @forward 'layout/font';         /* Apply new fonts. Please edit font settings in QuickCSS with :root {} */
+//@forward 'layout/stream';
 
 // Absolutley required stuff
 @forward 'layout/chat';         /* Chat, channel list, toolbar, user area */

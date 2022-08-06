@@ -4,7 +4,7 @@
 }
 
 /* Remove background of avatar (modal, modal preview in settings) */
-[class*="root-"]>[class*="topSection-"]>header>[class*="header-"]>[class*="avatar-"] {
+[class*="root-"]>[class*="topSection-"]>header>[class*="header-"] div[class*="avatar-"] {
   border: none;
   margin: 8px;
   background: none;
