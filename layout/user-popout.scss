@@ -1,0 +1,195 @@
+[class*="userPopout-"] {
+  width: 600px !important;
+  overflow: unset;
+
+  /* ----- Banner & Avatar ----- */
+  &>[class*="headerWrapper-"] {
+    height: 112px;
+
+    /* Banner fills whole top area */
+    & [class*="banner-"] {
+      max-width: unset;
+      width: unset;
+      height: 240px;
+      border-radius: 8px;
+
+      /* hide little "exclusive to Nitro" thingy, it interferes with with the badges & YES DISCORD I KNOW THE CUSTOM PROFILE BACKGROUNDS ARE A NITRO-EXCLUSIVE FEATURE */
+      &>[class*="premiumIconWrapper-"] {
+        display: none;
+      }
+    }
+
+    /* Floating avatar */
+    & [class*="avatarWrapper-"] {
+      top: 16px; left: 260px;
+
+      /* Remove background */
+      & [class*="avatar-"] {
+        border: unset;
+        background-color: unset;
+      }
+      & [class*="avatarHint-"] {
+        top: 0; left: 0;
+      }
+    }
+  }
+
+  /* ----- Name & Badges ----- */
+  &>[class*="headerTop-"] {
+    padding-top: 0;
+    padding-bottom: 96px;
+    overflow: unset;
+
+    &>[class*="headerText-"] {
+      width: fit-content;
+      margin: auto;
+
+      /* Center name & give background for visibility */
+      &>:is([class*="nickname-"], [class*="headerTagNoNickname-"]) {
+        position: relative;
+        font-size: 20px;
+        text-align: center;
+        background-color: var(--background-primary);
+        border: solid var(--background-primary);
+        border-width: 4px 8px;
+        border-radius: var(--_pointless-radius-interface);
+      }
+
+      /* Hide username if nickname is present, and the discriminator if it isn't */
+      &>[class*="headerTagWithNickname-"],
+      &>[class*="headerTagNoNickname-"]>[class*="discrimBase-"] {
+        display: none;
+      }
+    }
+
+    &>[class*="profileBadges-"] {
+      top: -96px;
+    }
+  }
+
+  /* ----- Body ----- */
+  &>[class*="body-"] {
+    width: 70%;
+    overflow: unset !important;
+    display: flex;
+    flex-direction: column-reverse;
+
+    &>[class*="bodyInnerWrapper-"] {
+      background-color: unset; /* Epic "discord readds the same color when it's already in the background" moment */
+
+      /* &>[class*="customStatus-"]>[class*="customStatusSoloEmoji-"] */
+      &>[class*="customStatus-"] {
+        position: absolute;
+        top: -32px;
+
+        &>[class*="customStatusSoloEmoji-"] {
+          position: absolute;
+          top: -32px;
+        }
+      }
+
+      &>[class*="divider-"] { display: none; }
+
+      /* About me */
+      &>[class*="divider-"] + div, /* first element after the divider (About Me) */
+      &>[class*="userInfoSection-"]:first-child, /* userInfoSection as the 1st element (Pronouns w/ no About Me) */
+      &>[class*="customStatus-"] ~ h3:nth-last-child(2), /* Note header w/ status */
+      &>h3:nth-child(3) /* Note header w/ no pronouns or about me */
+      {
+        padding-top: 16px;
+      }
+
+      /* Roles list */
+      &>h3[class*="bodyTitle-"]:first-of-type:not(:only-of-type) { /* Roles title:not(note when there's no roles)*/
+        position: absolute;
+        top: 16px;
+        height: auto;
+        right: -170px;
+        width: 38%;
+      }
+      &>[class*="rolesList-"] {
+        position: absolute;
+        height:auto;
+        right:-170px;
+        top: 40px;
+        width: 38%;
+        /*order:-1;
+        transform: translateX(414px);
+        position: relative;*/
+      }
+    }
+  }
+}
+
+
+
+/* Notes + Pronouns */
+/****
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>h3[class*="bodyTitle-"]:last-of-type { /* Note title *//*
+  position: absolute;
+  bottom:-8px;
+  height:auto;
+  width:38%;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>h3[class*="bodyTitle-"]:last-of-type:nth-last-child(4) {
+  right:0;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="note-"] {
+  position: absolute;
+  bottom:-46px;
+  height:auto;
+  width:38%;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="note-"]:nth-last-child(3) {
+  right:8px;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>div[class*="bodyTitle-"] { /* Pronouns title *//*
+  position: absolute;
+  bottom:-8px;
+  height:auto;
+  width:38%;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>:last-child:not([class*="note-"]) { /* Pronouns content *//*
+  position: absolute;
+  bottom:-30px;
+  height:auto;
+  width:38%;
+}
+*/
+
+/* Roles list */
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"] { /* role solid-color background */
+  max-width: -webkit-fill-available;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"] {
+  min-width: 12px;
+}
+[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"]::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: inherit;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* Message @user box */
+[class*="userPopout-"]>[class*="footer-"] {
+  margin-top:55px;
+  background-color:transparent;
+}
+
+
+
+/*[aria-label="USER_SETTINGS-"] [class*="profileBannerPreview-"]>[class*="bannerNormal-"] {
+
+}*/
+
+/*
+.layerContainer-yqaFcK .layer-v9HyYc#popout_2597 animatorRight/Left-3i_YPs.translate-2dAEQ6.didRender-33z1u8 .userPopout-xaxa6l
+.popouts-2bnG9Z .popout-2iWAc- .userPopout-xaxa6l
+*/
