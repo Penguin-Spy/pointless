@@ -146,11 +146,15 @@
 	          animation: textArea-typing .2s ease-out;
           }
 
-          & [class*="channelTextArea-"], &>[class*="wrapper-"], &>div>div>[class*="wrapper-"] {
+          & [class*="channelTextArea-"], &>div>[class*="wrapper-"], &>div>div>[class*="wrapper-"] {
             /* resize textarea box */
             margin-bottom: 8px; /* move down to swap with the typing indicator */
             margin-left: 56px;  /* make space for the user area pfp */
             width: unset; /* prevent the textarea from going offscreen */
+
+            &[class*="channelTextAreaDisabled-"] {
+              display: none;
+            }
 
             &>[class*="scrollableContainer-"]>div {
               /* move the (+) file upload & thread button to the right */

@@ -57,7 +57,7 @@
 }
 
 /* Video embed background */
-[class*="message-"] [class*="embedVideo-"] [class*="wrapper-"][data-fullscreen] {
+[class*="message-"] [class*="embedWrapper-"] [class*="wrapper-"][data-fullscreen] {
   background-color: var(--background-tertiary);
 }
 
@@ -142,7 +142,7 @@
  * Change Identity modal :not(view image modal)
  * Upload file modal
  * Other various modals */
-[class*="layerContainer-"] [class*="root-"][class*="fullscreenOnMobile-"],
+[class*="layerContainer-"] [class*="root-"][class*="fullscreenOnMobile-"]:not([class*="carouselModal-"]),
 [class*="backdrop-"] ~ [class*="modal-"]>[class*="inner-"] :is([class*="fullscreenOnMobile-"], [class*="uploadModal-"]),
 [class*="modal-"]>[class*="inner-"]>[class*="modal-"] {
   background-color: var(--background-primary);

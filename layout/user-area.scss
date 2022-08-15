@@ -1,4 +1,3 @@
-
 #app-mount [class*="layer-"]>[class*="container-"]>[class*="base-"]>[class*="content-"]>[class*="sidebar-"]>section {
   /* ----- SPLIT UP USER AREA ----- */
   /* Remove user area container */
@@ -82,17 +81,17 @@
     bottom: 8px;
     position: absolute;
     z-index: 1;
-  }
-  & [class*="avatarWrapper-"]:active {
-    transform: translateY(1px);
+    width: 40px;
+    min-width: unset;
+
+    &[class*="withTagAsButton-"]>[class*="nameTag-"] { display: none; }
+    &:active { transform: translateY(1px); }
+    &:hover { background-color: unset; }
   }
   & [class*="avatar-"][class*="wrapper-"] {
-    /*width: 40px;*/
+    width: 40px !important;
     height: 40px !important;
   }
-  /*& [class*="avatar-"][class*="wrapper-"] svg {
-    overflow: unset;
-  }*/
 
   /* GameActivityToggle button to status picker */
   &>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {

@@ -1,4 +1,23 @@
 .theme-dark {
+
+  /* Save default theme for resetting style in preview areas (so users see what it looks like for other users */
+  --_pointless-discord-primary: hsl(220,calc(var(--saturation-factor, 1)*7.7%),22.9%);
+  --_pointless-discord-secondary: hsl(223,calc(var(--saturation-factor, 1)*6.9%),19.8%);
+  --_pointless-discord-secondary-alt: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+  --_pointless-discord-tertiary: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+  --_pointless-discord-floating: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+
+  --_pointless-discord-font-primary: Whitney,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --_pointless-discord-font-display: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --_pointless-discord-font-headline: "ABC Ginto Nord","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --_pointless-discord-radius-avatar: 50%;
+  --_pointless-discord-radius-server: 50%;
+  --_pointless-discord-radius-interface: 8px;
+}
+
+html.theme-dark {
+
   /* Forest */
   --_pointless-palette_set-forest-primary:                  rgba(27 ,64 ,38 ,var(--pointless-palette-forest));
   --_pointless-palette_set-forest-primary_alt:              rgba(25 ,56 ,35 ,var(--pointless-palette-forest));
