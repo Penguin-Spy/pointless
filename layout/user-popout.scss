@@ -1,6 +1,19 @@
 [class*="userPopout-"] {
   width: 600px !important;
+  border-radius: var(--_pointless-radius-interface);
   overflow: unset;
+
+  /* Move box-shadow to a seperate element for proper z-indexing w/ the Roles list background's shadow */
+  box-shadow: unset;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    border-radius: var(--_pointless-radius-interface);
+    box-shadow: var(--elevation-high);
+  }
 
   /* ----- Banner & Avatar ----- */
   &>[class*="headerWrapper-"] {
@@ -11,7 +24,7 @@
       max-width: unset;
       width: unset;
       height: 240px;
-      border-radius: 8px;
+      border-radius: var(--_pointless-radius-interface);
 
       /* hide little "exclusive to Nitro" thingy, it interferes with with the badges & YES DISCORD I KNOW THE CUSTOM PROFILE BACKGROUNDS ARE A NITRO-EXCLUSIVE FEATURE */
       &>[class*="premiumIconWrapper-"] {
@@ -37,7 +50,7 @@
   /* ----- Name & Badges ----- */
   &>[class*="headerTop-"] {
     padding-top: 0;
-    padding-bottom: 96px;
+    padding-bottom: 112px;
     overflow: unset;
 
     &>[class*="headerText-"] {
@@ -49,8 +62,8 @@
         position: relative;
         font-size: 20px;
         text-align: center;
-        background-color: var(--background-primary);
-        border: solid var(--background-primary);
+        background-color: var(--background-floating);
+        border: solid var(--background-floating);
         border-width: 4px 8px;
         border-radius: var(--_pointless-radius-interface);
       }
@@ -69,7 +82,7 @@
 
   /* ----- Body ----- */
   &>[class*="body-"] {
-    width: 70%;
+    width: 420px;
     overflow: unset !important;
     display: flex;
     flex-direction: column-reverse;
@@ -80,7 +93,7 @@
       /* &>[class*="customStatus-"]>[class*="customStatusSoloEmoji-"] */
       &>[class*="customStatus-"] {
         position: absolute;
-        top: -32px;
+        top: -48px;
 
         &>[class*="customStatusSoloEmoji-"] {
           position: absolute;
@@ -90,106 +103,90 @@
 
       &>[class*="divider-"] { display: none; }
 
-      /* About me */
-      &>[class*="divider-"] + div, /* first element after the divider (About Me) */
-      &>[class*="userInfoSection-"]:first-child, /* userInfoSection as the 1st element (Pronouns w/ no About Me) */
-      &>[class*="customStatus-"] ~ h3:nth-last-child(2), /* Note header w/ status */
-      &>h3:nth-child(3) /* Note header w/ no pronouns or about me */
-      {
-        padding-top: 16px;
+      /* Fix about me */
+      &>[class*="userInfoSection-"]>[class*="clamped-"] {
+        display: inline;
       }
 
       /* Roles list */
       &>h3[class*="bodyTitle-"]:first-of-type:not(:only-of-type) { /* Roles title:not(note when there's no roles)*/
         position: absolute;
-        top: 16px;
+        top: 0;
         height: auto;
         right: -170px;
-        width: 38%;
+        width: 160px;
       }
       &>[class*="rolesList-"] {
         position: absolute;
         height:auto;
         right:-170px;
-        top: 40px;
-        width: 38%;
-        /*order:-1;
-        transform: translateX(414px);
-        position: relative;*/
+        top: 24px;
+        width: 160px;
+
+        /* Extra background for when the role list is longer than the rest of the popout
+         * Users with way too many roles can still cause a gap in the middle, but this is uncommon
+         * and this method still works better than the previous implementation. */
+        &::after {
+          content: "";
+          background-color: var(--background-floating);
+          position: relative;
+          width: 600px;
+          height: 296px;
+          top: -280px;
+          left: -430px;
+          flex: none;
+          z-index: -1;
+          border-radius: var(--_pointless-radius-interface);
+          box-shadow: var(--elevation-high);
+        }
+
+        /* Role solid-color background */
+        &>[class*="role-"] {
+          overflow: hidden;
+
+          & [class*="roleCircle-"]::after {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            width: 160px;
+            height: 22px;
+            background: inherit;
+            opacity: 0.3;
+            z-index: 0;
+          }
+
+          /* move role icons above the tinting. role names are intentionally left under the tint. */
+          &>img {
+            z-index: 1;
+          }
+        }
+
+        /* Add role button */
+        &>button {
+          background-color: var(--interactive-muted);
+        }
       }
     }
   }
+
+  /* Message @user box */
+  &>[class*="footer-"] {
+    background-color:transparent;
+    padding-right: 8px;
+    width: 396px;
+  }
 }
 
-
-
-/* Notes + Pronouns */
-/****
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>h3[class*="bodyTitle-"]:last-of-type { /* Note title *//*
-  position: absolute;
-  bottom:-8px;
-  height:auto;
-  width:38%;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>h3[class*="bodyTitle-"]:last-of-type:nth-last-child(4) {
-  right:0;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="note-"] {
-  position: absolute;
-  bottom:-46px;
-  height:auto;
-  width:38%;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="note-"]:nth-last-child(3) {
-  right:8px;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>div[class*="bodyTitle-"] { /* Pronouns title *//*
-  position: absolute;
-  bottom:-8px;
-  height:auto;
-  width:38%;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>:last-child:not([class*="note-"]) { /* Pronouns content *//*
-  position: absolute;
-  bottom:-30px;
-  height:auto;
-  width:38%;
-}
-*/
-
-/* Roles list */
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"] { /* role solid-color background */
-  max-width: -webkit-fill-available;
-  position:relative;
-  overflow:hidden;
-  z-index:1;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"] {
-  min-width: 12px;
-}
-[class*="userPopout-"]>[class*="body-"]>[class*="bodyInnerWrapper-"]>[class*="rolesList-"]>[class*="role-"]>[class*="roleCircle-"]::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: inherit;
-  opacity: 0.3;
-  z-index: -1;
+/* Shift member list popouts left by 8px so they don't overlap the scroll bar. looks tidier */
+[class*="animatorLeft-"]>[class*="userPopout-"] {
+  position: relative;
+  right: 8px;
 }
 
-/* Message @user box */
-[class*="userPopout-"]>[class*="footer-"] {
-  margin-top:55px;
-  background-color:transparent;
+/* Whoever designed this was just lazy, it looks like shit */
+[class*="loadingPopout-"] {
+  background-color: var(--background-floating);
+  border-radius: var(--_pointless-radius-interface);
+  margin-right: 8px;
 }
-
-
-
-/*[aria-label="USER_SETTINGS-"] [class*="profileBannerPreview-"]>[class*="bannerNormal-"] {
-
-}*/
-
-/*
-.layerContainer-yqaFcK .layer-v9HyYc#popout_2597 animatorRight/Left-3i_YPs.translate-2dAEQ6.didRender-33z1u8 .userPopout-xaxa6l
-.popouts-2bnG9Z .popout-2iWAc- .userPopout-xaxa6l
-*/

@@ -16,7 +16,7 @@
 }
 
 /* Remove max length of about me in User Modal */
-[class*="root-"]>[class*="body-"]>[class*="infoScroller-"]>[class*="userInfoSection-"]>[class*="userBio-"]> {
+[class*="root-"]>[class*="body-"]>[class*="infoScroller-"]>[class*="userInfoSection-"]>[class*="clamped-"] {
   display: inline;
 }
 
