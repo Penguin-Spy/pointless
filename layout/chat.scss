@@ -16,7 +16,7 @@
 
 /* Settings update notice */
 #app-mount [class*="baseLayer-"]>[class*="container-"]>[class*="base-"]::before {
-  display: var(--pointless-settings-ver-3, unset);
+  display: var(--pointless-settings-ver-4, unset);
   content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
   color: #fff;
   font-size: 14px;

@@ -1,8 +1,9 @@
 /* Layout settings (type // before the line to disable) */
 @forward 'layout/chat-bubbles';
 @forward 'layout/right-align-self';
-@forward 'layout/colorized';        /* Adds unique colors to all context menus */
-@forward 'layout/iconized';         /* Adds unique icons to all context menus */
+@forward 'share/colorized';        /* Adds unique colors to all context menus */
+@forward 'share/iconized';         /* Adds unique icons to all context menus */
+@forward 'share/iconized-settings'; /* Adds unique icons to all settings tabs */
 //@forward 'layout/no-nitro';     /* Hide all options for your use of nitro-only features (for example: hides the nitro gift & send sticker buttons) */
 
 /* Reverts the 2021 Discord rebrand. Type // before to disable, remove to enable. */
@@ -13,5 +14,5 @@
 
 /* DO NOT CHANGE unless you're manually updating this file. If you are making a backup and force updating (in the Powercord updater), do not copy this value */
 :root {
-  --pointless-settings-ver-3: none;
+  --pointless-settings-ver-4: none;
 }
