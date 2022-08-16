@@ -10,7 +10,7 @@
   }
 }
 
-/* syntax: @include colorize("#message-pin, #message-actions-pin, #message-unpin", skyblue, #67a7c0) */
+/* syntax: @include colorize-alt("#message-pin, #message-actions-pin, #message-unpin", skyblue, #67a7c0) */
 @mixin colorize-alt($id, $color, $hovercolor) {
   #{$id} {
     color: #{$color}
@@ -107,6 +107,8 @@
 @include colorize("#channel-context-delete-channel", #ed4245);
 @include colorize-alt("#channel-context-copy-channel-topic", skyblue, #67a7c0);
 @include colorize("#channel-context-new-forum-threads-created", mediumorchid);
+@include colorize-alt("#channel-context-open-chat", #69c069, #5dbd5d);
+@include colorize("#channel-context-hide-voice-names", goldenrod);
 /* Threads */
 @include colorize-alt("#thread-context-join-thread", #69c069, #5dbd5d);
 @include colorize("#thread-context-leave-thread", #ed4245);
