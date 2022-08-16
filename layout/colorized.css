@@ -124,19 +124,11 @@
 
 
 /* Guild Context Menu, Guild Header Popout Menu */
-/**/
 #guild-header-popout-premium-subscribe {
   color: rgb(255, 115, 250);
 }
 [class*="focused-"]:is(#guild-header-popout-premium-subscribe) {
   background-color: rgb(255, 115, 250);
-  color: #fff;
-}
-#guild-context-mark-guild-read {
-  color: plum;
-}
-[class*="focused-"]:is(#guild-context-mark-guild-read) {
-  background-color: #c27ec2;
   color: #fff;
 }
 #guild-context-invite-people, #guild-header-popout-invite-people {
@@ -145,13 +137,6 @@
 [class*="focused-"]:is(#guild-context-invite-people, #guild-header-popout-invite-people) {
   background: var(--brand-experiment-360);
   color: #fff
-}
-#guild-context-mute-guild, #guild-context-unmute-guild, [id^="guild-context-mute-guild--"] {
-  color: #E91E63;
-}
-[class*="focused-"]:is(#guild-context-mute-guild, #guild-context-unmute-guild, [id^="guild-context-mute-guild--"]) {
-  background: #E91E63;
-  color: #fff;
 }
 #guild-context-guild-settings, #guild-header-popout-settings {
   color: #668594;
@@ -165,13 +150,6 @@
 }
 [class*="focused-"]:is(#guild-header-popout-insights) {
   background: #1ABC9C;
-  color: #fff;
-}
-#guild-context-notifications, #guild-header-popout-notifications {
-  color: burlywood;
-}
-[class*="focused-"]:is(#guild-context-notifications, #guild-header-popout-notifications) {
-  background-color: burlywood;
   color: #fff;
 }
 #guild-context-privacy, #guild-header-popout-privacy {
@@ -251,25 +229,40 @@
   color: #fff;
 }
 
-
-/* Channel Context Menu */
+/* Guild & Channel shared items */
+#guild-context-mark-guild-read,
 #channel-context-mark-channel-read {
   color: plum;
 }
-[class*="focused-"]:is(#channel-context-mark-channel-read) {
+[class*="focused-"]:is(#guild-context-mark-guild-read,
+#channel-context-mark-channel-read) {
   background-color: #c27ec2;
   color: #fff;
 }
+#guild-context-mute-guild, #guild-context-unmute-guild, [id^="guild-context-mute-guild--"],
 #channel-context-mute-channel, #channel-context-unmute-channel, [id^="channel-context-mute-channel--"] {
-  color: #E91E63;
+  color: #e85d8b;
+  font-weight: 600;
 }
-[class*="focused-"]:is(#channel-context-mute-channel, #channel-context-unmute-channel, [id^="channel-context-mute-channel--"]) {
-  background: #E91E63;
+[class*="focused-"]:is(#guild-context-mute-guild, #guild-context-unmute-guild, [id^="guild-context-mute-guild--"],
+#channel-context-mute-channel, #channel-context-unmute-channel, [id^="channel-context-mute-channel--"]) {
+  background: #e85d8b;
+  font-weight: 500;
   color: #fff;
 }
-#channel-context-channel-notifications {
-  color: grey;
+#guild-context-guild-notifications, #guild-header-popout-notifications, [id^="guild-context-guild-notifications--"],
+#channel-context-channel-notifications, [id^="channel-context-channel-notifications--"] {
+  color: burlywood;
 }
+[class*="focused-"]:is(#guild-context-guild-notifications, #guild-header-popout-notifications, [id^="guild-context-guild-notifications--"],
+#channel-context-channel-notifications, [id^="channel-context-channel-notifications--"]) {
+  background-color: burlywood;
+  --menuitem-background: burlywood;
+  color: #fff;
+}
+
+
+/* Channel Context Menu */
 #channel-context-edit-channel {
   color: grey;
 }
@@ -353,6 +346,22 @@
 /* Strikethrough disabled items because just .5 opacity doesn't really work when every item is a different color/saturation */
 [role="menuitem"][class*="disabled-"]>[class*="label-"] {
   text-decoration: line-through;
+}
+
+/* Apply color to subtext */
+[role^="menuitem"]>[class*="label-"]>[class*="subtext-"] {
+  color: unset;
+  opacity: 0.75;
+}
+/* Apply color to radio selections & checkboxes */
+[role^="menuitem"] [class*="icon-"]>:is([class*="radioSelection-"], [class*="checkbox-"]) {
+  color: unset;
+}
+[role^="menuitem"] [class*="icon-"]>[class*="check-"] {
+  color: var(--background-floating);
+}
+[role^="menuitem"][class*="focused-"] [class*="icon-"]>[class*="check-"] {
+  color: var(--menuitem-background, var(--background-floating));
 }
 
 /* Colored channel icons */
