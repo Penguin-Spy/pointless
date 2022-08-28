@@ -16,8 +16,8 @@
 
 /* Settings update notice */
 #app-mount [class*="baseLayer-"]>[class*="container-"]>[class*="base-"]::before {
-  display: var(--pointless-settings-ver-4, unset);
-  content: "[Pointless]: Your settings file is outdated. Please see the readme for more info.";
+  display: var(--pointless-settings-ver-5, unset);
+  content: "[Pointless]: Your settings file is outdated. Please force-update the theme in the settings.";
   color: #fff;
   font-size: 14px;
   line-height: 36px;
@@ -90,17 +90,24 @@
     &>[class*="content-"] {
 
       /* ----- HEADER & BORDERS ----- */
-      /* Remove header shadows & recolor*/
-      &>[class*="sidebar-"]>nav :is(header, [class*="searchBar-"]) {
-        background-color: var(--background-secondary-alt);
-        box-shadow: none;
+      /* Remove header shadows, recolor, & Round split between channel list & chat */
+      &>[class*="sidebar-"] {
+        border-radius: 15px 15px 0 0;
+        margin-right: 8px;
+
+        &>nav :is(header, [class*="searchBar-"]) {
+          background-color: var(--background-secondary-alt);
+          box-shadow: none;
+        }
       }
       /* Select whatever window is the main content */
-      &>:nth-child(2) {
+      &>:not([class*="sidebar-"], .erd_scroll_detection_container) {
+        border-radius: 15px 15px 0 0;
+
         &>section {
           background-color: var(--background-primary-alt);
           &>[class*="children-"]::after {
-            background: linear-gradient(90deg,rgba(54,57,63,0) 0,var(--background-primary-alt)) !important;
+            background: linear-gradient(90deg,rgba(54, 57, 63, 0) 0,var(--background-primary-alt)) !important;
           }
         }
         &>div::before {
@@ -108,18 +115,8 @@
         }
       }
 
-
-
-      /* Round split between channel list & chat */
-      &>[class*="sidebar-"],
-      &>:nth-child(2) {
-        border-radius: 15px 15px 0 0;
-      }
-      &>:nth-child(2) {
-        margin-left: 5px;
-      }
-
-      &>[class*="chat-"]>[class*="content-"] { /* main chat window */
+      /* --- Main Chat Window --- */
+      &>[class*="chat-"]>[class*="content-"] {
         &>[class*="container-"] aside>[class*="members-"]>[class*="content-"] { /* member list */
 
           /* Member list backgrounds */

@@ -1,0 +1,34 @@
+.theme-dark {
+  --background-primary:       #1b2340;                  /* Channel background, top bar, settings content */
+  --background-primary-alt:   #191f38;                  /* custom; channel title */
+  --background-secondary:     #171d36;                  /* Channel, member, and settings list, quoteblocks, embed backgrounds */
+  --background-secondary-alt: #121629;                  /* bottom left user area, user popout message bg, connections header */
+  --background-tertiary:      #0b0e1a;                  /* Title bar & server list, search text bar, user note background */
+  --background-floating: var(--background-secondary-alt); /* User popout background, tooltip background */
+
+  --background-modifier-hover:  rgba(37, 49, 89, 0.4);  /* Channel, member, and settings list hover */
+  --background-modifier-active: rgba(37, 49, 89, 0.7);  /* Channel, member, and settings list clicking & selected */
+  --background-accent:          #7289da;                /* Reply & thread line (channel list & creation message) */
+
+  --chatbubble-self:         linear-gradient(#4152a3 0%,#344183 100%);
+  --chatbubble-other:        linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+  --chatbubble-self-text:  #fff;
+  --chatbubble-other-text: #fff;
+}
+.theme-light {
+  --background-primary:       #dee9fa;
+  --background-primary-alt:   #cedcf2;
+  --background-secondary:     #d0ddf2;
+  --background-secondary-alt: #c6d3e7;
+  --background-tertiary:      #a4b8da;
+  --background-floating:      #dee9fa;
+
+  --background-modifier-hover:  hsla(223, 50%, 80%, 0.4);
+  --background-modifier-active: hsla(223, 50%, 80%, 0.7);
+  --background-accent:          #7289da;
+
+  --chatbubble-self:         linear-gradient(#00c8d3 0%,#3654e8 100%);
+  --chatbubble-other: linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+  --chatbubble-self-text:  #fff;
+  /*--text-link: #9ab5ff;*/
+}

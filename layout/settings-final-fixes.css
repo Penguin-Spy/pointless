@@ -1,0 +1,62 @@
+/* Reapply some colors to other areas to reduce the number of variables per palette */
+.theme-light, .theme-dark {
+  --channeltextarea-background: var(--background-secondary); /* Message textarea */
+  --deprecated-card-bg: var(--background-secondary); /* powercord plugin & themes list cards */
+
+  --background-modifier-selected: var(--background-modifier-active); /* Channel, member, and settings list clicking & selected */
+
+  --scrollbar-thin-thumb: var(--background-tertiary); /* Channel, Member, & Settings lists (on hover), All Modals (regardless of if scrolls), shows up but never scrolls: user popout, all context menus */
+  /*--scrollbar-thin-track: transparent;              /* Track for above, no rounding | transparent */
+  --scrollbar-auto-thumb: var(--background-tertiary); /* Chat & friends page */
+  --scrollbar-auto-track: var(--background-secondary);/* Track for above */
+
+  /* mobile vars, used on the login screen?? */
+  --background-mobile-primary: var(--background-primary);
+  --background-mobile-secondary: var(--background-secondary);
+  --input-background: var(--background-secondary-alt);
+
+  /* Radius variables */
+  --_pointless-radius-avatar: 20%;
+  --_pointless-radius-server: 15%;
+  --_pointless-radius-interface: 6px;
+  --_pointless-radius-interface-small: 3px;
+  --_pointless-radius-interface-large: 15px;
+
+  /* Save default theme for resetting style in preview areas (so users see what it looks like for other users */
+  --_pointless-discord-font-primary: Whitney,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --_pointless-discord-font-display: "ABC Ginto Normal","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --_pointless-discord-font-headline: "ABC Ginto Nord","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --_pointless-discord-radius-avatar: 50%;
+  --_pointless-discord-radius-server: 50%;
+  --_pointless-discord-radius-interface: 8px;
+}
+.theme-dark {
+  --_pointless-discord-primary: hsl(220,calc(var(--saturation-factor, 1)*7.7%),22.9%);
+  --_pointless-discord-secondary: hsl(223,calc(var(--saturation-factor, 1)*6.9%),19.8%);
+  --_pointless-discord-secondary-alt: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+  --_pointless-discord-tertiary: hsl(220,calc(var(--saturation-factor, 1)*6.8%),17.3%);
+  --_pointless-discord-floating: hsl(225,calc(var(--saturation-factor, 1)*7.7%),10.2%);
+}
+
+/* ----- COLOR VAR USAGE CHANGES ----- */
+
+/* Mic test bg */
+div[class*="userSettingsVoice-"] [class*="micTest-"] [class*="progress-"] {
+  background-color: var(--background-secondary);
+}
+/* Slider bar backgrounds */
+div[class*="slider-"] > [class*="bar-"] {
+  background-color: var(--background-secondary);
+}
+
+/* Reply & thread line to use --background-accent */
+[class*="repliedMessage-"]:before,
+[class*="cozy-"][class*="hasThread-"]:after,
+svg[class*="spine-"] {
+  --interactive-muted: var(--background-accent);
+}
+/* thread created icon */
+[class*="cozy-"][class*="hasThread-"]>[class*="contents-"]>[class*="markup-"]>[class*="container-"]>[class*="iconContainer-"] {
+  color: var(--background-accent);
+}

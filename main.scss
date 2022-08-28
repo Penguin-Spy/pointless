@@ -1,7 +1,3 @@
-// Settings
-@forward 'settings.scss';       /* Include user's settings */
-@forward 'palette';             /* Palette option variables */
-
 // Technically optional stuff but probably will break things
 @forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
 @forward 'layout/user-popout';
@@ -13,6 +9,9 @@
 
 // Absolutley required stuff
 @forward 'layout/chat';         /* Chat, channel list, toolbar, user area */
-@forward 'layout/radius';       /* Apply radius variable to avatars & server icons*/
+@forward 'layout/radius';       /* Squircle-ifies user/server avatars, buttons, etc. */
 @forward 'layout/pisscorp';     /* Fix discord's jank non-use of theme variables on certain menus */
 
+// Settings
+@forward 'settings';            /* Include user's settings */
+@forward 'layout/settings-final-fixes';

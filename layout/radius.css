@@ -48,12 +48,12 @@ img[class*="guildIcon-"],
 
 /* red LIVE indicators */
 [class*="streamQualityIndicator-"] [class*="liveQualityIndicator-"] {
-  border-radius: 3px 0 0 3px;
+  border-radius: var(--_pointless-radius-interface-small) 0 0 var(--_pointless-radius-interface-small);
 }
 [class*="streamQualityIndicator-"] [class*="liveIndicator-"],
 [class*="streamQualityIndicator-"] [class*="liveShapeRoundRight-"] {
-  border-radius: 0 3px 3px 0 !important;
+  border-radius: 0 var(--_pointless-radius-interface-small) var(--_pointless-radius-interface-small) 0 !important;
 }
 [class*="liveShapeRound-"] {
-  border-radius: 3px;
+  border-radius: var(--_pointless-radius-interface-small);
 }

@@ -1,0 +1,32 @@
+.theme-dark {
+  --background-primary:       #1b4126;
+  --background-primary-alt:   #193823;
+  --background-secondary:     #173620;
+  --background-secondary-alt: #122919;
+  --background-tertiary:      #0b1a0f;
+  --background-floating:      var(--background-secondary-alt);
+
+  --background-modifier-hover:  rgba(18, 41, 25, 0.4);
+  --background-modifier-active: rgba(18, 41, 25, 0.7);
+  --background-accent:          #367d4b;
+
+  --chatbubble-self:         linear-gradient(#2e8b57 0%,#2a7f2a 100%);
+  --chatbubble-other:        linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+  --chatbubble-self-text:  #fff;
+  --chatbubble-other-text: #fff;
+}
+.theme-light {
+  --background-primary:       #b9d2ad;
+  --background-primary-alt:   #acc5a0;
+  --background-secondary:     #9dc08c;
+  --background-secondary-alt: #91b181;
+  --background-tertiary:      #759e61;
+  --background-floating:      var(--background-secondary-alt);
+
+  --background-modifier-hover:  hsla(113, 24%, 57%, 0.4);
+  --background-modifier-active: hsla(113, 24%, 57%, 0.7);
+  --background-accent:          hsl(113, 24%, 57%);
+
+  --chatbubble-self:  linear-gradient(#7fcf5a 0%,#87bb43 100%);
+  --chatbubble-other: linear-gradient(var(--background-secondary) 0%,var(--background-secondary-alt) 100%);
+}
