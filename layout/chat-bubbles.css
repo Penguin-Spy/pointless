@@ -22,18 +22,27 @@ div:not([class*="disableInteraction-"]) [class*="contents-"]>[class*="markup-"]:
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
+  color: var(--chatbubble-other-text);
 }
 [data-is-author-self=true]>[class*="contents-"]>[class*="markup-"]:not(:empty){
   background-image: var(--chatbubble-self);
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
+  color: var(--chatbubble-self-text);
 }
 /*text style*/
-[class*="contents-"]>[class*="markup-"],[class*="contents-"]>[class*="markup-"]>*:not([class*="anchorUnderlineOnHover-"]) {
+[class*="message-"]>[class*="contents-"]>[class*="markup-"],[class*="contents-"]>[class*="markup-"]>*:not([class*="anchorUnderlineOnHover-"]) {
   font-size:15px;
   line-height:20px;
 }
+[class*="message-"]>[class*="contents-"]>[class*="markup-"]>*:not([class*="anchorUnderlineOnHover-"]) {
+  color: unset;
+}
+[class*="message-"]>[class*="contents-"]>[class*="markup-"]>[class*="container-"] [class*="anchorUnderlineOnHover-"] {
+  color: unset;
+}
+
 /*[class*="theme-"] [data-is-author-self=false] [class*="container-"] *,[class*="theme-"] [data-is-author-self=false] [class*="markup-"],[class*="theme-"] [data-is-author-self=false] [class*="markup-"]>*{
 color:var(--chatbubble-other-text);
 }*/

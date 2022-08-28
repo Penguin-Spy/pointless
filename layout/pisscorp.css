@@ -61,6 +61,11 @@
   background-color: var(--background-tertiary);
 }
 
+/* Forum channel background */
+[class*="chat-"]>[class*="content-"]>[class*="container-"]:first-child {
+  background-color: var(--background-secondary-alt);
+}
+
 /* ----- POPOUTS/TEMP whatever it's called ----- */
 /* Color Picker */
 [class*="layer-"] [class*="colorPickerCustom-"] {

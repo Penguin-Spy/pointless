@@ -19,11 +19,10 @@
   &>:not([class*="baseLayer-"]) {
     left: 72px;
     overflow: visible;
-    /*z-index: 9999;
-    /*opacity: 0.85 !important;*/
+    background-color: transparent;
 
     & [class*="standardSidebarView-"] {
-      background-color: var(--background-tertiary);
+      background-color: transparent;
 
       /* Settings tab scroller */
       &>[class*="sidebarRegion-"] {
@@ -76,40 +75,12 @@
               }
 
               /* Move powercord settings to top */
-              &>[data-item-id="pc-general"] {
-                margin-top: 40px;
-                overflow: visible;
-                order: -1;
-
-                /* Fake category for Replugged */
-                &::after {
-                  content: "Replugged";
-                  position: absolute;
-                  top: -40px;
-                  left: -8px;
-                  display: block;
-                  width: 208px;
-                  height: 20px;
-                  padding: 20px 16px 4px;
-                  pointer-events: none;
-
-                  font-size: 12px;
-                  font-weight: 700;
-                  font-family: var(--font-display);
-                  line-height: 16px;
-                  text-transform: uppercase;
-                  color: var(--channels-default);
-                  white-space: nowrap;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  flex-shrink: 0;
-                  letter-spacing: 0.25px;
-                }
-              }
+              &>[data-item-id="pc-general"] { order: -1; }
               &>[data-item-id="pc-updater"] { order: -1; }
               &>[data-item-id="pc-moduleManager-plugins"] { order: -1; }
               &>[data-item-id="pc-moduleManager-themes"] { order: -1; }
               &>[data-item-id="pc-moduleManager-css"] { order: -1; }
+              &>[data-item-id="Overlay"]+div+[class*="header-"] {order:-1;} /* Replugged header */
 
               /* fake category for Other */
               &>[data-item-id="HypesquadOnline"] {
@@ -181,7 +152,7 @@
                 order: 2;
                 &::after {
                   text-transform: none;
-                  content: "pointless 0.4.7";
+                  content: "pointless 0.5.0";
                   font-size: 12px;
                   line-height: 16px;
                   color: var(--text-muted);
@@ -194,7 +165,7 @@
 
       /* content of selected tab */
       &>[class*="contentRegion-"] {
-        margin-left: 5px;
+        margin-left: 8px;
         background-color: unset;
 
         &>[class*="contentTransitionWrap-"] {
@@ -255,6 +226,7 @@
 
 /* ----- INDIVIDUAL PAGE CONTENT CHANGES ----- */
             &>#profile-customization-tab {
+              /* reset style for previews to show how other users will see it */
               & [class*="customizationSection-"][class*="preview-"] {
                 --_pointless-radius-avatar: var(--_pointless-discord-radius-avatar);
                 --background-secondary: var(--_pointless-discord-secondary);
@@ -267,8 +239,62 @@
               }
             }
 
+            /* restyle the Authorized Apps tab to match the Connections tab */
+            &>#authorized-apps-tab {
+              /* swap "delete button on hover" to "small X, always shown" like the connections cards */
+              & [class*="authedApp-"] {
+                border: unset;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: var(--background-secondary);
+                margin-bottom: 32px;
 
+                &>:first-child {
+                  margin: -20px;
+                  margin-bottom: 20px;
+                  padding: 20px;
+                  background: var(--background-secondary-alt);
+                }
 
+                & [class*="deleteApp-"] {
+                  opacity: 1;
+                }
+              }
+
+              & [class*="formNotice-"] {
+                border: unset;
+                border-radius: 8px;
+                background-color: var(--background-secondary-alt);
+                margin-bottom: 32px;
+              }
+            }
+
+            /* 2-column card pages */
+            @media (min-width: 1400px) {
+              &>#passport-tab {
+                & [class*="connectionList-"] {
+                    grid-template-columns: 1fr 1fr;
+                }
+              }
+
+              &>#authorized-apps-tab {
+                &>div>[class*="children-"] {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex-direction: row;
+
+                  &>[class*="authedApp-"] {
+                    flex: 0 0 auto;
+                    width: calc(50% - 24px);
+                    margin-right: 24px;
+                  }
+
+                  &>[class*="formNotice-"] {
+                    width: 100%;
+                  }
+                }
+              }
+            }
 
 
 
