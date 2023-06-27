@@ -1,22 +1,18 @@
 # Pointless
-![clones](https://img.shields.io/endpoint?url=https://githubstats.penguinspy.repl.co/shields/pointless) [![Powercord](https://img.shields.io/badge/client-Powercord-7289da?logo=discord&logoColor=fff)](https://powercord.dev/) [![Topaz](https://img.shields.io/badge/client-Topaz-fdda0d?logo=discord&logoColor=fff)](https://topaz.goosemod.com/)  [![Replugged](https://img.shields.io/badge/client-Replugged-7289da?logo=discord&logoColor=fff)](https://replugged.dev/)  
-A rectangular -but not pointy- customizable Powercord theme, with multiple skins (supporting dark and light mode), an option for backround images,  message bubbles, right-aligning your messages.  
+[![Install for Replugged](https://img.shields.io/badge/Replugged-Install-7289da?logo=discord&logoColor=fff)](https://replugged.dev/install?source=github&identifier=Penguin-Spy/pointless)  
+A rectangular -but not pointy- customizable Replugged theme, with multiple skins (supporting dark and light mode), an option for backround images,  message bubbles, right-aligning your messages, and more!  
 
 
 # Installation
-## Replugged/Powercord
-> If you are migrating from Powercord and already have the theme installed, you don't need to reinstall.  
-
-Open this link to install the theme: https://replugged.dev/install?url=Penguin-Spy/pointless
-
-## Topaz
-Open the Topaz theme settings and copy+paste `Penguin-Spy/pointless` into the "Add Theme" box, and then press enter.
+## Replugged
+Click [here](https://replugged.dev/install?source=github&identifier=Penguin-Spy/pointless) to install the latest version.
 
 ## Other client mods
 Other client mods are not supported at this time, this may or may not change. Do not make a Github issue requesting support for a different client mod :)
 
 
 # Configuration
+> Warning: this doesn't work right now, hopefully replugged theme settings happen before I have to re-set this up :)  
 > Note: this system will likely change soon, it sucks to use and maintain
 To choose a palette for the theme, copy+paste the following snippet into your QuickCSS:
 ```css
