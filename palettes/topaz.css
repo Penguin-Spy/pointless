@@ -1,0 +1,9 @@
+.theme-dark {
+  --_pointless-palette_set-yellow-primary:                  #ffff00;
+  --_pointless-palette_set-yellow-primary_alt:              #e1e100;
+  --_pointless-palette_set-yellow-secondary:                #b0b000;
+  --_pointless-palette_set-yellow-secondary_alt:            #7f7f00;
+  --_pointless-palette_set-yellow-tertiary:                 #3f3f00;
+  --_pointless-palette_set-yellow-chatbubble_self_0:        #2e8b57;
+  --_pointless-palette_set-yellow-chatbubble_self_100:      #2a7f2a;
+}
