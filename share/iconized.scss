@@ -2,18 +2,27 @@
  * This was heavily inspired by Corellan's Menu Icons, check it out: https://github.com/CorellanStoma/Menu-Icons/
  * I created my own because I wasn't satisfied with his icon choices: they match his theme, whereas I wanted my theme to match Discord's icons */
 
-/* Hide preexisting icons (we replace them)
- * Except for the > on submenus */
-[role="menuitem"]:not([aria-haspopup="true"])>[class|="iconContainer"] {
-  display: none;
+
+// show icons on the left (except for poput menu arrows, and don't touch bot actions & roles (they're already on the left))
+[role="menuitem"]:not([aria-haspopup="true"], [id^="message-apps--"], [id^="user-context-apps--"], [id^="user-context-roles--"]) {
+  flex-direction: row-reverse;
+
+  // bot avatars, reactions
+  &>[class*="iconContainer-"], &>[class*="imageContainer-"] {
+    margin-left: 0;
+    margin-right: 8px;
+  }
 }
 
-/* Apply base icon slot */
+/* Apply base icon slot to menu items that don't have one */
 [role="menuitem"]:not(
   [id^="message-add-reaction--"]:not(#message-add-reaction--other-reactions),
   [id^="user-context-invite-to-server--"],
-  [id^="message-apps--"]
-)>[class*="label"]::before {
+  [id^="message-apps--"],
+  [id^="user-context-apps--"],
+  [id^="user-context-roles--"]
+)>[class|="label"]:last-child::before, // the last-child selects .labels that are alone
+[role="menuitem"][aria-haspopup="true"]>[class|="label"]::before { // this adds an icon slot to popout menuitems (these never have a base icon)
   content: "";
   width: 18px;
   height: 18px;
@@ -24,13 +33,6 @@
   -webkit-mask: var(--icon-mask) center/contain no-repeat;
   --icon-mask: var(--icon, var(--pointless-icon-default));
   flex-shrink: 0;
-}
-[role="menuitem"]:not(
-  [id^="message-add-reaction--"]:not(#message-add-reaction--other-reactions),
-  [id^="user-context-invite-to-server--"],
-  [id^="message-apps--"]
-)>[class*="label"]>[class*="subtext-"] {
-  flex-basis: 100%;
 }
 
 /* Display icons on the left */
@@ -46,15 +48,9 @@
   flex-direction: row-reverse;
 }
 /*[role="menuitem"][id^="message-add-reaction--"]>[class|="imageContainer"], [role="menuitemcheckbox"]>[class|="iconContainer"]*/
-:is([role="menuitem"][id^="message-add-reaction--"], [role="menuitemcheckbox"], [role="menuitemradio"])>:is([class|="imageContainer"], [class|="iconContainer"]) {
+:is([role="menuitem"][id^="message-add-reaction-0--"], [role="menuitemcheckbox"], [role="menuitemradio"])>:is([class|="imageContainer"], [class|="iconContainer"]) {
   margin-left: 0;
   margin-right: 8px;
-  width: 18px;
-}
-[role="menuitem"][id^="message-add-reaction--"]>[class|="imageContainer"]>img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 /* Define icons that are used multiple times */

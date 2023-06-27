@@ -1,0 +1,19 @@
+{
+  "id": "dev.penguinspy.pointless",
+  "name": "Pointless",
+  "description": "A rectangular -but not pointy- customizable Replugged theme.",
+  "author": {
+    "name": "Penguin_Spy",
+    "discordID": "97399302313242624",
+    "github": "Penguin-Spy"
+  },
+  "source": "https://github.com/Penguin-Spy/pointless",
+  "version": "3.0.0-beta0",
+  "updater": {
+    "type": "github",
+    "id": "Penguin-Spy/pointless"
+  },
+  "license": "GPL-3.0-only",
+  "type": "replugged-theme",
+  "main": "main.scss"
+}

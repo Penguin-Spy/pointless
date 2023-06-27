@@ -1,17 +1,27 @@
-// Technically optional stuff but probably will break things
-@forward 'layout/plugins';      /* Plugin-related styling (support/fixes) */
-@forward 'layout/user-popout';
-@forward 'layout/user-modal';
-@forward 'layout/user-area';    /* Split up the user area: pfp & status picker next to message bar, settings & game activity into guild list */
-@forward 'layout/settings';     /* Settings menu styled as a guild w/ channels & pages */
-@forward 'layout/font';         /* Apply new fonts. Please edit font settings in QuickCSS with :root {} */
-//@forward 'layout/stream';
+@forward "layout/chat";
+@forward "layout/user-area";
+@forward "layout/settings";
+@forward "layout/stream";
 
-// Absolutley required stuff
-@forward 'layout/chat';         /* Chat, channel list, toolbar, user area */
-@forward 'layout/radius';       /* Squircle-ifies user/server avatars, buttons, etc. */
-@forward 'layout/pisscorp';     /* Fix discord's jank non-use of theme variables on certain menus */
+/*@forward "layout/user-popout";
+@forward "layout/user-modal";*/
 
-// Settings
-@forward 'settings';            /* Include user's settings */
-@forward 'layout/settings-final-fixes';
+
+@forward "layout/font";
+@forward "layout/radius";
+@forward "layout/pisscorp";
+@forward "layout/settings-final-fixes";
+
+
+// --- settings ---
+
+@forward "palettes/sapphire";
+
+//@forward 'layout/chat-bubbles';     /* Like text messages */
+//@forward 'layout/right-align-self'; /* Puts your messages on the right */
+@forward 'share/colorized';         /* Adds unique colors to all context menus */
+@forward 'share/iconized';          /* Adds unique icons to all context menus */
+@forward 'share/iconized-settings'; /* Adds unique icons to all settings tabs */
+
+/* Colorizes various SVGs. By NYRI4 */
+@import "https://nyri4.github.io/Discolored/main.css";

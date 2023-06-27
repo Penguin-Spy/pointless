@@ -8,7 +8,7 @@
 */
 
 
-[class*="guilds-"]>ul>[class*="scroller-"] [class*="listItem-"]>[class*="wrapper-3XVBev"],
+[class*="guilds-"]>ul>[class*="scroller-"] [class*="listItem-"]>[class*="wrapper-"],
 [class*="content-"]>main[class*="chatContent-"]>[class*="layerContainer-"] {
   pointer-events: none !important;
 }
@@ -83,7 +83,8 @@
               &>[data-item-id="Overlay"]+div+[class*="header-"] {order:-1;} /* Replugged header */
 
               /* fake category for Other */
-              &>[data-item-id="HypesquadOnline"] {
+              //&>[data-item-id="HypesquadOnline"] {
+              &>:nth-child(42) {
                 margin-top: 40px;
                 overflow: visible;
 
@@ -113,14 +114,16 @@
               }
 
               /* Logout, Changelog, & Delete (guild) as buttons */
-              &>[data-item-id="changelog"],
-              &>[data-item-id="logout"],
-              &>[data-item-id="DELETE"] {
+              &>:nth-child(41), //&>[data-item-id="changelog"],
+              &>:nth-child(51) //&>[data-item-id="logout"],
+              //&>[data-item-id="DELETE"]
+              {
                 order: 1;
                 position: relative;
                 padding: 8px 16px 8px 10px;
               }
-              &>[data-item-id="changelog"] {
+              //&>[data-item-id="changelog"] {
+              &>:nth-child(41) {
                 margin: 8px 0 4px 8px;
                 transition: background-color .17s ease,color .17s ease;
                 color: #fff;
@@ -129,8 +132,9 @@
                   background-color: var(--brand-experiment-560);
                 }
               }
-              &>[data-item-id="logout"], &>[data-item-id="DELETE"] {
-                /*margin: 4px 0 8px 8px;*/
+              //&>[data-item-id="logout"], &>[data-item-id="DELETE"] {
+              &>:nth-child(51) {
+                margin: 4px 0 8px 8px;
                 transition: color .17s ease,background-color .17s ease,border-color .17s ease;
                 border-width: 1px;
                 border-style: solid;
@@ -152,10 +156,11 @@
                 order: 2;
                 &::after {
                   text-transform: none;
-                  content: "pointless 0.5.0";
+                  content: "pointless 3.0.0-beta0";
                   font-size: 12px;
                   line-height: 16px;
                   color: var(--text-muted);
+                  display: block;
                 }
               }
             }
@@ -227,11 +232,11 @@
 /* ----- INDIVIDUAL PAGE CONTENT CHANGES ----- */
             &>#profile-customization-tab {
               /* reset style for previews to show how other users will see it */
-              & [class*="customizationSection-"][class*="preview-"] {
+              & [class*="customizationSection-"] [class*="profileCustomizationPreview-"]{
                 --_pointless-radius-avatar: var(--_pointless-discord-radius-avatar);
                 --background-secondary: var(--_pointless-discord-secondary);
+                --background-secondary-alt: var(--_pointless-discord-secondary-alt);
                 --background-floating: var(--_pointless-discord-floating);
-                --font-display: var(--_pointless-discord-font-display);
 
                 div {
                   font-family: var(--_pointless-discord-font-primary);
