@@ -1,13 +1,72 @@
+/* title like text channel title (but not in fullscreen)*/
+[class*="video-"]:not([class*="fullScreen-"]) {
+  &>[class*="callContainer-"] {
+    /* spacing from channel list */
+    & [class*="tileWrapper-"]>[style="top: -60px;"] {
+      margin-left: 8px;
+    }
+    
+    /* remove gradient & show/hide, and add background */
+    & [class*="videoControls-"] {
+      &>[class*="gradientContainer-"] {
+        display: none;
+      }
+    
+      /* make title/bottom controls always show */
+      &>[class*="controlSection-"] {
+        opacity: unset;
+        transform: unset;
+        
+        & section {
+          background: var(--background-secondary-alt);
+        }
+      }
+    }
+    
+    /* remove ↑ from chat button (why is it separate) */
+    & [class*="chatButton-"] {
+      opacity: unset;
+      transform: unset;
+    }
+  }
+}
+
+/* make vc txt chat header look like normal text channel header */
+[class*="callContainer-"] ~ [class*="channelChatWrapper"] {
+  &>div>section {
+    background: var(--background-primary-alt);
+  }
+  & [class*="chat-"]::before {
+    content: unset;
+  }
+}
+
+/* theme background (instead of black background) */
+[class*="video-"] > [class*="callContainer-"] {
+  background: var(--background-secondary);
+}
+
+
+/* restore layout to video on left, members on right */
 [class*="video-"] > [class*="callContainer-"] [class*="tileWrapper-"] {
   display: flex;
+  height: 100%;
 
   & [class*="videoFrame-"] {
     transform: unset !important;
-
-    &:not([style="transform: none;"])>:first-child {
-      transform: scale(1.175) !important;
+    top: unset !important;
+    margin: auto;
+    transition: margin .2s ease-in-out;
+    
+    &[style="top: 0px;"] {
+      margin-top: 48px;
     }
 
+    &:not([style="transform: none;"])>:first-child {
+      width: 100% !important;
+    }
+
+    /* show/hide members button */
     &>[class*="actionRow-"] {
       right: -16px;
       top: 50%;
@@ -15,6 +74,9 @@
       left: unset;
       & [class*="iconContainer-"] {
         flex-direction: column;
+        width: 24px;
+        height: 52px;
+    
         & [class*="downCaret-"] {
           transform: rotate(-90deg);
         }
@@ -24,8 +86,20 @@
       }
     }
   }
+  
+  
   & [class*="participantsWrapperAnimated-"] {
     position: inherit;
+    margin-right: 8px;
+    transform: unset !important;
+    /*transition: width .2s ease-in-out;*/
+    
+    &:not([style*="opacity: 1;"]) {
+    }
+    &[style*="opacity: 0;"] {
+      width: 0;
+      margin: 0;
+    }
   }
   & [class*="participantsWrapperAnimated-"] > [class*="root-"] {
     transform: unset !important;
@@ -39,14 +113,4 @@
       margin-right: 8px;
     }
   }
-}
-
-//
-[class*="noChat-"][class*="video-"] > [class*="callContainer-"] [class*="tileWrapper-"] [class*="videoFrame-"] {
-  &>:first-child {
-    transform: scale(1.035) !important;
-  }
-  &[style="transform: none;"] [class*="actionRow-"] {
-    right: 12%;
- }
 }

@@ -273,7 +273,7 @@
   content: ":";
 }*/
 /* repairs left shift */
-[class*="cozy-"] [class*="headerText-"] > span {
+[class*="cozy-"] [class*="headerText-"] > span:first-child {
   margin-left: 3px;
 }
 
