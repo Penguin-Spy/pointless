@@ -1,6 +1,1 @@
 /* Applies color variables to all the places where Discord didn't use them */
-
-/* Forum channel background */
-[class*="chat-"]>[class*="content-"]>[class*="container-"]:first-child {
-  background-color: var(--background-secondary-alt);
-}

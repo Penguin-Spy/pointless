@@ -4,7 +4,7 @@
   --background-secondary:     #171d36;                  /* Channel, member, and settings list, quoteblocks, embed backgrounds */
   --background-secondary-alt: #121629;                  /* bottom left user area, user popout message bg, connections header */
   --background-tertiary:      #0b0e1a;                  /* Title bar & server list, search text bar, user note background */
-  --background-floating: var(--background-secondary-alt); /* User popout background, tooltip background */
+  --background-floating: var(--background-secondary);     /* User popout background, tooltip background */
 
   --background-modifier-hover:  rgba(37, 49, 89, 0.4);  /* Channel, member, and settings list hover */
   --background-modifier-active: rgba(37, 49, 89, 0.7);  /* Channel, member, and settings list clicking & selected */
@@ -21,7 +21,7 @@
   --background-secondary:     #d0ddf2;
   --background-secondary-alt: #c6d3e7;
   --background-tertiary:      #a4b8da;
-  --background-floating:      #dee9fa;
+  --background-floating:      var(--background-primary);
 
   --background-modifier-hover:  hsla(223, 50%, 80%, 0.4);
   --background-modifier-active: hsla(223, 50%, 80%, 0.7);

@@ -8,7 +8,7 @@
     "github": "Penguin-Spy"
   },
   "source": "https://github.com/Penguin-Spy/pointless",
-  "version": "3.0.0-beta0",
+  "version": "3.0-beta2",
   "updater": {
     "type": "github",
     "id": "Penguin-Spy/pointless"

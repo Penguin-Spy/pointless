@@ -1,0 +1,18 @@
+/* remove round banner mask behind avatar */
+[class*="userProfileModalInner-"],
+[class*="accountProfileCard-"] {
+  & [class*="bannerSVGWrapper-"]>foreignObject {
+    mask: unset;
+  }
+}
+
+[class*="userProfileModalInner-"] {
+  /* Remove max length of about me in User Modal */
+  & [class*="userInfoSection-"] [class*="lineClamp2Plus-"] {
+    display: inline;
+  }
+  /* remove status background circle */
+  & [class*="avatar-"]>svg>circle {
+    opacity: 0 !important; /* display:none breaks the tooltip */
+  }
+}

@@ -3,8 +3,8 @@
 @forward "layout/settings";
 @forward "layout/stream";
 
-/*@forward "layout/user-popout";
-@forward "layout/user-modal";*/
+@forward "layout/user-popout";
+@forward "layout/user-modal";
 
 
 @forward "layout/font";
@@ -16,6 +16,7 @@
 // --- settings ---
 
 @forward "palettes/sapphire";
+// other palettes not available at this time, supply chain issues y'know ¯\_(ツ)_/¯
 
 //@forward 'layout/chat-bubbles';     /* Like text messages */
 //@forward 'layout/right-align-self'; /* Puts your messages on the right */

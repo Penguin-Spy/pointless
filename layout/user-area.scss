@@ -1,14 +1,15 @@
-#app-mount [class*="layer-"]>[class*="container-"]>[class*="base-"]>[class*="content-"]>[class*="sidebar-"]>section {
+[class*="sidebar-"]>section[class*="panels-"] {
   /* ----- SPLIT UP USER AREA ----- */
   /* Remove user area container */
   &>[class*="container-"] {
     height:0;
     margin-bottom: 0;
   }
-  &>[class*="wrapper-"]>[class*="container-"] {border:none}
+  &>[class*="wrapper-"]>div { border: none; }
 
-  /* Settings to bottom left */
+  /* Settings to bottom left (in guild navbar) */
   &>[class*="container-"]>[class*="flex-"]> button:last-child {
+    /* turn the button itself into the background gradient (clickable area) */
     background: linear-gradient(transparent 0%, var(--background-tertiary) 10%);
     color: var(--text-normal);
     position: fixed;
@@ -18,70 +19,76 @@
     height: 64px;
     padding-top: 1px;
     border-radius: 0;
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 8px;
-    height: 20px;
-    left: 0;
-    top: 23px;
-    border-radius: 0 4px 4px 0;
-    margin-left: -4px;
-    background-color: var(--header-primary);
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:last-child::after {
-    background-color: var(--background-primary);
-    transition: background-color .15s ease-out,color .15s ease-out;
-    position: absolute;
-    content: "";
-    z-index: -1;
-    height: 48px;
-    width: 48px;
-    border-radius: var(--_pointless-radius-server);
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover {
-    color: #fff;
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:last-child:hover::after {
-    background-color: var(--brand-experiment);
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:last-child:active {
-    transform: translateY(1px);
+
+    &:hover { color: #fff; } /* light up gear on hover */
+    &:active { transform: translateY(1px); } /* shift down on click (like other guild list items) */
+
+    &:hover::before { /* fake pill on hover */
+      content: "";
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 20px;
+      left: 0;
+      top: 23px;
+      border-radius: 0 4px 4px 0;
+      margin-left: -4px;
+      background-color: var(--header-primary);
+    }
+    &::after { /* fake button shape (the gear is a child of the button & renders on top) */
+      background-color: var(--background-primary);
+      transition: background-color .15s ease-out,color .15s ease-out;
+      position: absolute;
+      content: "";
+      z-index: -1;
+      height: 48px;
+      width: 48px;
+      border-radius: var(--_pointless-radius-server);
+    }
+    &:hover::after { /* light up background on hover */
+      background-color: var(--brand-experiment);
+    }
   }
 
-  /* Mute/Deafen in VC area */
-  &>[class*="wrapper-"]>[class*="container-"] {padding-right:4px} /* Resize VC area buttons to make room for Krisp */
-  &>[class*="wrapper-"] >div> [class*="actionButtons-"] {width:190px}
-  &>[class*="wrapper-"] >div> [class*="actionButtons-"]> button {
-    min-width: 90px;
-    padding: 2px 0;
-  }
-  &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:not(:only-child){ /* Krisp button to bottom row */
-    position: absolute;
-    top: 48px;
-    left: 204px;
-  }
-  &>[class*="wrapper-"] >div> [class*="flex-"]>[class*="flex-"]> button:first-child:only-child { /* disconnect */
-    left: 54px;
-    width: 26px;
+  /* Reorganize VC area & move Mute/Deafen to it */
+  &>[class*="wrapper-"]>div {
+    /* Resize VC area buttons to make room for Krisp */
+    padding-right: 4px;
+    &>[class*="actionButtons-"] { margin-right: 40px; }
+    &>[class*="actionButtons-"] button { padding: 2px 0; }
+
+    /* krisp button to bottom row, disconnect button to right of top row */
+    &>[class*="flex-"]>[class*="flex-"] {
+      position: absolute;
+      left: 194px;
+      top: 7px;
+      height: 72px;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: end;
+
+      & button:last-child { /* disconnect button width */
+        width: 26px;
+      }
+    }
+    &>[class*="flex-"]>[class*="inner-"] {
+      max-width: 150px;
+    }
   }
   &>[class*="container-"]>[class*="flex-"]>button[aria-checked] { /* Move Mute/Deafen */
     position: relative;
     bottom: 64px;
-    left: 146px;
+    left: 150px;
     width: 26px;
   }
-  &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]> button[aria-checked] {display:none} /* but hide them when there's no VC area */
+  &>[class*="wrapper-"]:empty ~ [class*="container-"]>[class*="flex-"]>button[aria-checked] {display:none} /* but hide them when there's no VC area */
 
-  /* User area pfp aligned with our messages */
+  /* User area pfp aligned with messages */
   & [class*="avatarWrapper-"] {
-    left: 261px;
+    left: 264px;
     bottom: 8px;
     position: absolute;
     z-index: 1;
-    width: 40px;
     min-width: unset;
 
     &[class*="withTagAsButton-"]>[class*="nameTag-"] { display: none; }
@@ -91,16 +98,16 @@
   & [class*="avatar-"][class*="wrapper-"] {
     width: 40px !important;
     height: 40px !important;
-  }
 
-  /* GameActivityToggle button to status picker */
-  &>[class*="container-"]>[class*="avatarWrapper-"][aria-expanded="false"]~[class*="flex-"]> button:not([aria-checked]):first-child {
-    display: none;
-  }
-  &>[class*="container-"]>[class*="flex-"]> button:not([aria-checked]):first-child {
-    position: absolute;
-    left: 510px;
-    bottom: 86px;
-    z-index: 10005;
+    & foreignObject { /* avatar img */
+      width: 40px;
+      height: 40px;
+    }
+    & rect { /* status indicator */
+      x: 28px;
+      y: 28px;
+      width: 12px;
+      height: 12px;
+    }
   }
 }

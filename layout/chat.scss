@@ -15,13 +15,11 @@
 
 /* Wordmark */
 [class*="wordmark-"] {
-  left: 4px;
-
   &:after {
     content: "Pointless";
     font-size: 15px;
     position: absolute;
-    left: 20px;
+    left: 22px;
     font-family: 'Discord';
     color: var(--text-muted);
   }
@@ -31,22 +29,23 @@
   &:before {
     content: "";
     position: absolute;
-    height: 20px;
-    width: 20px;
-    bottom: 0;
-    right: 0;
-    background: url('https://powercord.dev/assets/powercord.1eb41971.svg') center/20px no-repeat;
+    height: 16px;
+    width: 16px;
+    background: url('https://replugged.dev/assets/replugged-b625c392.png') center/16px no-repeat;
+    top: 3px;
+    left: 3;
   }
 }
 
+/* Guild navbar */
 [class*="guilds-"] [class*="scroller-"] {
-  /* remove dividers between home & guilds, but not between folders in Better Folders popout */
-  &>[class*="listItem-"]:not(:nth-last-child(2)) {
+  /* remove dividers between home & guilds */
+  &>[class*="listItem-"]:nth-child(2) {
     display: none;
   }
 
   /* Pin home icon */
-  &>[class*="tutorialContainer-"]:first-child, &>.expanded>[class*="listItem-"] { /* Home button */
+  &>[class*="tutorialContainer-"]:first-child { /* Home button */
     position: fixed;
     top: 18px;
     z-index: 1;
@@ -54,7 +53,7 @@
     padding-top: 4px;
     padding-bottom: 2px;
   }
-  padding-top: 56px;
+  padding-top: 56px; /* padding on the scroller bc the home icon isn't in the document flow anymore*/
 
   /* Make space for settings icon */
   &>[class*="listItem-"]:nth-last-child(2) {
@@ -62,125 +61,112 @@
   }
 }
 
-#app-mount [class*="layer-"]>[class*="container-"]>[class*="base-"] {
-    /* Detached notices */
-    &>[class*="notice-"] {
-      margin-bottom: 5px;
-      border-radius: 8px;
+/* Detached notices */
+[class*="base-"]>[class*="notice-"] {
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
+
+/* Remove header shadows, recolor, & Round split between channel list & chat */
+[class*="base-"]>[class*="content-"] {
+  /* channel/DMs list */
+  &>[class*="sidebar-"] {
+    border-radius: 15px 15px 0 0;
+    margin-right: 8px;
+
+    &>nav>[class*="searchBar-"],
+    &>nav>div:not([class*="hasBanner-"])>header {
+      background-color: var(--background-secondary-alt);
+      box-shadow: none;
+    }
+    &>nav>div>[class*="animatedContainer-"] {
+      box-shadow: none;
+    }
+  }
+  /* Whatever window is the main content (also gets thread sidebar) */
+  &>:not([class*="sidebar-"], [class*="resizeHandle-"], .erd_scroll_detection_container) {
+    border-radius: 15px 15px 0 0;
+
+    &>section { /* titlebar color & title fadeout */
+      background-color: var(--background-primary-alt);
+      & [class*="children-"]::after {
+        background: linear-gradient(90deg,rgba(54, 57, 63, 0) 0,var(--background-primary-alt)) !important;
+      }
+    }
+    &>div::before, &>[class*="scroller-"]>div::before { /* remove content top shadow */
+      content: unset;
+    }
+  }
+  &>[class*="resizeHandle-"] {
+    background-color: unset;
+  }
+}
+
+/* member list */
+aside>[class*="members-"]>[class*="content-"] {
+  /* Member list backgrounds */
+  &>[class*="member-"] {
+    margin-top: 4px;
+
+    & [class*="username-"]::after {
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0.125;
+      background: currentColor;
+      border-radius: var(--_pointless-radius-interface);
+    }
+  }
+  &>[class*="membersGroup-"] + [class*="member-"] {
+    margin-top: 5px;
+  }
+}
+
+/* messages textarea */
+[class*="chatContent-"]>form {
+  /* position "user is typing..." box above the text area */
+  &>[class*="typing-"] {
+    bottom: 52px;
+    animation: textArea-typing .2s ease-out;
+  }
+
+  & [class*="channelTextArea-"], &>div>[class*="wrapper-"], &>div>div>[class*="wrapper-"] {
+    /* resize textarea box */
+    margin-bottom: 8px; /* move down to swap with the typing indicator */
+    margin-left: 56px;  /* make space for the user area pfp */
+    width: unset; /* prevent the textarea from going offscreen */
+
+    &[class*="channelTextAreaDisabled-"] {
+      display: none;
     }
 
-    &>[class*="content-"] {
-
-      /* ----- HEADER & BORDERS ----- */
-      /* Remove header shadows, recolor, & Round split between channel list & chat */
-      &>[class*="sidebar-"] {
-        border-radius: 15px 15px 0 0;
-        margin-right: 8px;
-
-        &>nav>[class*="searchBar-"],
-        &>nav>div:not([class*="hasBanner-"])>header {
-          background-color: var(--background-secondary-alt);
-          box-shadow: none;
-        }
-        &>nav>div>[class*="animatedContainer-"] {
-          box-shadow: none;
-        }
-      }
-      /* Select whatever window is the main content */
-      &>:not([class*="sidebar-"], .erd_scroll_detection_container) {
-        border-radius: 15px 15px 0 0;
-
-        &>section {
-          background-color: var(--background-primary-alt);
-          &>[class*="children-"]::after {
-            background: linear-gradient(90deg,rgba(54, 57, 63, 0) 0,var(--background-primary-alt)) !important;
-          }
-        }
-        &>div::before {
-          content: none;
-        }
+    &>[class*="scrollableContainer-"]>div {
+      /* move the (+) file upload & thread button to the right */
+      &>[class*="attachWrapper-"] {
+        order: 1;
+        right: -14px;
+        position: absolute;
+        z-index: 1;
       }
 
-      /* --- Main Chat Window --- */
-      &>[class*="chat-"]>[class*="content-"] {
-        /* member list */
-        &>[class*="container-"] aside>[class*="members-"]>[class*="content-"] {
+      /* make space for the file upload button (but only when it's there) */
+      &>[class*="attachWrapper-"] ~ [class*="buttons-"] {
+        right: 32px;
+      }
 
-          /* Member list backgrounds */
-          &>[class*="member-"] {
-            margin-top: 4px;
-
-            & [class*="username-"]::after {
-              content: '';
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              opacity: 0.125;
-              background: currentColor;
-              border-radius: var(--_pointless-radius-interface);
-            }
-          }
-          &>[class*="membersGroup-"] + [class*="member-"] {
-            margin-top: 5px;
-          }
-        }
-
-        /* messages & textarea */
-        &>[class*="chatContent-"]>form {
-          /* position "user is typing..." box above the text area */
-          &>[class*="typing-"] {
-            bottom: 52px;
-            animation: textArea-typing .2s ease-out;
-          }
-
-          & [class*="channelTextArea-"], &>div>[class*="wrapper-"], &>div>div>[class*="wrapper-"] {
-            /* resize textarea box */
-            margin-bottom: 8px; /* move down to swap with the typing indicator */
-            margin-left: 56px;  /* make space for the user area pfp */
-            width: unset; /* prevent the textarea from going offscreen */
-
-            &[class*="channelTextAreaDisabled-"] {
-              display: none;
-            }
-
-            &>[class*="scrollableContainer-"]>div {
-              /* move the (+) file upload & thread button to the right */
-              &>[class*="attachWrapper-"] {
-                order: 1;
-                /*right: 66px;*/
-                /*right: 18px;
-                position: fixed;*/
-                right: -14px;
-                position: absolute;
-                z-index: 1;
-              }
-
-              /* make space for the file upload button (but only when it's there) */
-              &>[class*="attachWrapper-"] ~ [class*="buttons-"] {
-                right: 32px;
-              }
-
-              /* Hide unnecessary buttons */
-              &>[class*="buttons-"] {
-                &>[class*="buttonContainer-"]>[class*="button-"]:not([class*="emojiButton-"]), /* Sticker & GIF button */
-                &>button[class*="button-"]>[class*="button-"] {  /* Nitro Gift */
-                  display: none;
-                }
-
-                /* make space for file upload button before the Accessibility Send button (not always present) */
-                /*&>[class*="separator-"] {
-                  right: -32px;
-                  position: relative;
-                }*/
-              }
-            }
-
-          }
+      /* Hide unnecessary buttons */
+      &>[class*="buttons-"] {
+        &>[class*="buttonContainer-"]>[class*="button-"]:not([class*="emojiButton-"]), /* Sticker & GIF button */
+        &>button[class*="button-"]>[class*="button-"] {  /* Nitro Gift */
+          display: none;
         }
       }
     }
+
+  }
 }
 
 /* Move settings tooltip back on screen */
@@ -269,12 +255,28 @@
   /* repairs left shift*/
   left: -3px;
 }
-/*[class*="cozy-"] [class*="headerText-"] > span::after {
-  content: ":";
-}*/
 /* repairs left shift */
 [class*="cozy-"] [class*="headerText-"] > span:first-child {
   margin-left: 3px;
+}
+
+/* gives me a tag :)
+  og by: dante_nl#1234 https://discord.com/channels/538759280057122817/755005803303403570/929388259598008320
+*/
+[class*="compact-"][data-author-id="97399302313242624"] h3 [class*="username-"]::before,
+[class*="cozyMessage-"][data-author-id="97399302313242624"] h3 [class*="username-"]::after {
+  content: "pointless";
+  position: relative;
+  bottom: 2px;
+  line-height: 1.3;
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #5865F2;
+  border-radius: 3px;
+  margin-left: 4px;
+  margin-right: -2px;
+  padding: 2px 5px;
 }
 
 /* voice channel user background */
@@ -316,42 +318,24 @@
   box-shadow: inset 0 0 0 2px hsl(139,calc(var(--saturation-factor, 1)*47.3%),43.9%);
 }
 
-/* Jump to Message buttons
-  by: ThatOtherAndrew#8134 https://canary.discord.com/channels/538759280057122817/755005803303403570/929440925791449148
-*/
-[title^="https://discord.com/channels/"], [title^="https://ptb.discord.com/channels/"], [title^="https://canary.discord.com/channels/"] {
-  line-height: 0;
-  font-size: 0;
-  text-decoration-color: #fff !important;
+/* colored window buttons */
+[class*="winButton-"] {
+  color: var(--color);
+  &:hover {
+    color: var(--white-500);
+    background-color: var(--color);
+  }
 }
-[title^="https://discord.com/channels/"]::before, [title^="https://ptb.discord.com/channels/"]::before, [title^="https://canary.discord.com/channels/"]::before {
-  content: "✉ Jump to Message";
-  font-size: 16px;
-  user-select: text;
-  font-weight: 500;
-  transition: background-color 50ms ease-out, color 50ms ease-out;
-  cursor: pointer;
-  border-radius: 3px;
-  padding: 0 2px;
-  background: hsla(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%, 0.3);
-  color: hsl(236, calc(var(--saturation-factor, 1) * 83.3%), 92.9%);
-}
-[title^="https://discord.com/channels/"]:hover::before, [title^="https://ptb.discord.com/channels/"]:hover::before, [title^="https://canary.discord.com/channels/"]:hover::before {
-  background-color: hsl(235, calc(var(--saturation-factor, 1) * 85.6%), 64.7%);
-  color: #fff;
-}
-
-/* colored window buttons
-  by: ِJJ#0001 https://canary.discord.com/channels/538759280057122817/755005803303403570/929921672482529310
-*/
-[class*="winButton-"]:nth-child(3):hover {background-color: var(--brand-experiment) ;}
-[class*="winButton-"]:nth-child(4):hover {background-color: orange ;}
+[class*="winButton-"]:nth-child(2) { --color: var(--status-danger); }
+[class*="winButton-"]:nth-child(3) { --color: var(--brand-experiment); }
+[class*="winButton-"]:nth-child(4) { --color: orange; }
 
 /* Game activity as guild list item */
 [class*="activityPanel-"] {
   border: unset;
   padding: unset;
 
+  /* restyle game icon to match guild icons */
   & [class*="gameWrapper-"] {
     display: flex;
     align-items: center;
@@ -415,7 +399,7 @@
   }
 
   /* stream button as exponent, can click anywhere */
-  & [class*="actions-"] {
+  & [class*="actions-"] { /* style clickable area */
     position: fixed;
     left: 0px;
     bottom: 55px;
@@ -423,12 +407,24 @@
     height: 64px;
     margin-left: 0px;
     padding-top: 1px;
-    & button {
+
+    & [class*="button-"] { /* style button container */
       width: 72px;
       height: 64px;
       align-items: flex-start;
       justify-content: flex-end;
 
+      &:hover { /* remove hover highlight of clickable area */
+        background-color: transparent !important;
+      }
+      &[class*="disabled-"] { /* make the icon faded and not the background */
+        opacity: unset;
+        & svg {
+          opacity: .4;
+        }
+      }
+
+      /* style the icon as an exponent */
       & [class*="contents-"] {
         background-color: var(--background-tertiary);
         padding: 3px;
@@ -440,17 +436,8 @@
         margin: 0px;
       }
     }
-    &>button:hover {
-      background-color: transparent;
-    }
-    & button[class*="disabled-"] {
-      opacity: unset;
-      & svg {
-        opacity: .4;
-      }
-    }
   }
-  /* pill */
+  /* pill on hover */
   & [class*="actions-"] button:hover::before {
     content: "";
     position: absolute;
@@ -469,8 +456,8 @@
 }
 /* move stream button tooltip to the left */
 #app-mount [class*="layerContainer-"]>:is(
-  /*[style^="position: absolute; left: -"][style$="px; bottom: 127px;"]*/
-  [style="position: absolute; bottom: 127px; left: -30px;"]
+  [style="position: absolute; bottom: 127px; left: -58px;"], /* Stream <game> */
+  [style="position: absolute; bottom: 127px; left: -59px;"]  /* navigate to a server to start streaming */
 ){
   left: 80px !important;
   bottom: 70px !important;
@@ -494,6 +481,7 @@
     }
   }
 }
+
 /* better 'danger' buttons */
 button[class*="lookOutlined"][class*="colorRed"]:hover {
   background-color: var(--background-modifier-hover);
@@ -525,75 +513,6 @@ button[class*="lookOutlined"][class*="colorRed"]:hover {
 }
 
 
-/* User area "popout" (status picker, but now also shows name [& background?]) */
-/*#status-picker {
-  position: fixed;
-  bottom: 8px;
-  left: 77px;
-  width: 230px;
-  height: 225px;
-  background: var(--background-tertiary);
-  border-radius: 5px;
-  z-index: -1;
-}
-#status-picker [class*="item-"] svg{
-  width: 16px;
-  height: 16px;
-}
-#status-picker [class*="scrollerBase-"] {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: 40px 40px;
-  margin: auto 4px 4px 4px;
-}
-#status-picker [class*="separator-"] {
-  display: none;
-}
-#status-picker [class*="item-"] {
-  height: 32px;
-}*/
-
-/* usernametag to status picker */
-[class*="container-"] [class*="avatarWrapper-"][aria-expanded="false"] ~ [class*="nameTag-"] {
-  display: none;
-}
-[class*="container-"] [class*="avatarWrapper-"][aria-expanded="true"] ~ [class*="nameTag-"] {
-  display: unset;
-  position: absolute;
-  left: 160px;
-  bottom: 16px;
-  z-index: 10005;
-  /*
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    bottom: 115px;
-    left: 50px;
-    width: 145px;
-    z-index: 10005;
-    margin: 0;
-    align-items: center;*/
-}
-
-/* hide unhovered status names, descriptions & status names for statuses with descriptions */
-/*[class*="menu-"]#status-picker [class*="item-"]:not([class*="focused-"]) [class*="status-"]:last-child, [class*="menu-"]#status-picker [class*="item-"] [class*="status-"]:not(:last-child), [class*="menu-"]#status-picker [class*="item-"]:not([class*="focused-"]) [class*="description-"] {
-  display: none;
-}*/
-
-/* Show status names/descriptions when hovered */
-/*[class*="menu-"]#status-picker [class*="item-"][class*="focused-"] [class*="status-"]:last-child, [class*="menu-"]#status-picker [class*="item-"][class*="focused-"] [class*="description-"] {
-  display: block;
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-  right: 0;
-  text-align: center;
-}*/
-:root [class*="panels-"] {
-  z-index: unset;
-}
-
-/* ----- OTHER ----- */
 
 /* Blur when offline */
 #app-mount [class*="app-"]>[class*="container-"] {
@@ -617,6 +536,26 @@ button[class*="lookOutlined"][class*="colorRed"]:hover {
   border-radius: var(--_pointless-radius-interface);
 }
 
+/* General modal styles */
+/* no box shadows! */
+[class*="modalRoot-"][class*="rootWithShadow-"],
+[class*="modalRoot-"] [class*="footerSeparator-"] {
+  box-shadow: unset;
+}
+[class*="modal-"] [class*="navRow-"] {
+  background-color: var(--modal-footer-background);
+}
+
+/* emoji picker colors */
+#emoji-picker-tab-panel {
+  &>[class*="header-"] {
+    box-shadow: unset;
+    background-color: var(--background-secondary-alt);
+  }
+  &>[class*="emojiPicker-"] {
+    border-top-right-radius: unset;
+  }
+}
 
 /* link target tooltip
 .grid-1nZz7S {

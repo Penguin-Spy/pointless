@@ -15,6 +15,10 @@
   --background-mobile-secondary: var(--background-secondary);
   --input-background: var(--background-secondary-alt);
 
+  /* holy shit they finally added color variables for modals */
+  --modal-background: var(--background-primary);
+  --modal-footer-background: var(--background-secondary);
+
   /* Radius variables */
   --_pointless-radius-avatar: 20%;
   --_pointless-radius-server: 15%;
@@ -59,4 +63,19 @@ svg[class*="spine-"] {
 /* thread created icon */
 [class*="cozy-"][class*="hasThread-"]>[class*="contents-"]>[class*="markup-"]>[class*="container-"]>[class*="iconContainer-"] {
   color: var(--background-accent);
+}
+
+/* apply variables to the weird guild "pages" */
+[class*="chat-"]>[class*="content-"]>[class*="container-"]>div>div, /* Forum channel background */
+[class*="chat-"]>[class*="content-"][class*="container-"],      /* Channels & Roles */
+[class*="chat-"]>[class*="content-"][class*="container-"]>div { /* continued */
+  background-color: var(--background-secondary-alt);
+}
+[class*="chat-"][class*="background-"], /* Server Guide */
+[class*="chat-"][class*="page-"],                      /* Members page */
+[class*="chat-"][class*="page-"] [class*="content-"] { /* continued */
+  background-color: var(--background-primary-alt);
+}
+[class*="base-"]>[class*="content-"]>[class*="pageWrapper-"] { /* Discover servers page (matches student hubs, which does work) */
+  background-color: var(--background-primary);
 }

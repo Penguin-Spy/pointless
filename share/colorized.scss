@@ -25,8 +25,11 @@
 /* Message context menu
  * Original colors by mr_miner#6969, from Powercord#css-snippets: 870552834410680370
  * Expanded by Penguin_Spy to cover all message context items */
-@include colorize("#message-add-reaction", goldenrod);
+@include colorize("#message-add-reaction-0, #message-actions-add-reaction-0", goldenrod);
+@include colorize("#message-add-reaction-1, #message-actions-add-reaction-1", var(--premium-tier-2-purple-for-gradients-2));
 @include colorize("#message-reactions", burlywood);
+@include colorize("#message-remove-reactions", tomato);
+@include colorize("#message-remove-emoji-reactions", #ca8069);
 @include colorize("#message-edit, #message-actions-edit", steelblue);
 @include colorize-alt("#message-pin, #message-actions-pin, #message-unpin", skyblue, #67a7c0);
 @include colorize-alt("#message-actions-reply, #message-reply", khaki, #c5bb5d);
@@ -35,7 +38,6 @@
 @include colorize-alt("#message-actions-mark-unread, #message-mark-unread", plum, #c27ec2);
 @include colorize-alt("#message-actions-copy-link, #message-copy-link, #message-copy-message-link", lightseagreen, #199c96);
 @include colorize("#message-actions-tts, #message-tts", var(--brand-experiment));
-@include colorize("#message-remove-reactions", tomato);
 @include colorize-alt("#message-copy-image", mediumpurple, indigo);
 @include colorize("#message-save-image", mediumorchid);
 @include colorize("#message-copy-native-link", seagreen);
@@ -43,6 +45,11 @@
 /* Plugins */
 @include colorize-alt("#message-notebook", #d6b498, #c2a085);
 @include colorize-alt("#message-translate-message", #1e6fe0, #1967d2);
+
+/* remove the nitro 2nd icon from the super reaction item */
+#message-add-reaction-1>div:nth-child(2), #message-actions-add-reaction-1>div:nth-child(2) {
+  display: none;
+}
 
 /* Guild Context Menu, Guild Header Popout Menu */
 @include colorize("#guild-header-popout-premium-subscribe", hsl(302,calc(var(--saturation-factor, 1)*100%),72.5%));
@@ -122,18 +129,40 @@
 
 /* User Context Menu, User Profile Modal Actions Menu */
 
+/* user area */
+@mixin colorize-status-picker($status, $picker, $color) {
+  #account-status-picker:has(foreignObject[mask="url(#svg-mask-status-#{$status})"]),
+  #account-status-picker--#{$picker} {
+    color: #{$color};
+  }
+  #account-status-picker[class*="focused-"]:has(foreignObject[mask="url(#svg-mask-status-#{$status})"]),
+  #account-status-picker--#{$picker}[class*="focused-"] {
+    background-color: #{$color};
+    color: #fff;
+  }
+}
+
+@include colorize-status-picker("online",  "online",    var(--green-360));
+@include colorize-status-picker("idle",    "idle",      var(--yellow-300));
+@include colorize-status-picker("dnd",     "dnd",       var(--red-400));
+@include colorize-status-picker("offline", "invisible", var(--primary-400)); /* offline in user area button, invisible in picker dropdown */
+
+@include colorize-alt("#account-edit-custom-status", mediumpurple, indigo);
+@include colorize("#account-set-custom-status", mediumorchid);
+@include colorize-alt("#account-switch-account, #account-switch-account--manage-accounts", #668594, #546E7A);
+
 
 /* Other */
-@include colorize("#message-devmode-copy-id, #message-actions-copy-id, \
-#guild-context-devmode-copy-id, \
-#channel-context-devmode-copy-id, \
-#thread-context-devmode-copy-id, \
-#user-context-devmode-copy-id, \
-#dev-context-devmode-copy-id, \
-#guild-settings-role-context-devmode-copy-id, \
-#copy-id-devmode-copy-id", lightsalmon);
-
-
+@include colorize('\
+[id^="message-devmode-copy-id-"],\
+[id^="message-actions-devmode-copy-id-"],\
+[id^="guild-context-devmode-copy-id-"],\
+[id^="channel-context-devmode-copy-id-"],\
+[id^="thread-context-devmode-copy-id-"],\
+[id^="user-context-devmode-copy-id-"],\
+[id^="dev-context-devmode-copy-id-"],\
+[id^="guild-settings-role-context-devmode-copy-id-"],\
+[id^="account-devmode-copy-id-"]', lightsalmon);
 
 /* Strikethrough disabled items because just .5 opacity doesn't really work when every item is a different color/saturation */
 [role="menuitem"][class*="disabled-"]>[class*="label-"] {

@@ -13,7 +13,7 @@ foreignObject[mask*="url(#svg-mask-avatar"],
 foreignObject[mask="url(#svg-mask-squircle)"],
 foreignObject[mask="url(#svg-mask-voice-user-summary-item)"],
 [class*="bottomControls-"] [class*="viewer-"] {
-  mask: none;
+  mask: unset;
 }
 
 /* ----- Guild Icon Radius ----- */
@@ -26,7 +26,7 @@ img[class*="guildIcon-"],
 [class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"] foreignObject,
 [class*="videoControls-"] [class*="bottomControls-"] [class*="controlButton-"] button
 {
-  mask: none;
+  mask: unset;
   border-radius: var(--_pointless-radius-server);
 }
 /* Remove extra border radii on icons & folders */
